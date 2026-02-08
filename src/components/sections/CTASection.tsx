@@ -18,7 +18,7 @@ const CTASection = () => {
         once: true
       }} className="max-w-4xl mx-auto text-center">
           {/* Headline */}
-         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
             Ready To Get The Site{" "}
             <span className="text-primary">You Always Wanted?</span>
           </h2>
@@ -29,7 +29,7 @@ const CTASection = () => {
           </p>
 
           {/* CTA Button */}
-          <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider px-10 btn-swipe-primary">
+          <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-10 btn-swipe-primary">
             <Link to="/contact">
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2" />

@@ -55,7 +55,7 @@ const ServicesPreview = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="topper block text-xl font-extrabold">
+        }} className="topper block">
             What We Do
           </motion.span>
           <motion.h2 initial={{
@@ -123,7 +123,7 @@ const ServicesPreview = () => {
       }} viewport={{
         once: true
       }} className="text-center mt-16">
-         <Button asChild size="lg" className="bg-navy text-primary-foreground font-semibold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+         <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
             <Link to="/services">
               View All Services
               <ArrowRight className="w-5 h-5 ml-2" />

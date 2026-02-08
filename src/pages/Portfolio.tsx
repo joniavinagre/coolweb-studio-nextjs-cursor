@@ -33,7 +33,7 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Our Portfolio</span>
+            <span className="topper block">Our Portfolio</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
               Projects We're <span className="text-primary">Proud Of</span>
             </h1>
@@ -117,7 +117,7 @@ const Portfolio = () => {
             <p className="text-muted-foreground text-lg mb-8">
               Let's create something amazing together. Book a free consultation to discuss your project.
             </p>
-            <Button asChild size="lg" className="bg-navy text-primary-foreground font-semibold uppercase text-sm tracking-wider btn-swipe-navy">
+            <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
               <Link to="/contact">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />

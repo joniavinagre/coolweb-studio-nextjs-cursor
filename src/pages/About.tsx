@@ -75,7 +75,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-foreground/10 text-primary-foreground text-sm font-medium mb-4">
+            <span className="topper block">
               About Us
             </span>
            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6">
@@ -106,7 +106,7 @@ const About = () => {
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                 Our Story
               </span>
-             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6">
                 Building Digital Success <span className="gradient-text">Since 2019</span>
               </h2>
              <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
@@ -227,13 +227,13 @@ const About = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-           <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+           <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
               Ready To <span className="text-primary">Work Together?</span>
             </h2>
            <p className="text-primary-foreground/70 text-xl mb-8">
               Let's create something amazing. Book a free consultation.
             </p>
-           <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider btn-swipe-primary">
+           <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
               <Link to="/contact">
                 Get In Touch
                 <ArrowRight className="w-5 h-5 ml-2" />

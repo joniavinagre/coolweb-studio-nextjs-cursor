@@ -50,7 +50,7 @@ const Testimonials = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="topper block text-xl font-extrabold">
+        }} className="topper block">
             Testimonials
           </motion.span>
           <motion.h2 initial={{

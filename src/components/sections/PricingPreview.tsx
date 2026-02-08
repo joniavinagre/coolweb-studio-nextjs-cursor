@@ -147,7 +147,7 @@ const PricingPreview = () => {
             y: 0
           }} viewport={{
             once: true
-          }} className="topper block text-xl font-extrabold">
+          }} className="topper block">
               Our Pricing
             </motion.span>
             <motion.h2 initial={{
@@ -176,7 +176,7 @@ const PricingPreview = () => {
         }} transition={{
           delay: 0.2
         }}>
-            <Button asChild size="lg" className="bg-navy text-primary-foreground font-semibold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+            <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
               <Link to="/contact">
                 Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -189,17 +189,17 @@ const PricingPreview = () => {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
         once: true
       }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pricingTiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-2xl border flex flex-col h-full overflow-hidden ${tier.featured ? "border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
+          {pricingTiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-2xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
               {/* Featured Header for Monthly card */}
-              {tier.featured ? <div className="bg-navy px-8 py-6">
-                  <h3 className="text-2xl font-bold text-primary-foreground uppercase tracking-wider mb-1">
+              {tier.featured ? <div className="px-8 py-6">
+                  <h3 className="text-2xl font-extrabold text-primary-foreground uppercase tracking-wider mb-1">
                     {tier.name}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm">
                     {tier.description}
                   </p>
                 </div> : <div className="px-8 pt-8">
-                  <h3 className="text-2xl font-bold text-foreground uppercase tracking-wider mb-1">
+                  <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wider mb-1">
                     {tier.name}
                   </h3>
                   <p className="text-sm text-card-foreground">
@@ -208,12 +208,12 @@ const PricingPreview = () => {
                 </div>}
 
               {/* Card Body */}
-              <div className={`p-8 flex flex-col flex-grow ${tier.featured ? "bg-card" : ""}`}>
+              <div className={`p-8 flex flex-col flex-grow ${tier.featured ? "" : ""}`}>
                 {/* Features */}
                 <ul className="space-y-2 mb-6 flex-grow">
                   {tier.features.map(feature => <li key={feature.text} className="flex items-start gap-2">
-                      {feature.included ? <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /> : <X className="w-4 h-4 text-muted-foreground/50 flex-shrink-0 mt-0.5" />}
-                      <span className={`text-xs ${feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>
+                      {feature.included ? <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary" : "text-primary"}`} /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
+                      <span className={`text-xs ${tier.featured ? (feature.included ? "text-primary-foreground" : "text-primary-foreground/50") : (feature.included ? "text-foreground" : "text-muted-foreground/50")}`}>
                         {feature.text}
                       </span>
                     </li>)}
@@ -221,16 +221,16 @@ const PricingPreview = () => {
 
                 {/* Price - moved to bottom */}
                 <div className="mb-6">
-                  <span className="text-4xl md:text-5xl font-display font-bold text-foreground">
+                  <span className={`text-4xl md:text-5xl font-display font-extrabold ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
                     {tier.price}
                   </span>
-                  {tier.priceNote && <span className="text-muted-foreground ml-1 text-sm">
+                  {tier.priceNote && <span className={`ml-1 text-sm ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                       {tier.priceNote}
                     </span>}
                 </div>
 
                 {/* CTA Button */}
-                <Button asChild className={`w-full font-bold uppercase text-sm tracking-wider ${tier.featured ? "bg-primary text-primary-foreground btn-swipe-primary" : "btn-swipe-card"}`}>
+                <Button asChild className={`w-full font-extrabold uppercase text-sm tracking-wider ${tier.featured ? "bg-primary text-primary-foreground btn-swipe-primary" : "btn-swipe-card"}`}>
                   <Link to="/contact">
                     {tier.cta}
                     <ArrowRight className="w-4 h-4 ml-2" />
