@@ -32,7 +32,7 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-           <p className="font-body leading-relaxed mb-8 max-w-lg md:text-base text-primary-foreground text-base">
+           <p className="font-body text-xl leading-relaxed mb-8 max-w-lg md:text-base text-primary-foreground">
               Expert web development, Google Business Profile optimization, and Local SEO services to help your business stand out and attract more customers.
             </p>
 
@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-12 flex-wrap text-primary-foreground/60 items-start justify-center flex flex-row gap-[10px]">
+            <div className="mt-12 flex-wrap gap-8 text-primary-foreground/60 flex items-center justify-center">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-navy" />)}
