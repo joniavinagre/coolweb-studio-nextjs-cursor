@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { projects } from "@/data/portfolioProjects";
@@ -104,7 +103,7 @@ const PortfolioPreview = () => {
               <Button asChild className="btn-swipe-card font-semibold uppercase text-sm tracking-wider">
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
                   Visit Website
-                  <ExternalLink className="w-4 h-4 ml-2" />
+                  
                 </a>
               </Button>
             </motion.article>)}
