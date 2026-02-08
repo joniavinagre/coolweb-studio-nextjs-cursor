@@ -1,228 +1,215 @@
 
 
-# Plan: Styling Refinements Across Homepage
+# Plan: Typography and Styling Fixes
 
 ## Overview
 
-This plan addresses 7 styling changes across the homepage:
-1. Pricing cards: Fairweather font for prices, move price to bottom, smaller bullet points with tighter spacing
-2. Middle pricing card: Add featured dark navy header styling like screenshot
-3. Toppers: Make all toppers use Fairweather font and be bolded
-4. CTA buttons: Make all button text bolded
-5. Trust Indicators: Use Fairweather font
-6. Portfolio "View All Projects" button: Convert to pill button style
-7. Performance section: Move stats next to headline, reposition per screenshot
+This plan addresses four main issues:
+1. Topper font size/weight conflict and hero section topper styling
+2. Monthly pricing card color scheme (matching reference)
+3. H2 headline sizing across all pages
+4. Button font weight to Extrabold
 
 ---
 
-## Change 1: Pricing Cards Styling
+## Issue 1: Topper Font Size Not Appearing as XL/Extrabold
 
-### Current State
-- Price is positioned at the top of the card after the tier name
-- Bullet points use `text-sm` with `space-y-3` spacing
-- Price uses default font
+### Root Cause
 
-### Target State
-- Price number uses Fairweather font explicitly
-- Price moves to bottom of card, just above "Get Started" button
-- Bullet points use `text-xs` with `space-y-2` spacing
+The `.topper` utility class in `src/index.css` defines `text-sm` at line 182, which conflicts with inline `text-xl font-extrabold` classes on components. Additionally, the base layer at line 171-174 only sets `font-weight: 700` (Bold), not 800 (Extrabold).
 
-### File: `src/components/sections/PricingPreview.tsx`
+### Solution
 
-**Changes:**
-- Move the price section (lines 204-212) to after the features list, before the button
-- Add `font-display` class to price span to ensure Fairweather font
-- Change features list spacing from `space-y-3` to `space-y-2`
-- Change feature text from `text-sm` to `text-xs`
-
----
-
-## Change 2: Middle Card Featured Styling (Monthly Card)
-
-### Current State
-The featured card only has a primary border and ring effect
-
-### Target State (per Screenshot 1)
-- Dark navy/blue header background at the top of the card containing the tier name
-- White text on navy header
-- Clean card body below
-
-### File: `src/components/sections/PricingPreview.tsx`
-
-**Changes:**
-- Add conditional rendering for featured cards:
-  - Wrap the tier name in a dark navy header container with negative margin
-  - Apply `bg-navy text-primary-foreground` to the header area
-  - Extend the header full-width with rounded top corners
-  - Keep the button as primary blue with swipe animation
-
----
-
-## Change 3: Toppers with Fairweather Font (Bolded)
-
-### Current State
-The `.topper` class uses `font-bold` but relies on body font inheritance
-
-### Target State
-All toppers explicitly use Fairweather font and are bolded
+Update the `.topper` class to use `text-xl` and `font-weight: 800` (Extrabold) instead of `text-sm` and 700. This ensures all toppers display at the intended size and weight without needing inline overrides.
 
 ### File: `src/index.css`
 
-**Changes:**
-- Update the `.topper` class to explicitly include `font-family: 'Fairweather'`
-- Ensure `font-bold` is applied
-
+**Lines 171-183 - Modify:**
 ```css
 .topper {
-  @apply text-sm uppercase tracking-[0.3em] text-primary mb-4;
   font-family: 'Fairweather', system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
+}
+
+/* ... */
+
+.topper {
+  @apply text-xl uppercase tracking-[0.3em] text-primary mb-4;
+  font-weight: 800;
 }
 ```
 
+**Then remove inline `text-xl font-extrabold` from all section components** since the `.topper` class will handle it.
+
+### Files to Update for Hero Section Toppers
+
+Hero sections need explicit topper styling. Update the following files to use `topper` class or explicit Fairweather font:
+
+| File | Line | Change |
+|------|------|--------|
+| `src/components/sections/Hero.tsx` | 26 | Add `topper` class or `font-display` to ensure Fairweather |
+| `src/pages/Services.tsx` | 107 | Add `topper` class |
+| `src/pages/Contact.tsx` | 87 | Add `topper` class |
+| `src/pages/Portfolio.tsx` | 36 | Add `topper` class |
+| `src/pages/About.tsx` | 78-79 | Update to use `topper` class |
+
 ---
 
-## Change 4: Bold Text in All CTA Buttons
+## Issue 2: Monthly Pricing Card Color Scheme
+
+### Reference Design Analysis
+
+Based on the uploaded reference image:
+- Background: Dark navy (entire card)
+- Title ("MONTHLY"): White, italic styling
+- All text (features, price): White
+- Checkmarks: Light blue (primary color)
+- Button: Light blue background with white text
 
 ### Current State
-Buttons use `font-semibold` in various places
+
+The Monthly card has a navy header but white card body below. Need full dark background.
+
+### Solution
+
+Update the featured card in `PricingPreview.tsx` to:
+- Apply `bg-navy` to entire card
+- Change all text colors to white (`text-primary-foreground`)
+- Keep checkmarks as `text-primary` (light blue)
+- Style the button as light blue
+
+### File: `src/components/sections/PricingPreview.tsx`
+
+**Lines 151-217 - Modify featured card styling:**
+- For featured cards: entire card background is `bg-navy`
+- Header text: `text-primary-foreground` (white)
+- Feature text: `text-primary-foreground` (white)
+- Price: `text-primary-foreground` (white)
+- Checkmarks: `text-primary` (light blue)
+- Button: `bg-primary text-primary-foreground`
+
+---
+
+## Issue 3: H2 Headlines - 5XL on Desktop/Tablet, Extrabold on All
+
+### Current State
+
+H2 headlines use `text-4xl md:text-5xl lg:text-6xl font-bold` - size varies but weight is only Bold.
 
 ### Target State
-All buttons use `font-bold` for stronger text weight
+
+- Desktop/Tablet (md and up): `text-5xl font-extrabold`
+- Mobile: Keep current size but change to `font-extrabold`
+
+### Solution
+
+Update the `.section-title` utility class to use `font-extrabold` and ensure proper responsive sizing. Also update individual H2s that don't use `.section-title`.
 
 ### File: `src/index.css`
 
-**Changes:**
-- Add font-weight rule to button styling in base layer:
+**Line 186-188 - Modify:**
 ```css
-button, a.btn, [role="button"], .btn-swipe-primary, .btn-swipe-navy, .btn-swipe-card {
-  font-family: 'Fairweather', system-ui, sans-serif;
-  font-weight: 700;
+.section-title {
+  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-foreground leading-tight;
 }
 ```
 
-This ensures all buttons across the entire site are bolded automatically.
+### Files Requiring H2 Updates
+
+Many H2s don't use `.section-title` and need individual updates:
+
+| File | Line | Current | Update To |
+|------|------|---------|-----------|
+| `src/pages/About.tsx` | 109, 230 | `font-bold` | `font-extrabold` + add `md:text-5xl` |
+| `src/pages/Services.tsx` | 149, 225 | `font-bold` | `font-extrabold` + ensure `md:text-5xl` |
+| `src/pages/Contact.tsx` | 114, 214 | `font-bold` | `font-extrabold md:text-5xl` |
+| `src/pages/CaseStudy.tsx` | 222 | `font-bold` | `font-extrabold md:text-5xl` |
+| `src/components/sections/CTASection.tsx` | 21 | `font-bold` | `font-extrabold` |
+| `src/components/sections/PerformanceSection.tsx` | 46 | `font-bold` | `font-extrabold` |
+| `src/components/sections/WhyChooseUs.tsx` | 86 | `font-bold` | `font-extrabold md:text-5xl` |
 
 ---
 
-## Change 5: Trust Indicators with Fairweather Font
+## Issue 4: Button Font Weight to Extrabold (Except Nav)
 
 ### Current State
-Trust indicator text uses default body font (Poppins)
+
+Buttons use `font-semibold` (600) or `font-bold` (700) in various places.
 
 ### Target State
-Trust indicator text ("50+ Happy Clients", "5.0 Rating") uses Fairweather font
 
-### File: `src/components/sections/Hero.tsx`
+All buttons should use `font-extrabold` (800) **except** navigation links in header and footer.
 
-**Changes:**
-- Add `font-display` class to the trust indicator span elements (lines 58 and 66)
-- This class maps to Fairweather font family
+### Solution
 
----
+1. Update CSS base layer to set `font-weight: 800` for buttons
+2. Exclude nav-specific classes from this rule
+3. Update individual Button components that have `font-semibold` or `font-bold` inline
 
-## Change 6: Portfolio "View All Projects" Button
+### File: `src/index.css`
 
-### Current State
-- Styled as inline text link with hover gap animation
-- Uses `inline-flex items-center gap-2 text-primary font-semibold uppercase tracking-wider`
-
-### Target State
-- Convert to regular pill button like other CTA buttons
-- Use `btn-swipe-navy` style with navy background
-
-### File: `src/components/sections/PortfolioPreview.tsx`
-
-**Changes:**
-- Wrap the Link in a Button component
-- Apply `bg-navy text-primary-foreground btn-swipe-navy font-bold uppercase tracking-wider` classes
-- Change icon from ExternalLink to ArrowRight for consistency
-
----
-
-## Change 7: Performance Section Stats Repositioning
-
-### Current State
-- Stats row is positioned at the top of the section, separate from the headline
-- Stats are centered/right-aligned above the main content
-
-### Target State (per Screenshot 2)
-- Stats are positioned inline with the headline
-- Layout: Left has "PERFORMANCE" topper + headline, Right has the 3 stats
-- Stats appear at the same horizontal level as the headline
-- Stats should have expanded labels like "Satisfaction Guaranteed", "Page Speed Scores", "Google Reviews"
-
-### File: `src/components/sections/PerformanceSection.tsx`
-
-**Changes:**
-- Remove the separate stats row at the top
-- Create a new header row with 2 columns:
-  - Left: Topper + Headline
-  - Right: 3 stats in a row
-- Update stat labels to match screenshot:
-  - "100%" → "Satisfaction Guaranteed"
-  - "100" → "Page Speed Scores"  
-  - "5/5" → "Google Reviews"
-- Keep the PageSpeed mockup in the right column below
-
-**New Structure:**
-```text
-┌───────────────────────────────────────────────────────────┐
-│  PERFORMANCE              │  100%        100        5/5   │
-│  WE BUILD BETTER          │  Satisfaction Page Speed Google│
-│  WEBSITES THAT            │  Guaranteed  Scores     Reviews│
-│  PERFORM                  │                               │
-├───────────────────────────────────────────────────────────┤
-│  [description]                │                           │
-│                              │   [PageSpeed Dashboard]    │
-│  ⚡ Benefit 1                │                           │
-│  ⚡ Benefit 2                │                           │
-│  ⚡ Benefit 3                │                           │
-│                              │                           │
-│  [GET STARTED TODAY]         │                           │
-└───────────────────────────────────────────────────────────┘
+**Lines 166-169 - Modify:**
+```css
+button, .btn-swipe-primary, .btn-swipe-navy, .btn-swipe-card {
+  font-family: 'Fairweather', system-ui, sans-serif;
+  font-weight: 800;
+}
 ```
 
+Note: This excludes `nav a` and `.nav-link-fixed` from the extrabold rule.
+
+### Component Updates
+
+Update all Button components to use `font-extrabold` instead of `font-semibold` or `font-bold`:
+
+| File | Lines to Update |
+|------|-----------------|
+| `src/components/sections/Hero.tsx` | 41, 47 |
+| `src/components/sections/ServicesPreview.tsx` | 126 |
+| `src/components/sections/WhyChooseUs.tsx` | 112 |
+| `src/components/sections/PerformanceSection.tsx` | 120 |
+| `src/components/sections/PricingPreview.tsx` | 138, 190, 210 |
+| `src/components/sections/CTASection.tsx` | 32 |
+| `src/pages/About.tsx` | 236 |
+| `src/pages/Services.tsx` | 117, 183, 201, 231 |
+| `src/pages/Contact.tsx` | 190, 271 |
+| `src/pages/Portfolio.tsx` | 120 |
+| `src/pages/CaseStudy.tsx` | 46, 230 |
+| `src/components/layout/Header.tsx` | Keep as-is (nav buttons excluded) |
+
 ---
 
-## Files to Modify
+## Summary of Changes
 
-| File | Changes |
-|------|---------|
-| `src/index.css` | Update `.topper` class with Fairweather font; add `font-weight: 700` to all button selectors |
-| `src/components/sections/PricingPreview.tsx` | Move price to bottom; reduce bullet spacing; add featured header styling for Monthly card |
-| `src/components/sections/Hero.tsx` | Add `font-display` class to trust indicator text |
-| `src/components/sections/PortfolioPreview.tsx` | Convert "View All Projects" link to Button component with pill styling |
-| `src/components/sections/PerformanceSection.tsx` | Restructure layout to place stats next to headline; update stat labels |
+| File | Type of Change |
+|------|----------------|
+| `src/index.css` | Update `.topper` to text-xl/extrabold, `.section-title` to font-extrabold, button base styles to font-weight 800 |
+| `src/components/sections/Hero.tsx` | Ensure topper uses correct class, update button font weight |
+| `src/components/sections/ServicesPreview.tsx` | Remove inline topper overrides, update button |
+| `src/components/sections/WhyChooseUs.tsx` | Update H2 and button |
+| `src/components/sections/PortfolioPreview.tsx` | Update button |
+| `src/components/sections/PerformanceSection.tsx` | Update H2 and button |
+| `src/components/sections/PricingPreview.tsx` | Featured card full dark theme, update buttons |
+| `src/components/sections/Testimonials.tsx` | Remove inline topper overrides |
+| `src/components/sections/CTASection.tsx` | Update H2 and button |
+| `src/pages/About.tsx` | Update hero topper, H2s, and buttons |
+| `src/pages/Services.tsx` | Update hero topper, H2s, and buttons |
+| `src/pages/Contact.tsx` | Update hero topper, H2s, and buttons |
+| `src/pages/Portfolio.tsx` | Update hero topper and button |
+| `src/pages/CaseStudy.tsx` | Update H2s and buttons |
 
 ---
 
 ## Technical Notes
 
-### Font Classes
-- `font-display` → Fairweather font family
-- `font-body` → Poppins font family
-- `font-bold` → 700 weight
+### Font Weight Values
+- `font-bold` = 700 (current button weight)
+- `font-extrabold` = 800 (target button weight)
 
-### Featured Card Styling
-The Monthly card will have a structure like:
-```tsx
-<div className="bg-card rounded-2xl border-primary ring-2 ring-primary/20 flex flex-col h-full overflow-hidden">
-  {/* Featured Header */}
-  <div className="bg-navy px-8 py-6">
-    <h3 className="text-2xl font-bold text-primary-foreground uppercase tracking-wider">
-      Monthly
-    </h3>
-    <p className="text-primary-foreground/70 text-sm">...</p>
-  </div>
-  
-  {/* Card Body */}
-  <div className="p-8 flex flex-col flex-grow">
-    {/* Features, Price, Button */}
-  </div>
-</div>
-```
+### Tailwind Responsive Breakpoints
+- `md:` applies to screens 768px and wider (tablet + desktop)
+- No prefix applies to mobile (default)
 
-### Button Bold Enforcement
-By adding `font-weight: 700` to the CSS rule that already applies Fairweather to buttons, all buttons will automatically be bold without needing to update individual components.
+### Header/Footer Navigation
+The header and footer navigation links should remain at their current font weight since they are excluded from the button extrabold rule.
 
