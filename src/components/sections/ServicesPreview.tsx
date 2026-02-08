@@ -91,7 +91,7 @@ const ServicesPreview = () => {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
         once: true
       }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map(service => <motion.div key={service.title} variants={item} className="group relative bg-card p-8 border border-border flex flex-col h-full rounded">
+          {services.map(service => <motion.div key={service.title} variants={item} className="group relative bg-card p-8 border border-border flex flex-col h-full rounded-md">
               {/* Icon */}
               <div className="service-icon-swipe">
                 <service.icon className="w-8 h-8" />
