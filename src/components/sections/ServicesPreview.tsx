@@ -85,7 +85,7 @@ const ServicesPreview = () => {
             }}
             className="section-title mb-6"
           >
-            Never Worry About Your <span className="text-primary">Website</span> Ever Again
+            Never Worry About Your <span className="text-primary">Website</span> Again
           </motion.h2>
           <motion.p
             initial={{
