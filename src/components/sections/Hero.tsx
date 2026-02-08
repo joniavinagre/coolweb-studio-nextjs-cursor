@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-12 flex flex-wrap gap-8 text-primary-foreground/60">
+            <div className="mt-12 flex-wrap text-primary-foreground/60 items-start justify-center flex flex-row gap-[10px]">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-navy" />)}
