@@ -22,7 +22,7 @@ const Footer = () => {
                 COOL<span className="text-primary">WEB</span>
               </span>
             </Link>
-           <p className="font-body text-primary-foreground/60 leading-relaxed max-w-xs text-sm">
+           <p className="font-body leading-relaxed max-w-xs text-sm text-primary-foreground">
               We create stunning websites and boost your online presence.
             </p>
           </div>
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Navigation */}
           <div>
            <h3 className="font-bold text-base uppercase tracking-wider mb-4">Navigation</h3>
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground">
              <Link to="/" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Home</Link>
              <Link to="/services" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Services</Link>
              <Link to="/portfolio" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Portfolio</Link>
