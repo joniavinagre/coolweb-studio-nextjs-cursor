@@ -43,7 +43,7 @@ const CaseStudy = () => {
             <Button
               size="lg"
               asChild
-              className="bg-primary text-primary-foreground btn-swipe-primary font-semibold uppercase text-sm tracking-wider"
+              className="bg-primary text-primary-foreground btn-swipe-primary font-extrabold uppercase text-sm tracking-wider"
             >
               <a href={project.website} target="_blank" rel="noopener noreferrer">
                 Visit Website
@@ -219,7 +219,7 @@ const CaseStudy = () => {
       <section className="py-24 bg-navy">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
               Start Your <span className="text-primary">Project</span>
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8 max-w-2xl mx-auto">
@@ -228,7 +228,7 @@ const CaseStudy = () => {
             <Button
               size="lg"
               asChild
-              className="bg-primary text-primary-foreground btn-swipe-primary font-semibold uppercase text-sm tracking-wider"
+              className="bg-primary text-primary-foreground btn-swipe-primary font-extrabold uppercase text-sm tracking-wider"
             >
               <Link to="/contact">Get in Touch</Link>
             </Button>

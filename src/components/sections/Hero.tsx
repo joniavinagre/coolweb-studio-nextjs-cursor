@@ -23,7 +23,7 @@ const Hero = () => {
           duration: 0.6
         }}>
             {/* Topper */}
-           <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6 block">CUSTOM DESIGNS, MADE JUST FOR YOU</span>
+           <span className="topper block">CUSTOM DESIGNS, MADE JUST FOR YOU</span>
 
             {/* Main Headline */}
            <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-tight mb-6 font-extrabold lg:text-6xl">
@@ -38,13 +38,13 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-             <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider px-8 btn-swipe-primary">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-primary">
                 <Link to="/contact">
                   Get Started
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-             <Button asChild size="lg" variant="outline" className="bg-navy border-2 border-primary-foreground/40 text-primary-foreground font-semibold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+              <Button asChild size="lg" variant="outline" className="bg-navy border-2 border-primary-foreground/40 text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
                 <Link to="/about">About Us</Link>
               </Button>
             </div>

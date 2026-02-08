@@ -45,7 +45,7 @@ const PortfolioPreview = () => {
         }} viewport={{
           once: true
         }} className="lg:border-r lg:border-border lg:pr-12">
-            <span className="topper block text-xl font-extrabold">Portfolio</span>
+            <span className="topper block">Portfolio</span>
             <h2 className="section-title">
               Some Of The Work{" "}
               <span className="text-primary">We've Done Over The Years</span>
@@ -101,7 +101,7 @@ const PortfolioPreview = () => {
               </p>
 
               {/* Visit Website Button */}
-              <Button asChild className="btn-swipe-card font-semibold uppercase text-sm tracking-wider">
+              <Button asChild className="btn-swipe-card font-extrabold uppercase text-sm tracking-wider">
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
                   Visit Website
                   <ExternalLink className="w-4 h-4 ml-2" />
@@ -120,7 +120,7 @@ const PortfolioPreview = () => {
       }} viewport={{
         once: true
       }} className="text-center mt-16">
-          <Button asChild size="lg" className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+          <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
             <Link to="/portfolio">
               View All Projects
               <ExternalLink className="w-4 h-4 ml-2" />

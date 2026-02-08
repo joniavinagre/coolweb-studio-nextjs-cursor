@@ -104,7 +104,7 @@ const Services = () => {
           opacity: 1,
           y: 0
         }} className="max-w-4xl mx-auto text-center">
-            <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6 block">
+            <span className="topper block">
               Our Pricing
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
@@ -114,7 +114,7 @@ const Services = () => {
             <p className="font-body text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto mb-8">
               Transparent pricing with no hidden fees. Choose the plan that fits your business needs.
             </p>
-            <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider btn-swipe-primary">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
               <Link to="/contact">
                 Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -146,7 +146,7 @@ const Services = () => {
               <div className="w-16 h-16 rounded-2xl bg-navy flex items-center justify-center mx-auto mb-6">
                 <category.icon className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground uppercase tracking-wide mb-4">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-4">
                 {category.title}
               </h2>
               <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -180,7 +180,7 @@ const Services = () => {
                           {tier.priceLabel}
                         </span>}
                     </div>
-                    <Button asChild className="w-full btn-swipe-card font-semibold uppercase text-sm tracking-wider">
+                    <Button asChild className="w-full btn-swipe-card font-extrabold uppercase text-sm tracking-wider">
                       <Link to="/contact">
                         Get Started
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -198,7 +198,7 @@ const Services = () => {
                     Have a complex project or specific requirements? Let's discuss a custom solution tailored to your needs.
                   </p>
                   <div className="mt-auto pt-6 border-t border-border">
-                    <Button asChild variant="outline" className="w-full border-navy text-navy hover:bg-navy hover:text-primary-foreground font-semibold uppercase text-sm tracking-wider">
+                    <Button asChild variant="outline" className="w-full border-navy text-navy hover:bg-navy hover:text-primary-foreground font-extrabold uppercase text-sm tracking-wider">
                       <Link to="/contact">
                         Reach Out
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -222,13 +222,13 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
               Ready To <span className="text-primary">Get Started?</span>
             </h2>
             <p className="font-body text-primary-foreground/70 text-lg mb-8 max-w-2xl mx-auto">
               Book a free consultation to discuss your project and get a custom quote. No obligation, just valuable insights.
             </p>
-            <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider btn-swipe-primary">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
               <Link to="/contact">
                 Book Free Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />

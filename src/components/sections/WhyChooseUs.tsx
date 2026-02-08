@@ -82,8 +82,8 @@ const WhyChooseUs = () => {
           duration: 0.6
         }}>
             {/* Section Header */}
-            <span className="topper block text-xl font-extrabold">What We Offer</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground uppercase tracking-wide leading-tight mb-4">
+            <span className="topper block">What We Offer</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-4">
               Websites Starting At{" "}
               <span className="text-primary">€0 Down And €100 Per Month</span>
             </h2>
@@ -109,7 +109,7 @@ const WhyChooseUs = () => {
             </motion.div>
 
             {/* CTA Button */}
-            <Button asChild size="lg" className="bg-navy text-primary-foreground font-semibold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+            <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
               <Link to="/contact">
                 Schedule A Call
                 <ArrowRight className="w-5 h-5 ml-2" />

@@ -84,7 +84,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-           <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Contact Us</span>
+           <span className="topper block">Contact Us</span>
            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
               Let's Start Your <span className="text-primary">Project</span>
             </h1>
@@ -111,7 +111,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 uppercase tracking-wide">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 uppercase tracking-wide">
                 Send Us a Message
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -187,7 +187,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                 className="w-full bg-navy text-primary-foreground font-semibold uppercase text-base tracking-wider btn-swipe-navy"
+                 className="w-full bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-navy"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -211,7 +211,7 @@ const Contact = () => {
             >
               {/* Contact Info Cards */}
               <div>
-               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 uppercase tracking-wide">
+               <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 uppercase tracking-wide">
                   Get In Touch
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -268,7 +268,7 @@ const Contact = () => {
                     </p>
                     <Button
                       asChild
-                     className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider btn-swipe-primary"
+                     className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary"
                     >
                       <a
                         href="https://calendly.com/coolwebstudio"

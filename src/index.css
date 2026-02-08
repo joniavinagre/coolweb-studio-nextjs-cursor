@@ -163,14 +163,19 @@
     font-family: 'Fairweather', system-ui, sans-serif;
   }
 
-  button, .btn-swipe-primary, .btn-swipe-navy, .btn-swipe-card, .nav-link-fixed, nav a {
+  button, .btn-swipe-primary, .btn-swipe-navy, .btn-swipe-card {
+    font-family: 'Fairweather', system-ui, sans-serif;
+    font-weight: 800;
+  }
+
+  .nav-link-fixed, nav a {
     font-family: 'Fairweather', system-ui, sans-serif;
     font-weight: 700;
   }
 
   .topper {
     font-family: 'Fairweather', system-ui, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
   }
 }
 
@@ -179,12 +184,12 @@
   
   /* Section topper - spaced uppercase text */
   .topper {
-   @apply text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4;
+    @apply text-xl font-extrabold uppercase tracking-[0.3em] text-primary mb-4;
   }
   
   /* Section title - large ALL CAPS heading */
   .section-title {
-   @apply text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-foreground leading-tight;
+    @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-foreground leading-tight;
   }
   
    /* Fixed nav link size - prevents scaling with root font-size */
