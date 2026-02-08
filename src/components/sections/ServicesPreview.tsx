@@ -82,7 +82,7 @@ const ServicesPreview = () => {
           once: true
         }} transition={{
           delay: 0.2
-        }} className="font-body text-muted-foreground max-w-2xl mx-auto text-base">
+        }} className="font-body max-w-2xl mx-auto text-base text-card-foreground">
             We provide comprehensive digital solutions tailored to your business needs.
           </motion.p>
         </div>
@@ -98,10 +98,10 @@ const ServicesPreview = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-bold text-foreground mb-3 uppercase tracking-wide card-hover-title">
+              <h3 className="text-2xl text-foreground mb-3 uppercase tracking-wide card-hover-title font-extrabold">
                 {service.title}
               </h3>
-              <p className="font-body text-muted-foreground mb-6 leading-relaxed flex-grow text-xs">
+              <p className="font-body mb-6 leading-relaxed flex-grow text-xs text-card-foreground">
                 {service.description}
               </p>
 
