@@ -64,7 +64,7 @@ const PortfolioPreview = () => {
         }} transition={{
           delay: 0.1
         }} className="lg:pl-12 flex items-center">
-            <p className="font-body text-muted-foreground leading-relaxed text-sm">
+            <p className="font-body leading-relaxed text-sm text-popover-foreground">
               We have worked with clients all over the world, from small local businesses to international brands. Each project is crafted with attention to detail and a focus on results. Take a look at some of our recent work.
             </p>
           </motion.div>
@@ -93,10 +93,10 @@ const PortfolioPreview = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors">
+              <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground mb-4 line-clamp-2 leading-relaxed text-xs">
+              <p className="mb-4 line-clamp-2 leading-relaxed text-xs text-popover-foreground">
                 {project.description}
               </p>
 

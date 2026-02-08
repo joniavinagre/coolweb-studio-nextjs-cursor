@@ -202,7 +202,7 @@ const PricingPreview = () => {
                   <h3 className="text-2xl font-bold text-foreground uppercase tracking-wider mb-1">
                     {tier.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-sm text-card-foreground">
                     {tier.description}
                   </p>
                 </div>}

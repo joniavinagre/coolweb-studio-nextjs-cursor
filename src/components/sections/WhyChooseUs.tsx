@@ -87,7 +87,7 @@ const WhyChooseUs = () => {
               Websites Starting At{" "}
               <span className="text-primary">€0 Down And €100 Per Month</span>
             </h2>
-            <p className="font-body text-muted-foreground mb-8 leading-relaxed text-sm">
+            <p className="font-body mb-8 leading-relaxed text-sm text-card-foreground">
               We provide professional web design services with flexible payment options. Get a stunning website without the upfront costs.
             </p>
 
@@ -98,10 +98,10 @@ const WhyChooseUs = () => {
               {features.map(feature => <motion.div key={feature.title} variants={item} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-foreground text-base uppercase tracking-wide mb-1">
+                    <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">
                       {feature.title}
                     </h3>
-                    <p className="font-body text-muted-foreground leading-relaxed text-xs">
+                    <p className="font-body leading-relaxed text-xs text-card-foreground">
                       {feature.description}
                     </p>
                   </div>

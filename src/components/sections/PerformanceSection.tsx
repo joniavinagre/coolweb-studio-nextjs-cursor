@@ -65,7 +65,7 @@ const PerformanceSection = () => {
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-1">
                   {stat.value}
                 </div>
-                <div className="text-primary-foreground/60 text-xs uppercase tracking-wider">
+                <div className="text-xs uppercase tracking-wider text-primary-foreground">
                   {stat.label}
                 </div>
               </div>)}
@@ -85,7 +85,7 @@ const PerformanceSection = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <p className="font-body text-primary-foreground/70 mb-8 leading-relaxed text-sm">
+            <p className="font-body mb-8 leading-relaxed text-sm text-primary-foreground">
               Speed matters. Our websites are hand-coded for maximum performance, ensuring your visitors get the best experience possible.
             </p>
 
@@ -106,10 +106,10 @@ const PerformanceSection = () => {
                     <Zap className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-primary-foreground mb-1 text-lg">
+                    <h3 className="text-primary-foreground mb-1 text-lg font-extrabold">
                       {benefit.title}
                     </h3>
-                    <p className="font-body text-primary-foreground/60 leading-relaxed text-xs">
+                    <p className="font-body leading-relaxed text-xs text-primary-foreground">
                       {benefit.description}
                     </p>
                   </div>
