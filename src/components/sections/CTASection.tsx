@@ -24,7 +24,7 @@ const CTASection = () => {
           </h2>
 
           {/* Description */}
-         <p className="font-body text-primary-foreground/70 max-w-2xl mx-auto mb-10 text-base">
+         <p className="font-body max-w-2xl mx-auto mb-10 text-base text-primary-foreground">
             Schedule a free consultation call and let's discuss how we can help you achieve your online goals. No obligation, just valuable insights.
           </p>
 
