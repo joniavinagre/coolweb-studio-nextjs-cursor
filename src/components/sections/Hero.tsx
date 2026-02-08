@@ -32,7 +32,7 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-           <p className="font-body text-primary-foreground/70 text-xl leading-relaxed mb-8 max-w-lg md:text-base">
+           <p className="font-body text-xl leading-relaxed mb-8 max-w-lg md:text-base text-primary-foreground">
               Expert web development, Google Business Profile optimization, and Local SEO services to help your business stand out and attract more customers.
             </p>
 
