@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
           duration: 0.6
         }} className="relative">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop" alt="Professional web developer" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop" alt="Professional web developer" className="w-full h-full object-cover rounded-md" />
               {/* Floating Name Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                 <h3 className="font-bold text-foreground text-lg">COOLWEB Studio</h3>
