@@ -195,7 +195,7 @@ const PricingPreview = () => {
                   <h3 className="text-2xl font-extrabold text-primary-foreground uppercase tracking-wider mb-1">
                     {tier.name}
                   </h3>
-                  <p className="text-primary-foreground/70 text-sm">
+                  <p className="text-sm text-primary-foreground">
                     {tier.description}
                   </p>
                 </div> : <div className="px-8 pt-8">
@@ -213,7 +213,7 @@ const PricingPreview = () => {
                 <ul className="space-y-2 mb-6 flex-grow">
                   {tier.features.map(feature => <li key={feature.text} className="flex items-start gap-2">
                       {feature.included ? <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary" : "text-primary"}`} /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
-                      <span className={`text-xs ${tier.featured ? (feature.included ? "text-primary-foreground" : "text-primary-foreground/50") : (feature.included ? "text-foreground" : "text-muted-foreground/50")}`}>
+                      <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>
                         {feature.text}
                       </span>
                     </li>)}
