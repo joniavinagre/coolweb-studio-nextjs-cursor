@@ -38,10 +38,10 @@ const item = {
   }
 };
 const Testimonials = () => {
-  return <section className="py-24 md:py-32 bg-muted/30">
+  return <section className="py-16 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-10">
           <motion.span initial={{
           opacity: 0,
           y: 20
@@ -63,7 +63,7 @@ const Testimonials = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="section-title mb-6">
+        }} className="section-title mb-4">
             Trusted Web Designer{" "}
             <span className="text-primary">Across The Country</span>
           </motion.h2>
@@ -72,18 +72,18 @@ const Testimonials = () => {
         {/* Testimonials Grid */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
         once: true
-      }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map(testimonial => <motion.div key={testimonial.name} variants={item} className="bg-card rounded-2xl p-8 border border-border">
+      }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map(testimonial => <motion.div key={testimonial.name} variants={item} className="bg-card rounded-2xl p-6 border border-border">
               {/* Quote Icon */}
-              <Quote className="w-10 h-10 text-primary/30 mb-4" />
+              <Quote className="w-10 h-10 text-primary/30 mb-3" />
               
               {/* Content */}
-             <p className="font-body text-foreground leading-relaxed mb-6 text-sm">
+             <p className="font-body text-foreground leading-relaxed mb-4 text-sm">
                 "{testimonial.content}"
               </p>
               
               {/* Author */}
-              <div className="border-t border-border pt-4">
+              <div className="border-t border-border pt-3">
                <h4 className="font-bold text-foreground text-lg">{testimonial.name}</h4>
                <p className="font-body text-muted-foreground text-xs">{testimonial.location}</p>
               </div>

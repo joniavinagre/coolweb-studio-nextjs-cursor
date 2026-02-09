@@ -94,7 +94,7 @@ const item = {
 const Services = () => {
   return <Layout>
       {/* Hero Section - Clean and minimal like Oak Harbor */}
-      <section className="pt-32 pb-20 bg-navy relative overflow-hidden">
+      <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{
@@ -107,11 +107,11 @@ const Services = () => {
             <span className="topper block">
               Our Pricing
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
               Pricing Packages For{" "}
               <span className="text-primary">Every Budget</span>
             </h1>
-            <p className="font-body text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+            <p className="font-body text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto mb-6">
               Transparent pricing with no hidden fees. Choose the plan that fits your business needs.
             </p>
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
@@ -131,7 +131,7 @@ const Services = () => {
       </section>
 
       {/* Pricing Categories */}
-      {serviceCategories.map((category, categoryIndex) => <section key={category.id} id={category.id} className={`py-20 md:py-28 ${categoryIndex % 2 === 1 ? "bg-muted/30" : "bg-background"}`}>
+      {serviceCategories.map((category, categoryIndex) => <section key={category.id} id={category.id} className={`py-14 md:py-18 ${categoryIndex % 2 === 1 ? "bg-muted/30" : "bg-background"}`}>
           <div className="container mx-auto px-4">
             {/* Category Header */}
             <motion.div initial={{
@@ -142,11 +142,11 @@ const Services = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="text-center mb-12">
-              <div className="w-16 h-16 rounded-2xl bg-navy flex items-center justify-center mx-auto mb-6">
+        }} className="text-center mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-navy flex items-center justify-center mx-auto mb-4">
                 <category.icon className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-4">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-3">
                 {category.title}
               </h2>
               <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -157,15 +157,15 @@ const Services = () => {
             {/* Pricing Cards Grid */}
             <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
           once: true
-        }} className={`grid grid-cols-1 gap-8 max-w-5xl mx-auto ${category.showCustomCard ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
-              {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className="bg-card border border-border rounded-2xl p-8 flex flex-col h-full">
+        }} className={`grid grid-cols-1 gap-6 max-w-5xl mx-auto ${category.showCustomCard ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+              {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className="bg-card border border-border rounded-2xl p-6 flex flex-col h-full">
                   {/* Tier Name */}
-                  <h3 className="text-2xl font-bold text-foreground mb-6 uppercase tracking-wider">
+                  <h3 className="text-2xl font-bold text-foreground mb-4 uppercase tracking-wider">
                     {tier.name}
                   </h3>
 
                   {/* Features List */}
-                  <ul className="space-y-4 mb-8 flex-grow">
+                  <ul className="space-y-3 mb-6 flex-grow">
                     {tier.features.map(feature => <li key={feature} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <span className="font-body text-muted-foreground text-xs">{feature}</span>
@@ -173,8 +173,8 @@ const Services = () => {
                   </ul>
 
                   {/* Price and CTA - Bottom aligned */}
-                  <div className="mt-auto pt-6 border-t border-border">
-                    <div className="mb-4">
+                  <div className="mt-auto pt-4 border-t border-border">
+                    <div className="mb-3">
                       <span className="text-4xl font-bold text-foreground">{tier.price}</span>
                       {tier.priceLabel && <span className="text-base font-body text-muted-foreground ml-2">
                           {tier.priceLabel}
@@ -190,14 +190,14 @@ const Services = () => {
                 </motion.div>)}
 
               {/* Custom CTA Card */}
-              {category.showCustomCard && <motion.div variants={item} className="bg-muted/50 border border-border rounded-2xl p-8 flex flex-col h-full">
-                  <h3 className="text-2xl font-bold text-foreground mb-4 uppercase tracking-wider">
+              {category.showCustomCard && <motion.div variants={item} className="bg-muted/50 border border-border rounded-2xl p-6 flex flex-col h-full">
+                  <h3 className="text-2xl font-bold text-foreground mb-3 uppercase tracking-wider">
                     Need Something More?
                   </h3>
-                  <p className="font-body text-muted-foreground text-base mb-8 flex-grow">
+                  <p className="font-body text-muted-foreground text-base mb-6 flex-grow">
                     Have a complex project or specific requirements? Let's discuss a custom solution tailored to your needs.
                   </p>
-                  <div className="mt-auto pt-6 border-t border-border">
+                  <div className="mt-auto pt-4 border-t border-border">
                     <Button asChild variant="outline" className="w-full border-navy text-navy hover:bg-navy hover:text-primary-foreground font-extrabold uppercase text-sm tracking-wider">
                       <Link to="/contact">
                         Reach Out
@@ -211,7 +211,7 @@ const Services = () => {
         </section>)}
 
       {/* Bottom CTA Section */}
-      <section className="py-24 bg-navy">
+      <section className="py-16 bg-navy">
         <div className="container mx-auto px-4">
           <motion.div initial={{
           opacity: 0,
@@ -222,10 +222,10 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
               Ready To <span className="text-primary">Get Started?</span>
             </h2>
-            <p className="font-body text-primary-foreground/70 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="font-body text-primary-foreground/70 text-lg mb-6 max-w-2xl mx-auto">
               Book a free consultation to discuss your project and get a custom quote. No obligation, just valuable insights.
             </p>
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">

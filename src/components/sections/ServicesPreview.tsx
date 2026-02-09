@@ -48,10 +48,10 @@ const item = {
 };
 const ServicesPreview = () => {
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-10">
           <motion.span
             initial={{
               opacity: 0,
@@ -83,7 +83,7 @@ const ServicesPreview = () => {
             transition={{
               delay: 0.1,
             }}
-            className="section-title mb-6"
+            className="section-title mb-4"
           >
             Never Worry About Your <span className="text-primary">Website</span> Again
           </motion.h2>
@@ -116,13 +116,13 @@ const ServicesPreview = () => {
           viewport={{
             once: true,
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={item}
-              className="group relative bg-card p-8 border border-border flex flex-col h-full rounded-md"
+              className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md"
             >
               {/* Icon */}
               <div className="service-icon-swipe">
@@ -130,10 +130,10 @@ const ServicesPreview = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl text-foreground mb-3 uppercase tracking-wide card-hover-title font-extrabold">
+              <h3 className="text-2xl text-foreground mb-2 uppercase tracking-wide card-hover-title font-extrabold">
                 {service.title}
               </h3>
-              <p className="font-body mb-6 leading-relaxed flex-grow text-xs text-card-foreground">
+              <p className="font-body mb-4 leading-relaxed flex-grow text-xs text-card-foreground">
                 {service.description}
               </p>
 
@@ -162,7 +162,7 @@ const ServicesPreview = () => {
           viewport={{
             once: true,
           }}
-          className="text-center mt-16"
+          className="text-center mt-10"
         >
           <Button
             asChild

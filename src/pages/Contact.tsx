@@ -76,7 +76,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-navy relative overflow-hidden">
+      <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -85,7 +85,7 @@ const Contact = () => {
             className="max-w-4xl mx-auto text-center"
           >
            <span className="topper block">Contact Us</span>
-           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
               Let's Start Your <span className="text-primary">Project</span>
             </h1>
            <p className="text-primary-foreground/70 text-xl md:text-2xl">
@@ -102,20 +102,20 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 uppercase tracking-wide">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 uppercase tracking-wide">
                 Send Us a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
                     <Input
@@ -141,7 +141,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input
@@ -211,14 +211,14 @@ const Contact = () => {
             >
               {/* Contact Info Cards */}
               <div>
-               <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 uppercase tracking-wide">
+               <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 uppercase tracking-wide">
                   Get In Touch
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {contactInfo.map((info) => (
                     <div
                       key={info.title}
-                      className="bg-card rounded-xl p-4 border border-border"
+                      className="bg-card rounded-xl p-3 border border-border"
                     >
                       <div className="flex items-start gap-3">
                         <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
@@ -248,8 +248,8 @@ const Contact = () => {
               </div>
 
               {/* Calendly Embed */}
-              <div className="bg-card rounded-2xl p-6 border border-border">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="bg-card rounded-2xl p-5 border border-border">
+                <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center">
                     <Calendar className="w-5 h-5 text-white" />
                   </div>

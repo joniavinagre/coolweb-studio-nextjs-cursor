@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 const CTASection = () => {
-  return <section className="py-24 md:py-32 bg-navy relative overflow-hidden">
+  return <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
       {/* Subtle pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-10" />
       
@@ -18,13 +18,13 @@ const CTASection = () => {
         once: true
       }} className="max-w-4xl mx-auto text-center">
           {/* Headline */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
             Ready To Get The Site{" "}
             <span className="text-primary">You Always Wanted?</span>
           </h2>
 
           {/* Description */}
-         <p className="font-body max-w-2xl mx-auto mb-10 text-base text-primary-foreground">
+         <p className="font-body max-w-2xl mx-auto mb-6 text-base text-primary-foreground">
             Schedule a free consultation call and let's discuss how we can help you achieve your online goals. No obligation, just valuable insights.
           </p>
 

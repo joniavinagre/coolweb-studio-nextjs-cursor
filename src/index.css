@@ -184,7 +184,7 @@
   
   /* Section topper - spaced uppercase text */
   .topper {
-    @apply text-xl font-extrabold uppercase tracking-[0.3em] text-primary mb-4;
+    @apply text-xl font-extrabold uppercase tracking-[0.3em] text-primary mb-2;
   }
   
   /* Section title - large ALL CAPS heading */
@@ -252,7 +252,7 @@
   
   /* Service card icon container */
   .service-icon {
-    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-6;
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-4;
     background: hsl(var(--navy));
   }
 
@@ -262,7 +262,7 @@
 
   /* Service icon with swipe animation on card hover */
   .service-icon-swipe {
-    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden;
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-4 relative overflow-hidden;
     background: hsl(var(--navy));
     z-index: 1;
     transition: all 0.4s ease;

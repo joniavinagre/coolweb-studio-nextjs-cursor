@@ -166,10 +166,10 @@ const item = {
 };
 const PricingPreview = () => {
   return (
-    <section className="py-24 md:py-32 bg-muted/30">
+    <section className="py-16 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Header with CTA */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <motion.span
               initial={{
@@ -244,7 +244,7 @@ const PricingPreview = () => {
           viewport={{
             once: true,
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {pricingTiers.map((tier) => (
             <motion.div
@@ -254,23 +254,23 @@ const PricingPreview = () => {
             >
               {/* Featured Header for Monthly card */}
               {tier.featured ? (
-                <div className="px-8 py-6">
+                <div className="px-6 py-4">
                   <h3 className="text-2xl font-extrabold text-primary-foreground uppercase tracking-wider mb-1">
                     {tier.name}
                   </h3>
                   <p className="text-sm text-primary-foreground">{tier.description}</p>
                 </div>
               ) : (
-                <div className="px-8 pt-8">
+                <div className="px-6 pt-6">
                   <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wider mb-1">{tier.name}</h3>
                   <p className="text-sm text-card-foreground">{tier.description}</p>
                 </div>
               )}
 
               {/* Card Body */}
-              <div className={`p-8 flex flex-col flex-grow ${tier.featured ? "" : ""}`}>
+              <div className={`p-6 flex flex-col flex-grow ${tier.featured ? "" : ""}`}>
                 {/* Features */}
-                <ul className="space-y-2 mb-6 flex-grow">
+                <ul className="space-y-2 mb-4 flex-grow">
                   {tier.features.map((feature) => (
                     <li key={feature.text} className="flex items-start gap-2">
                       {feature.included ? (
@@ -292,7 +292,7 @@ const PricingPreview = () => {
                 </ul>
 
                 {/* Price - moved to bottom */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <span
                     className={`text-4xl md:text-5xl font-display font-extrabold ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}
                   >

@@ -25,7 +25,7 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-navy relative overflow-hidden">
+      <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -34,7 +34,7 @@ const Portfolio = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <span className="topper block">Our Portfolio</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
               Projects We're <span className="text-primary">Proud Of</span>
             </h1>
             <p className="text-primary-foreground/70 text-lg md:text-xl">
@@ -51,13 +51,13 @@ const Portfolio = () => {
       </section>
 
       {/* Filter & Projects */}
-      <section className="py-24 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           {/* Filter Tabs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12"
+            className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8"
           >
             {categories.map((category) => (
               <button
@@ -80,7 +80,7 @@ const Portfolio = () => {
             initial="hidden"
             animate="show"
             key={activeCategory}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
           >
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
@@ -103,7 +103,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-14 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -111,10 +111,10 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="section-title mb-6">
+            <h2 className="section-title mb-4">
               Want Your Project <span className="text-primary">Featured Here?</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            <p className="text-muted-foreground text-lg mb-6">
               Let's create something amazing together. Book a free consultation to discuss your project.
             </p>
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
