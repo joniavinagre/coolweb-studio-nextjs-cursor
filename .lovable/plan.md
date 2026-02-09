@@ -1,215 +1,268 @@
 
-
-# Plan: Typography and Styling Fixes
+# Plan: Reduce Spacing Across the Website
 
 ## Overview
 
-This plan addresses four main issues:
-1. Topper font size/weight conflict and hero section topper styling
-2. Monthly pricing card color scheme (matching reference)
-3. H2 headline sizing across all pages
-4. Button font weight to Extrabold
+This plan addresses the excessive spacing throughout the website by implementing tighter, more compact spacing similar to the Oak Harbor reference design. The goal is to reduce scrolling, improve content density, and create a more cohesive visual flow across all pages.
+
+## Reference Analysis
+
+The Oak Harbor reference shows:
+- Very tight spacing between topper, headline, description, and buttons
+- Content feels grouped together as a cohesive unit
+- Minimal vertical padding on sections
+- Hero section does NOT fill the entire viewport
 
 ---
 
-## Issue 1: Topper Font Size Not Appearing as XL/Extrabold
-
-### Root Cause
-
-The `.topper` utility class in `src/index.css` defines `text-sm` at line 182, which conflicts with inline `text-xl font-extrabold` classes on components. Additionally, the base layer at line 171-174 only sets `font-weight: 700` (Bold), not 800 (Extrabold).
-
-### Solution
-
-Update the `.topper` class to use `text-xl` and `font-weight: 800` (Extrabold) instead of `text-sm` and 700. This ensures all toppers display at the intended size and weight without needing inline overrides.
+## Part 1: Global CSS Changes
 
 ### File: `src/index.css`
 
-**Lines 171-183 - Modify:**
-```css
-.topper {
-  font-family: 'Fairweather', system-ui, sans-serif;
-  font-weight: 800;
-}
+Update the `.topper` utility class to reduce bottom margin:
 
-/* ... */
+| Current | New |
+|---------|-----|
+| `mb-4` | `mb-2` |
 
-.topper {
-  @apply text-xl uppercase tracking-[0.3em] text-primary mb-4;
-  font-weight: 800;
-}
-```
-
-**Then remove inline `text-xl font-extrabold` from all section components** since the `.topper` class will handle it.
-
-### Files to Update for Hero Section Toppers
-
-Hero sections need explicit topper styling. Update the following files to use `topper` class or explicit Fairweather font:
-
-| File | Line | Change |
-|------|------|--------|
-| `src/components/sections/Hero.tsx` | 26 | Add `topper` class or `font-display` to ensure Fairweather |
-| `src/pages/Services.tsx` | 107 | Add `topper` class |
-| `src/pages/Contact.tsx` | 87 | Add `topper` class |
-| `src/pages/Portfolio.tsx` | 36 | Add `topper` class |
-| `src/pages/About.tsx` | 78-79 | Update to use `topper` class |
+This ensures all toppers site closer to headlines.
 
 ---
 
-## Issue 2: Monthly Pricing Card Color Scheme
+## Part 2: Hero Section (Homepage)
 
-### Reference Design Analysis
+### File: `src/components/sections/Hero.tsx`
 
-Based on the uploaded reference image:
-- Background: Dark navy (entire card)
-- Title ("MONTHLY"): White, italic styling
-- All text (features, price): White
-- Checkmarks: Light blue (primary color)
-- Button: Light blue background with white text
+| Element | Current | New |
+|---------|---------|-----|
+| Section height | `min-h-screen` | Remove (auto height) |
+| Container padding | `pt-24 pb-32` | `pt-28 pb-16` |
+| Grid gap | `gap-12` | `gap-8` |
+| H1 margin | `mb-6` | `mb-4` |
+| Description margin | `mb-8` | `mb-6` |
+| Button gap | `gap-4` | `gap-3` |
+| Trust indicators margin | `mt-12` | `mt-8` |
+| Trust indicators internal gap | `gap-8` | `gap-6` |
 
-### Current State
+---
 
-The Monthly card has a navy header but white card body below. Need full dark background.
+## Part 3: Content Sections (Homepage)
 
-### Solution
+### File: `src/components/sections/ServicesPreview.tsx`
 
-Update the featured card in `PricingPreview.tsx` to:
-- Apply `bg-navy` to entire card
-- Change all text colors to white (`text-primary-foreground`)
-- Keep checkmarks as `text-primary` (light blue)
-- Style the button as light blue
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Header container margin | `mb-16` | `mb-10` |
+| H2 margin | `mb-6` | `mb-4` |
+| Cards grid gap | `gap-8` | `gap-6` |
+| Card padding | `p-8` | `p-6` |
+| Service icon margin | `mb-6` (in CSS) | `mb-4` |
+| H3 margin | `mb-3` | `mb-2` |
+| Description margin | `mb-6` | `mb-4` |
+| CTA section margin | `mt-16` | `mt-10` |
+
+### File: `src/components/sections/WhyChooseUs.tsx`
+
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Grid gap | `gap-12 lg:gap-16` | `gap-8 lg:gap-12` |
+| H2 margin | `mb-4` | `mb-3` |
+| Description margin | `mb-8` | `mb-6` |
+| Features grid gap | `gap-6` | `gap-4` |
+| Features grid margin | `mb-8` | `mb-6` |
+| Feature item gap | `gap-3` | `gap-2` |
+| Feature title margin | `mb-1` | Keep as-is (already tight) |
+
+### File: `src/components/sections/PortfolioPreview.tsx`
+
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Header margin | `mb-16` | `mb-10` |
+| Grid gap | `gap-8 lg:gap-12` | `gap-6 lg:gap-8` |
+| Device mockup margin | `mb-6` | `mb-4` |
+| H3 margin | `mb-2` | Keep as-is |
+| Description margin | `mb-4` | `mb-3` |
+| View All margin | `mt-16` | `mt-10` |
+
+### File: `src/components/sections/PerformanceSection.tsx`
+
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Header row margin | `mb-12` | `mb-8` |
+| Stats gap | `gap-6 lg:gap-10` | `gap-4 lg:gap-8` |
+| Grid gap | `gap-12 lg:gap-16` | `gap-8 lg:gap-12` |
+| Description margin | `mb-8` | `mb-6` |
+| Benefits list spacing | `space-y-6` | `space-y-4` |
+| Benefits list margin | `mb-8` | `mb-6` |
+| Benefit item gap | `gap-4` | `gap-3` |
 
 ### File: `src/components/sections/PricingPreview.tsx`
 
-**Lines 151-217 - Modify featured card styling:**
-- For featured cards: entire card background is `bg-navy`
-- Header text: `text-primary-foreground` (white)
-- Feature text: `text-primary-foreground` (white)
-- Price: `text-primary-foreground` (white)
-- Checkmarks: `text-primary` (light blue)
-- Button: `bg-primary text-primary-foreground`
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Header margin | `mb-16` | `mb-10` |
+| Cards grid gap | `gap-8` | `gap-6` |
+| Card header padding | `px-8 py-6` / `px-8 pt-8` | `px-6 py-4` / `px-6 pt-6` |
+| Card body padding | `p-8` | `p-6` |
+| Features list spacing | `space-y-2` | Keep as-is |
+| Features list margin | `mb-6` | `mb-4` |
+| Price margin | `mb-6` | `mb-4` |
+
+### File: `src/components/sections/Testimonials.tsx`
+
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Header margin | `mb-16` | `mb-10` |
+| H2 margin | `mb-6` | `mb-4` |
+| Cards grid gap | `gap-8` | `gap-6` |
+| Card padding | `p-8` | `p-6` |
+| Quote icon margin | `mb-4` | `mb-3` |
+| Content margin | `mb-6` | `mb-4` |
+| Border padding | `pt-4` | `pt-3` |
+
+### File: `src/components/sections/CTASection.tsx`
+
+| Element | Current | New |
+|---------|---------|-----|
+| Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| H2 margin | `mb-6` | `mb-4` |
+| Description margin | `mb-10` | `mb-6` |
 
 ---
 
-## Issue 3: H2 Headlines - 5XL on Desktop/Tablet, Extrabold on All
+## Part 4: Page-Level Hero Sections
 
-### Current State
+All page hero sections need consistent tighter spacing:
 
-H2 headlines use `text-4xl md:text-5xl lg:text-6xl font-bold` - size varies but weight is only Bold.
+### Files to Update
+- `src/pages/About.tsx`
+- `src/pages/Services.tsx`
+- `src/pages/Contact.tsx`
+- `src/pages/Portfolio.tsx`
 
-### Target State
-
-- Desktop/Tablet (md and up): `text-5xl font-extrabold`
-- Mobile: Keep current size but change to `font-extrabold`
-
-### Solution
-
-Update the `.section-title` utility class to use `font-extrabold` and ensure proper responsive sizing. Also update individual H2s that don't use `.section-title`.
-
-### File: `src/index.css`
-
-**Line 186-188 - Modify:**
-```css
-.section-title {
-  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-foreground leading-tight;
-}
-```
-
-### Files Requiring H2 Updates
-
-Many H2s don't use `.section-title` and need individual updates:
-
-| File | Line | Current | Update To |
-|------|------|---------|-----------|
-| `src/pages/About.tsx` | 109, 230 | `font-bold` | `font-extrabold` + add `md:text-5xl` |
-| `src/pages/Services.tsx` | 149, 225 | `font-bold` | `font-extrabold` + ensure `md:text-5xl` |
-| `src/pages/Contact.tsx` | 114, 214 | `font-bold` | `font-extrabold md:text-5xl` |
-| `src/pages/CaseStudy.tsx` | 222 | `font-bold` | `font-extrabold md:text-5xl` |
-| `src/components/sections/CTASection.tsx` | 21 | `font-bold` | `font-extrabold` |
-| `src/components/sections/PerformanceSection.tsx` | 46 | `font-bold` | `font-extrabold` |
-| `src/components/sections/WhyChooseUs.tsx` | 86 | `font-bold` | `font-extrabold md:text-5xl` |
+| Element | Current | New |
+|---------|---------|-----|
+| Hero padding | `pt-32 pb-20` | `pt-28 pb-12` |
+| H1 margin | `mb-6` | `mb-4` |
+| Description margin (if present) | `mb-8` | `mb-6` |
 
 ---
 
-## Issue 4: Button Font Weight to Extrabold (Except Nav)
+## Part 5: Inner Page Sections
 
-### Current State
+### File: `src/pages/About.tsx`
 
-Buttons use `font-semibold` (600) or `font-bold` (700) in various places.
+| Section | Element | Current | New |
+|---------|---------|---------|-----|
+| Story | Section padding | `py-20 md:py-32` | `py-16 md:py-20` |
+| Story | Grid gap | `gap-16` | `gap-10` |
+| Story | H2 margin | `mb-6` | `mb-4` |
+| Story | Text spacing | `space-y-4` | `space-y-3` |
+| Values | Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Values | Header margin | `mb-16` | `mb-10` |
+| Values | Cards grid gap | `gap-8` | `gap-6` |
+| Values | Card padding | `p-6` | `p-5` |
+| Values | Icon margin | `mb-4` | `mb-3` |
+| Values | Title margin | `mb-2` | Keep as-is |
+| Process | Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Process | Header margin | `mb-16` | `mb-10` |
+| Process | Cards grid gap | `gap-8` | `gap-6` |
+| Process | Step number margin | `mb-4` | `mb-2` |
+| CTA | Section padding | `py-20` | `py-16` |
+| CTA | H2 margin | `mb-6` | `mb-4` |
+| CTA | Description margin | `mb-8` | `mb-6` |
 
-### Target State
+### File: `src/pages/Services.tsx`
 
-All buttons should use `font-extrabold` (800) **except** navigation links in header and footer.
+| Section | Element | Current | New |
+|---------|---------|---------|-----|
+| Hero | Button margin | `mb-8` | `mb-6` |
+| Categories | Section padding | `py-20 md:py-28` | `py-14 md:py-18` |
+| Categories | Header margin | `mb-12` | `mb-8` |
+| Categories | Icon margin | `mb-6` | `mb-4` |
+| Categories | H2 margin | `mb-4` | `mb-3` |
+| Cards | Padding | `p-8` | `p-6` |
+| Cards | Title margin | `mb-6` | `mb-4` |
+| Cards | Features spacing | `space-y-4` | `space-y-3` |
+| Cards | Features margin | `mb-8` | `mb-6` |
+| Cards | Border padding | `pt-6` | `pt-4` |
+| Cards | Price margin | `mb-4` | `mb-3` |
+| Bottom CTA | Section padding | `py-24` | `py-16` |
+| Bottom CTA | H2 margin | `mb-6` | `mb-4` |
+| Bottom CTA | Description margin | `mb-8` | `mb-6` |
 
-### Solution
+### File: `src/pages/Contact.tsx`
 
-1. Update CSS base layer to set `font-weight: 800` for buttons
-2. Exclude nav-specific classes from this rule
-3. Update individual Button components that have `font-semibold` or `font-bold` inline
+| Section | Element | Current | New |
+|---------|---------|---------|-----|
+| Contact | Section padding | `py-24 md:py-32` | `py-16 md:py-20` |
+| Contact | Grid gap | `gap-16` | `gap-10` |
+| Contact | H2 margin | `mb-6` | `mb-4` |
+| Form | Field spacing | `space-y-6` | `space-y-4` |
+| Form | Grid gap | `gap-6` | `gap-4` |
+| Cards | Gap | `gap-4` | `gap-3` |
+| Cards | Padding | `p-4` | `p-3` |
+| Calendly | Padding | `p-6` | `p-5` |
+| Calendly | Header margin | `mb-4` | `mb-3` |
+
+### File: `src/pages/Portfolio.tsx`
+
+| Section | Element | Current | New |
+|---------|---------|---------|-----|
+| Filter section | Padding | `py-24` | `py-16` |
+| Filter | Margin | `mb-12` | `mb-8` |
+| Projects grid | Gap | `gap-8` | `gap-6` |
+| CTA section | Padding | `py-20` | `py-14` |
+| CTA | H2 margin | `mb-6` | `mb-4` |
+| CTA | Description margin | `mb-8` | `mb-6` |
+
+---
+
+## Part 6: CSS Utility Updates
 
 ### File: `src/index.css`
 
-**Lines 166-169 - Modify:**
-```css
-button, .btn-swipe-primary, .btn-swipe-navy, .btn-swipe-card {
-  font-family: 'Fairweather', system-ui, sans-serif;
-  font-weight: 800;
-}
-```
+Update global utility classes for service icons:
 
-Note: This excludes `nav a` and `.nav-link-fixed` from the extrabold rule.
-
-### Component Updates
-
-Update all Button components to use `font-extrabold` instead of `font-semibold` or `font-bold`:
-
-| File | Lines to Update |
-|------|-----------------|
-| `src/components/sections/Hero.tsx` | 41, 47 |
-| `src/components/sections/ServicesPreview.tsx` | 126 |
-| `src/components/sections/WhyChooseUs.tsx` | 112 |
-| `src/components/sections/PerformanceSection.tsx` | 120 |
-| `src/components/sections/PricingPreview.tsx` | 138, 190, 210 |
-| `src/components/sections/CTASection.tsx` | 32 |
-| `src/pages/About.tsx` | 236 |
-| `src/pages/Services.tsx` | 117, 183, 201, 231 |
-| `src/pages/Contact.tsx` | 190, 271 |
-| `src/pages/Portfolio.tsx` | 120 |
-| `src/pages/CaseStudy.tsx` | 46, 230 |
-| `src/components/layout/Header.tsx` | Keep as-is (nav buttons excluded) |
+| Class | Current Property | New Value |
+|-------|-----------------|-----------|
+| `.service-icon` | `mb-6` | `mb-4` |
+| `.service-icon-swipe` | `mb-6` | `mb-4` |
 
 ---
 
 ## Summary of Changes
 
-| File | Type of Change |
-|------|----------------|
-| `src/index.css` | Update `.topper` to text-xl/extrabold, `.section-title` to font-extrabold, button base styles to font-weight 800 |
-| `src/components/sections/Hero.tsx` | Ensure topper uses correct class, update button font weight |
-| `src/components/sections/ServicesPreview.tsx` | Remove inline topper overrides, update button |
-| `src/components/sections/WhyChooseUs.tsx` | Update H2 and button |
-| `src/components/sections/PortfolioPreview.tsx` | Update button |
-| `src/components/sections/PerformanceSection.tsx` | Update H2 and button |
-| `src/components/sections/PricingPreview.tsx` | Featured card full dark theme, update buttons |
-| `src/components/sections/Testimonials.tsx` | Remove inline topper overrides |
-| `src/components/sections/CTASection.tsx` | Update H2 and button |
-| `src/pages/About.tsx` | Update hero topper, H2s, and buttons |
-| `src/pages/Services.tsx` | Update hero topper, H2s, and buttons |
-| `src/pages/Contact.tsx` | Update hero topper, H2s, and buttons |
-| `src/pages/Portfolio.tsx` | Update hero topper and button |
-| `src/pages/CaseStudy.tsx` | Update H2s and buttons |
+| File | Changes |
+|------|---------|
+| `src/index.css` | Reduce `.topper` margin, reduce service icon margins |
+| `src/components/sections/Hero.tsx` | Remove min-h-screen, reduce all spacing |
+| `src/components/sections/ServicesPreview.tsx` | Reduce section/card/grid spacing |
+| `src/components/sections/WhyChooseUs.tsx` | Reduce section/grid/feature spacing |
+| `src/components/sections/PortfolioPreview.tsx` | Reduce section/grid/card spacing |
+| `src/components/sections/PerformanceSection.tsx` | Reduce section/list/grid spacing |
+| `src/components/sections/PricingPreview.tsx` | Reduce section/card spacing |
+| `src/components/sections/Testimonials.tsx` | Reduce section/card spacing |
+| `src/components/sections/CTASection.tsx` | Reduce section/content spacing |
+| `src/pages/About.tsx` | Reduce all section spacing |
+| `src/pages/Services.tsx` | Reduce all section spacing |
+| `src/pages/Contact.tsx` | Reduce form/section spacing |
+| `src/pages/Portfolio.tsx` | Reduce filter/CTA spacing |
 
 ---
 
-## Technical Notes
+## Expected Results
 
-### Font Weight Values
-- `font-bold` = 700 (current button weight)
-- `font-extrabold` = 800 (target button weight)
-
-### Tailwind Responsive Breakpoints
-- `md:` applies to screens 768px and wider (tablet + desktop)
-- No prefix applies to mobile (default)
-
-### Header/Footer Navigation
-The header and footer navigation links should remain at their current font weight since they are excluded from the button extrabold rule.
-
+After implementing these changes:
+- Content will feel more grouped and cohesive
+- Less scrolling required to view page content
+- Hero sections will no longer fill entire viewport
+- Sections will flow into each other more naturally
+- Mobile experience will be significantly improved with less scrolling
+- Overall look will match the compact, professional feel of the Oak Harbor reference
