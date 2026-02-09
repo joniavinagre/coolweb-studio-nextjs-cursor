@@ -44,9 +44,9 @@ const item = {
   }
 };
 const WhyChooseUs = () => {
-  return <section className="py-24 md:py-32 bg-muted/30">
+  return <section className="py-16 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Image */}
           <motion.div initial={{
           opacity: 0,
@@ -83,19 +83,19 @@ const WhyChooseUs = () => {
         }}>
             {/* Section Header */}
             <span className="topper block">What We Offer</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-4">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-3">
               Websites Starting At{" "}
               <span className="text-primary">€0 Down And €100 Per Month</span>
             </h2>
-            <p className="font-body mb-8 leading-relaxed text-sm text-card-foreground">
+            <p className="font-body mb-6 leading-relaxed text-sm text-card-foreground">
               We provide professional web design services with flexible payment options. Get a stunning website without the upfront costs.
             </p>
 
             {/* Features Grid - 2x3 */}
             <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
             once: true
-          }} className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              {features.map(feature => <motion.div key={feature.title} variants={item} className="flex items-start gap-3">
+          }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              {features.map(feature => <motion.div key={feature.title} variants={item} className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">

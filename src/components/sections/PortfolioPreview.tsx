@@ -30,10 +30,10 @@ const item = {
 // Show first 3 projects on homepage
 const previewProjects = projects.slice(0, 3);
 const PortfolioPreview = () => {
-  return <section className="py-24 md:py-32 bg-background">
+  return <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Split Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10 items-start">
           {/* Left - Topper & Headline */}
           <motion.div initial={{
           opacity: 0,
@@ -72,10 +72,10 @@ const PortfolioPreview = () => {
         {/* Portfolio Grid - Device Mockup Style */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
         once: true
-      }} className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      }} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {previewProjects.map(project => <motion.article key={project.id} variants={item} className="group">
               {/* Device Mockup Image */}
-              <div className="relative mb-6">
+              <div className="relative mb-4">
                 {/* Laptop Frame */}
                 <div className="bg-slate-800 rounded-t-xl p-2">
                   <div className="flex gap-1.5 mb-2">
@@ -95,7 +95,7 @@ const PortfolioPreview = () => {
               <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                 {project.title}
               </h3>
-              <p className="mb-4 line-clamp-2 leading-relaxed text-xs text-popover-foreground">
+              <p className="mb-3 line-clamp-2 leading-relaxed text-xs text-popover-foreground">
                 {project.description}
               </p>
 
@@ -118,7 +118,7 @@ const PortfolioPreview = () => {
         y: 0
       }} viewport={{
         once: true
-      }} className="text-center mt-16">
+      }} className="text-center mt-10">
           <Button asChild size="lg" className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy">
             <Link to="/portfolio">
               View All Projects

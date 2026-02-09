@@ -67,7 +67,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 gradient-hero relative overflow-hidden">
+      <section className="pt-28 pb-12 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-30" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -78,7 +78,7 @@ const About = () => {
             <span className="topper block">
               About Us
             </span>
-           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6">
+           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-4">
               We're <span className="gradient-text">COOLWEB Studio</span>
             </h1>
            <p className="text-primary-foreground/70 text-xl md:text-2xl">
@@ -95,21 +95,21 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
                 Our Story
               </span>
-             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6">
+             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
                 Building Digital Success <span className="gradient-text">Since 2019</span>
               </h2>
-             <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
+             <div className="space-y-3 text-muted-foreground leading-relaxed text-lg">
                 <p>
                   COOLWEB Studio was founded with a simple mission: help small and medium businesses compete in the digital landscape without breaking the bank.
                 </p>
@@ -155,9 +155,9 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 md:py-32 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-10">
             <span className="topper block">Our Values</span>
             <h2 className="section-title">What <span className="text-primary">Drives Us</span></h2>
           </div>
@@ -167,15 +167,15 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {values.map((value) => (
               <motion.div
                 key={value.title}
                 variants={item}
-                className="bg-card rounded-2xl p-6 shadow-lg border border-border card-lift"
+                className="bg-card rounded-2xl p-5 shadow-lg border border-border card-lift"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <value.icon className="w-6 h-6 text-primary" />
                 </div>
                <h3 className="font-bold text-foreground mb-2 uppercase tracking-wide text-lg">{value.title}</h3>
@@ -187,9 +187,9 @@ const About = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-10">
             <span className="topper block">Our Process</span>
             <h2 className="section-title">How We <span className="text-primary">Work</span></h2>
           </div>
@@ -199,7 +199,7 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {process.map((step, index) => (
               <motion.div
@@ -208,7 +208,7 @@ const About = () => {
                 className="relative"
               >
                 <div className="bg-card rounded-2xl p-6 shadow-lg border border-border h-full">
-                 <div className="text-6xl font-bold text-primary mb-4">{step.step}</div>
+                 <div className="text-6xl font-bold text-primary mb-2">{step.step}</div>
                  <h3 className="font-bold text-foreground mb-2 uppercase tracking-wide text-lg">{step.title}</h3>
                  <p className="text-muted-foreground text-base">{step.description}</p>
                 </div>
@@ -219,7 +219,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-navy">
+      <section className="py-16 bg-navy">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -227,10 +227,10 @@ const About = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-           <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-6">
+           <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
               Ready To <span className="text-primary">Work Together?</span>
             </h2>
-           <p className="text-primary-foreground/70 text-xl mb-8">
+           <p className="text-primary-foreground/70 text-xl mb-6">
               Let's create something amazing. Book a free consultation.
             </p>
            <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">

@@ -23,13 +23,13 @@ const stats = [{
   label: "Google Reviews"
 }];
 const PerformanceSection = () => {
-  return <section className="py-24 md:py-32 bg-navy relative overflow-hidden">
+  return <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-10" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Row - Topper/Headline Left, Stats Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8 items-start">
           {/* Left - Topper & Headline */}
           <motion.div initial={{
           opacity: 0,
@@ -60,7 +60,7 @@ const PerformanceSection = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="flex flex-wrap justify-start lg:justify-end gap-6 lg:gap-10">
+        }} className="flex flex-wrap justify-start lg:justify-end gap-4 lg:gap-8">
             {stats.map(stat => <div key={stat.label} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-1">
                   {stat.value}
@@ -72,7 +72,7 @@ const PerformanceSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div initial={{
           opacity: 0,
@@ -85,12 +85,12 @@ const PerformanceSection = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <p className="font-body mb-8 leading-relaxed text-sm text-primary-foreground">
+            <p className="font-body mb-6 leading-relaxed text-sm text-primary-foreground">
               Speed matters. Our websites are hand-coded for maximum performance, ensuring your visitors get the best experience possible.
             </p>
 
             {/* Benefits List */}
-            <div className="space-y-6 mb-8">
+            <div className="space-y-4 mb-6">
               {benefits.map((benefit, index) => <motion.div key={benefit.title} initial={{
               opacity: 0,
               x: -20
@@ -101,7 +101,7 @@ const PerformanceSection = () => {
               once: true
             }} transition={{
               delay: index * 0.1
-            }} className="flex items-start gap-4">
+            }} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <Zap className="w-5 h-5 text-primary" />
                   </div>
