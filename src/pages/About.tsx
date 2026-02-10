@@ -201,7 +201,7 @@ const About = () => {
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=750&fit=crop" alt="Digital analytics workspace" className="w-full h-full object-cover rounded-md" />
                 <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                   <h3 className="font-bold text-foreground text-lg">Your Digital Partner</h3>
-                  <p className="text-muted-foreground text-sm">Committed to Your Growth</p>
+                  <p className="text-xs text-card-foreground">Committed to Your Growth</p>
                 </div>
               </div>
             </motion.div>
