@@ -18,8 +18,8 @@ interface PricingTier {
 const pricingTiers: PricingTier[] = [
   {
     name: "Lump Sum",
-    price: "€1,000",
-    priceNote: "+€25/mo hosting",
+    price: "1.000€",
+    priceNote: "+25€/mo hosting",
     description: "One-time payment for your complete website",
     features: [
       {
@@ -39,7 +39,7 @@ const pricingTiers: PricingTier[] = [
         included: true,
       },
       {
-        text: "€25/month Hosting",
+        text: "25€/month Hosting",
         included: true,
       },
       {
@@ -59,7 +59,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: "Monthly",
-    price: "€100",
+    price: "100€",
     priceNote: "/month",
     description: "No upfront cost, everything included",
     features: [
@@ -250,22 +250,15 @@ const PricingPreview = () => {
             <motion.div
               key={tier.name}
               variants={item}
-              className={`rounded-2xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}
+              className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}
             >
-              {/* Featured Header for Monthly card */}
-              {tier.featured ? (
-                <div className="px-6 py-4">
-                  <h3 className="text-2xl font-extrabold text-primary-foreground uppercase tracking-wider mb-1">
-                    {tier.name}
-                  </h3>
-                  <p className="text-sm text-primary-foreground">{tier.description}</p>
-                </div>
-              ) : (
-                <div className="px-6 pt-6">
-                  <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wider mb-1">{tier.name}</h3>
-                  <p className="text-sm text-card-foreground">{tier.description}</p>
-                </div>
-              )}
+              {/* Card Header - unified padding */}
+              <div className="px-6 pt-6">
+                <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
+                  {tier.name}
+                </h3>
+                <p className={`text-sm ${tier.featured ? "text-primary-foreground" : "text-card-foreground"}`}>{tier.description}</p>
+              </div>
 
               {/* Card Body */}
               <div className={`p-6 flex flex-col flex-grow ${tier.featured ? "" : ""}`}>

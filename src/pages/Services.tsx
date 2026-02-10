@@ -111,13 +111,6 @@ const Services = () => {
               Pricing Packages For{" "}
               <span className="text-primary">Every Budget</span>
             </h1>
-            
-            <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
-              <Link to="/contact">
-                Get Started
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
           </motion.div>
         </div>
 

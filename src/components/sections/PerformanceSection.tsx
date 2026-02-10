@@ -62,10 +62,10 @@ const PerformanceSection = () => {
           delay: 0.1
         }} className="flex flex-wrap justify-start lg:justify-end gap-4 lg:gap-8">
             {stats.map(stat => <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-1">
+                <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs uppercase tracking-wider text-primary-foreground">
+                <div className="text-xs uppercase tracking-wider text-primary-foreground font-display">
                   {stat.label}
                 </div>
               </div>)}
