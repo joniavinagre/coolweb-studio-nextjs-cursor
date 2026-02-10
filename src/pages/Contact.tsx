@@ -122,9 +122,9 @@ const Contact = () => {
                       <h3 className="font-bold text-foreground text-base uppercase tracking-wide">
                         {info.title}
                       </h3>
-                      {info.href ? <a href={info.href} className="text-muted-foreground text-base hover:text-primary transition-colors">
+                      {info.href ? <a href={info.href} className="transition-colors text-sm text-card-foreground">
                           {info.content}
-                        </a> : <p className="text-muted-foreground text-base">
+                        </a> : <p className="text-sm text-card-foreground">
                           {info.content}
                         </p>}
                     </div>
