@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.webp";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-navy text-primary-foreground relative mt-[60px]">
+  return <footer className="bg-navy text-primary-foreground relative">
       {/* Curved wave top edge */}
       <div className="absolute -top-[60px] left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
