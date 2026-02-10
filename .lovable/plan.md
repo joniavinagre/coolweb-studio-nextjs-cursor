@@ -1,70 +1,62 @@
 
-# Plan: Replicate Home Page Pricing Cards to Services Page
+# Plan: Unify Google Business & Local SEO Sections with Web Development Layout
 
 ## Overview
 
-Replace the current Web Development section in the Services page with the same 3-card layout (Lump Sum, Monthly, Custom) from the Home page's `PricingPreview` component. Also update the section header to be left-aligned with a "Get Started" button on the right, matching the screenshot reference.
+Update the Google Business Profile and Local SEO sections to use the same card structure and header layout as the Web Development section. The only difference: 2 cards instead of 3, same card width, centered in the grid.
 
 ## Changes
 
 ### File: `src/pages/Services.tsx`
 
-**1. Replace the Web Development category data** (lines 20-36)
+**1. Convert feature data from `string[]` to `PricingFeature[]`**
 
-Replace the current `web-development` entry in `serviceCategories` with the same pricing tiers used in `PricingPreview.tsx` (Lump Sum, Monthly, Custom). This requires changing the data structure to match the `PricingPreview` format with `included` boolean per feature, `description`, `featured`, and `cta` fields.
+Update the Google Business and Local SEO tier data (lines 133-159) so features use `{ text, included: true }` format instead of plain strings. Add `description` and `cta` fields to each tier.
 
-Update the `PricingTier` and `ServiceCategory` interfaces to support:
-- `features` as `{ text: string; included: boolean }[]` instead of `string[]`
-- `description` on each tier
-- `featured` boolean
-- `cta` string
+**2. Unify the header layout for all sections**
 
-**2. Update the Web Development section header layout** (lines 128-146)
+Remove the `category.id === "web-development"` conditional for the header (lines 217-257). All sections will use the same left-aligned flex row layout with title, description on the left and "Get Started" button on the right.
 
-For the `web-development` category only, change the header from centered to a flex row layout:
-- Left side: title (left-aligned, no icon box) + description
-- Right side: "Get Started" button aligned to the bottom
+**3. Unify the card rendering for all sections**
 
-For other categories (Google Business, Local SEO), keep the current centered layout.
+Remove the `category.id === "web-development"` conditional for card rendering (lines 260-323). All sections will use the same card structure:
+- Header: `px-6 pt-6` with title and description
+- Body: `p-6 flex-col flex-grow` with Check icons for features, price pinned to bottom with `mt-auto`, and full-width CTA button
+- `priceNote` for web-dev tiers, `priceLabel` converted to `priceNote` for other tiers
 
-**3. Update the Web Development card rendering** (lines 148-200)
+**4. Grid layout: 3 cols for web-dev, 2 cols centered for others**
 
-For the `web-development` category, render cards using the same structure as `PricingPreview`:
-- 3-column grid with `rounded-xl`
-- Featured card (Monthly) gets `bg-navy border-primary ring-2 ring-primary/20`
-- Features show Check/X icons based on `included` boolean
-- Price and button pinned to bottom with `mt-auto`
-- Custom card uses "Reach Out" CTA with outline style
+Use `md:grid-cols-3` for web-development and `md:grid-cols-3` with only 2 cards for others (cards will naturally be same width and left-aligned in a 3-col grid). Alternatively, use `md:grid-cols-2 max-w-[calc(66.666%+0.75rem)] mx-auto` to center 2 cards at the same width as 3-col cards. The simplest approach: keep all grids as `md:grid-cols-3` and the 2 cards will just occupy the first 2 columns -- but that won't center them.
 
-For other categories, keep the current simple card rendering.
+Best approach: Use `md:grid-cols-3` for 3-tier sections, and for 2-tier sections use a wrapper with `flex justify-center gap-6` where each card has the same `w-full md:w-[calc(33.333%-1rem)]` width, keeping them identical in size to the 3-card layout and centered.
 
-### Detailed Card Structure (matching PricingPreview)
+## Technical Details
 
+### Header (all sections, same layout)
 ```
-+------------------+
-| Title (h3)       |  px-6 pt-6
-| Description      |
-+------------------+
-| Features (grow)  |  p-6, flex-grow
-|  Check/X icons   |
-|                  |
-| Price            |  mt-auto
-| Button           |
-+------------------+
+flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10
+  Left: section-title + description (left-aligned)
+  Right: Get Started button (navy, btn-swipe-navy)
 ```
 
-### Data for Web Development Cards
+### Card structure (all sections, identical)
+```
+rounded-xl border flex flex-col h-full overflow-hidden
+  px-6 pt-6: tier name (h3) + description
+  p-6 flex-col flex-grow:
+    features with Check icons (flex-grow)
+    price + priceNote (mt-auto)
+    CTA button (w-full)
+```
 
-| Card | Price | Note | Featured | CTA |
-|------|-------|------|----------|-----|
-| Lump Sum | 1.000€ | +25€/mo hosting | No | Get Started |
-| Monthly | 100€ | /month | Yes (navy bg) | Get Started |
-| Custom | Let's Talk! | - | No | Reach Out |
+### Grid for 2-card sections
+```
+flex flex-col md:flex-row justify-center gap-6
+  Each card: w-full md:w-[calc(33.333%-0.5rem)]
+```
 
-Features match exactly what's in `PricingPreview.tsx`.
+This ensures the 2 cards are the exact same width as the 3-card grid columns and horizontally centered.
 
-## Summary
+### Data updates
 
-| File | Changes |
-|------|---------|
-| `src/pages/Services.tsx` | Update interfaces, replace web-dev data with 3-tier pricing, left-align header with button for web-dev section, render cards with Check/X icons and featured styling |
+Google Business tiers get `description` and `cta: "Get Started"`, features converted to `PricingFeature[]` format. Same for Local SEO tiers.
