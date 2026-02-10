@@ -74,28 +74,16 @@ const About = () => {
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <span className="topper block">About Us</span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
-                We're <span className="text-primary">COOLWEB Studio</span>
-              </h1>
-              <p className="font-body text-base text-primary-foreground/80 mb-6 max-w-xl">
-                A passionate team of web developers, designers, and digital marketing experts dedicated to helping businesses thrive online.
-              </p>
-              <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
-                <Link to="/contact">
-                  Get In Touch
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
+              We're <span className="text-primary">COOLWEB Studio</span>
+            </h1>
+          </motion.div>
         </div>
-
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" className="w-full h-auto" preserveAspectRatio="none">
             <path d="M0 120L48 110C96 100 192 80 288 70C384 60 480 60 576 65C672 70 768 80 864 85C960 90 1056 90 1152 85C1248 80 1344 70 1392 65L1440 60V120H0Z" className="fill-background" />
