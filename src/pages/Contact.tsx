@@ -94,23 +94,31 @@ const Contact = () => {
       {/* Contact Section */}
       <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
+          {/* Intro text — always on top on mobile, part of left column on desktop */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:hidden"
+          >
+            <h2 className="text-3xl font-extrabold text-foreground mb-2 uppercase tracking-wide md:text-4xl">
+              Get In Touch
+            </h2>
+            <p className="mb-6 text-sm text-card-foreground">
+              Send us a message or call us and let us know everything you want out of a new site. We respond to
+              everyone within 24 hours of contacting us.
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Info — left on desktop, below on mobile */}
             <motion.div
-              initial={{
-                opacity: 0,
-                x: -30,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="order-2 lg:order-1 space-y-6"
             >
-              <div>
+              <div className="hidden lg:block">
                 <h2 className="text-3xl font-extrabold text-foreground mb-2 uppercase tracking-wide md:text-4xl">
                   Get In Touch
                 </h2>
@@ -119,6 +127,10 @@ const Contact = () => {
                   everyone within 24 hours of contacting us.
                 </p>
               </div>
+
+              <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wide lg:text-xl">
+                Contact Info
+              </h3>
 
               <div className="bg-card rounded-xl border border-border overflow-hidden">
                 {contactInfo.map((info, index) => (
@@ -146,17 +158,9 @@ const Contact = () => {
 
             {/* Contact Form — right on desktop, top on mobile */}
             <motion.div
-              initial={{
-                opacity: 0,
-                x: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="order-1 lg:order-2"
             >
               <div className="bg-muted/30 rounded-xl p-6 md:p-8 border border-border">
