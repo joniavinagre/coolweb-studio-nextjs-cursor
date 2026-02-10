@@ -24,12 +24,6 @@ const values = [
   },
 ];
 
-const stats = [
-  { value: "50+", label: "Happy Clients" },
-  { value: "100+", label: "Projects Delivered" },
-  { value: "5+", label: "Years Experience" },
-  { value: "100%", label: "Satisfaction" },
-];
 
 const processSteps = [
   {
@@ -80,7 +74,7 @@ const About = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
-              We're <span className="text-primary">COOLWEB Studio</span>
+              We're <br className="md:hidden" /><span className="text-primary">COOLWEB Studio</span>
             </h1>
           </motion.div>
         </div>
@@ -193,24 +187,6 @@ const About = () => {
               </Button>
             </motion.div>
 
-            {/* Right Column - Stats */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="bg-card rounded-xl p-8 border border-border">
-                <div className="grid grid-cols-2 gap-6">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="text-center p-6">
-                      <div className="text-5xl font-extrabold text-primary mb-2">{stat.value}</div>
-                      <div className="font-body text-sm text-card-foreground">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -236,7 +212,7 @@ const About = () => {
             {processSteps.map((step) => (
               <motion.div key={step.step} variants={item}>
                 <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/10 rounded-xl p-6 h-full">
-                  <div className="text-5xl font-extrabold text-primary mb-2">{step.step}</div>
+                  <div className="text-5xl font-extrabold text-primary mb-2" style={{ fontFamily: "'Fairweather', system-ui, sans-serif" }}>{step.step}</div>
                   <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">
                     {step.title}
                   </h3>
