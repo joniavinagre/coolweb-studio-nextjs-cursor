@@ -21,11 +21,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className="group bg-card rounded-xl overflow-hidden transition-all duration-500 border border-border flex flex-col"
     >
       {/* Image Section */}
-      <Link to={`/portfolio/${project.slug}`} className="relative overflow-hidden aspect-[16/10] block">
+      <a href={project.website} target="_blank" rel="noopener noreferrer" className="relative overflow-hidden aspect-[16/10] block cursor-pointer">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover"
           loading="lazy"
         />
         {/* Gradient Overlay */}
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white/90 text-xs">
           {project.location}
         </span>
-      </Link>
+      </a>
 
       {/* Content Section */}
       <div className="p-6 flex flex-col flex-grow">
