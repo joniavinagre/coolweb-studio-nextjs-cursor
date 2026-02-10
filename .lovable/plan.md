@@ -1,48 +1,57 @@
 
 
-# Mobile-Only Hero Section Refinements
+# Fix Portfolio Cards and Update Grid Layout
 
-All changes are in `src/components/sections/Hero.tsx` and apply only on mobile (using responsive prefixes).
+## Issue 1: Hover animation removal and clickable images not applied everywhere
 
-## Changes
+The previous fix only updated `ProjectCard.tsx`, but portfolio cards are rendered **inline** in two other files that were not changed:
+- `src/components/sections/PortfolioPreview.tsx` (homepage preview, line 87)
+- `src/pages/Portfolio.tsx` (full portfolio page, line 69)
 
-### 1. Subheadline font size -- XS on mobile only (line 36)
-Change from `text-base` to `text-xs md:text-base` so it's smaller on mobile but normal on tablet/desktop.
+Both still have `group-hover:scale-105 transition-transform duration-700` on images, and the images are not wrapped in links.
 
-### 2. H1 spacing -- reduce gap between "Small Business" and "Web Designer" (line 30)
-Change `mb-4` to `mb-1 md:mb-4` and reduce `leading-tight` to `leading-none md:leading-tight` to close the vertical gap on mobile.
+### Fix for `PortfolioPreview.tsx` (lines 84-89)
+- Wrap the image container in an `<a>` tag linking to `project.website` (opens in new tab)
+- Remove `group-hover:scale-105 transition-transform duration-700` from the `<img>`
 
-### 3. Reduce overall spacing between hero elements on mobile
-- Topper (line 27): The `.topper` class has `mb-2` by default -- that's fine.
-- H1 `mb-4` becomes `mb-1 md:mb-4` (covered above).
-- Description `mb-6` becomes `mb-3 md:mb-6` (line 36).
-- CTA buttons container `gap-3` becomes `gap-2 md:gap-3` (line 41).
-- Trust indicators `mt-8` becomes `mt-4 md:mt-8` (line 54).
-- Grid `gap-8` becomes `gap-4 lg:gap-8` (line 15).
-- Container `pt-28 pb-16` becomes `pt-24 pb-10 md:pt-28 md:pb-16` (line 14).
+### Fix for `Portfolio.tsx` (lines 63-73)
+- Same changes: wrap image in `<a>` tag to `project.website`, remove hover animation classes from `<img>`
 
-### 4. Center-align "50+ Happy Clients, 5.0 Rating" on mobile (line 54)
-Change `justify-start` to `justify-center lg:justify-start`.
+---
 
-## Technical Details
+## Issue 2: Grid layout update to 12-column, 32px gutter, 1120px content width
 
-### File: `src/components/sections/Hero.tsx`
+The user wants:
+- Content width: 1120px
+- Gutters (side padding): 32px each side (total container = 1184px)
+- Grid gutter between columns: 32px (which is Tailwind's `gap-8`)
 
-**Line 14** -- container padding:
-`pt-28 pb-16 md:pb-24` --> `pt-24 pb-10 md:pt-28 md:pb-16 lg:pb-24`
+### Changes in `tailwind.config.ts` (lines 8-14)
+Update the container config:
+- Change `padding` from `"2rem"` to `"2rem"` (32px = 2rem, already correct)
+- Change the `2xl` screen max-width from `"1400px"` to `"1184px"`
 
-**Line 15** -- grid gap:
-`gap-8` --> `gap-4 lg:gap-8`
+### Changes in grid classes
+Update the portfolio grids to use `gap-8` consistently:
+- `PortfolioPreview.tsx` line 82: change `gap-6 lg:gap-8` to `gap-8`
+- `Portfolio.tsx` line 55: change `gap-6 lg:gap-8` to `gap-8`
 
-**Line 30** -- H1 classes:
-`text-5xl md:text-6xl ... leading-tight mb-4 ...` --> `text-5xl md:text-6xl ... leading-none md:leading-tight mb-1 md:mb-4 ...`
+Note: The 3-column layout (`md:grid-cols-3`) effectively creates a 12-column system where each card spans 4 columns, which matches standard 12-column grids.
 
-**Line 36** -- description:
-`mb-6 ... text-base` --> `mb-3 md:mb-6 ... text-xs md:text-base`
+---
 
-**Line 41** -- CTA buttons:
-`gap-3` --> `gap-2 md:gap-3`
+## Summary of file changes
 
-**Line 54** -- trust indicators:
-`mt-8 ... justify-start` --> `mt-4 md:mt-8 ... justify-center lg:justify-start`
+### `src/components/sections/PortfolioPreview.tsx`
+1. Wrap image div (lines 84-89) in `<a href={project.website} target="_blank" rel="noopener noreferrer">`
+2. Remove `group-hover:scale-105 transition-transform duration-700` from img (line 87)
+3. Change grid gap to `gap-8` (line 82)
+
+### `src/pages/Portfolio.tsx`
+1. Wrap image div (lines 63-73) in `<a href={project.website} target="_blank" rel="noopener noreferrer">`
+2. Remove `group-hover:scale-105 transition-transform duration-700` from img (line 69)
+3. Change grid gap to `gap-8` (line 55)
+
+### `tailwind.config.ts`
+1. Change container max-width from `"1400px"` to `"1184px"` (line 13)
 
