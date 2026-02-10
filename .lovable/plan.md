@@ -1,21 +1,30 @@
 
-# Fix: Visual gap between CTA wave and footer on mobile
+
+# Fix: White gap between CTA section and footer wave on mobile
 
 ## Problem
 
-The footer has a navy wave SVG positioned at `absolute -top-[60px]`, which is meant to overlap into the section above it. However, the CTA sections only have `py-14` padding, which doesn't leave enough room on mobile for the wave to overlap seamlessly. This creates a visible gap/line between the CTA section and the footer.
+The `mt-[60px]` margin on the footer creates a 60px gap with **no background behind it**. The wave SVG sits in that gap but has transparent areas (the curve shape), so the raw page background (white) shows through, creating a visible seam on mobile.
 
 ## Solution
 
-Two changes:
+Remove `mt-[60px]` from the footer. The wave (positioned at `-top-[60px]`) will overlap upward into the CTA section's existing `pb-24` bottom padding instead, where `bg-muted/30` fills behind the transparent parts of the wave seamlessly.
 
-1. **Footer (`src/components/layout/Footer.tsx`)**: Add `mt-[60px]` to the footer element so the absolutely positioned wave at `-top-[60px]` doesn't create a gap. This ensures the wave visually sits flush against the previous section.
+## File changes
 
-2. **All CTA sections**: Add extra bottom padding (`pb-24`) to give the wave enough room to overlap without crowding the button. Update the class from `py-14` to `pt-14 pb-24` on the final CTA sections in:
-   - `src/pages/Index.tsx` (line 26)
-   - `src/pages/Services.tsx` (line 281)
-   - `src/pages/Portfolio.tsx` (line 99)
-   - `src/pages/About.tsx` (line 251)
-   - `src/pages/Contact.tsx` -- check if it has a similar CTA or if the footer directly follows
+### `src/components/layout/Footer.tsx` (line 6)
 
-This ensures the wave transition looks seamless on all screen sizes.
+Remove `mt-[60px]` from the footer's class. Change:
+
+```
+bg-navy text-primary-foreground relative mt-[60px]
+```
+
+to:
+
+```
+bg-navy text-primary-foreground relative
+```
+
+That is the only change needed. All CTA sections already have `pb-24` (96px of bottom padding), which is more than enough room for the 60px wave overlap.
+
