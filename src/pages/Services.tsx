@@ -135,14 +135,44 @@ const serviceCategories: ServiceCategory[] = [{
     price: "200€",
     priceNote: "one-time",
     description: "Get your profile up and running professionally",
-    features: [{ text: "Complete profile setup", included: true }, { text: "Profile verification", included: true }, { text: "Business category optimization", included: true }, { text: "Photo and video uploads", included: true }, { text: "Basic optimization", included: true }],
+    features: [{
+      text: "Complete profile setup",
+      included: true
+    }, {
+      text: "Profile verification",
+      included: true
+    }, {
+      text: "Business category optimization",
+      included: true
+    }, {
+      text: "Photo and video uploads",
+      included: true
+    }, {
+      text: "Basic optimization",
+      included: true
+    }],
     cta: "Get Started"
   }, {
     name: "Management",
     price: "75€",
     priceNote: "/month",
     description: "Ongoing management to keep your profile performing",
-    features: [{ text: "Ongoing optimization", included: true }, { text: "Weekly posts", included: true }, { text: "Review responses", included: true }, { text: "Photo updates", included: true }, { text: "Monthly reports", included: true }],
+    features: [{
+      text: "Ongoing optimization",
+      included: true
+    }, {
+      text: "Weekly posts",
+      included: true
+    }, {
+      text: "Review responses",
+      included: true
+    }, {
+      text: "Photo updates",
+      included: true
+    }, {
+      text: "Monthly reports",
+      included: true
+    }],
     cta: "Get Started"
   }]
 }, {
@@ -155,14 +185,47 @@ const serviceCategories: ServiceCategory[] = [{
     price: "400€",
     priceNote: "/month",
     description: "Essential local SEO to get you on the map",
-    features: [{ text: "5 target keywords", included: true }, { text: "Basic optimization", included: true }, { text: "Monthly report", included: true }, { text: "Citation building", included: true }, { text: "NAP consistency audit", included: true }],
+    features: [{
+      text: "5 target keywords",
+      included: true
+    }, {
+      text: "Basic optimization",
+      included: true
+    }, {
+      text: "Monthly report",
+      included: true
+    }, {
+      text: "Citation building",
+      included: true
+    }, {
+      text: "NAP consistency audit",
+      included: true
+    }],
     cta: "Get Started"
   }, {
     name: "Advanced",
     price: "800€",
     priceNote: "/month",
     description: "Full-scale local SEO to dominate your market",
-    features: [{ text: "15+ target keywords", included: true }, { text: "Full optimization", included: true }, { text: "Bi-weekly reports", included: true }, { text: "Link building", included: true }, { text: "Google Maps ranking", included: true }, { text: "Content optimization", included: true }],
+    features: [{
+      text: "15+ target keywords",
+      included: true
+    }, {
+      text: "Full optimization",
+      included: true
+    }, {
+      text: "Bi-weekly reports",
+      included: true
+    }, {
+      text: "Link building",
+      included: true
+    }, {
+      text: "Google Maps ranking",
+      included: true
+    }, {
+      text: "Content optimization",
+      included: true
+    }],
     cta: "Get Started"
   }]
 }];
@@ -222,12 +285,20 @@ const Services = () => {
       {serviceCategories.map((category, categoryIndex) => <section key={category.id} id={category.id} className={`py-14 md:py-18 ${categoryIndex % 2 === 1 ? "bg-muted/30" : "bg-background"}`}>
           <div className="container mx-auto px-4">
             {/* Category Header */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
                   <h2 className="section-title">
                     {category.title} <span className="text-primary">Packages</span>
                   </h2>
-                  <p className="font-body text-muted-foreground max-w-2xl text-sm">
+                  <p className="font-body max-w-2xl text-sm text-card-foreground">
                     {category.description}
                   </p>
                 </div>
@@ -240,7 +311,9 @@ const Services = () => {
               </motion.div>
 
             {/* Pricing Cards Grid */}
-            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto"}>
+            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+          once: true
+        }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto"}>
                 {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
                     <div className="px-6 pt-6">
                       <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
@@ -280,7 +353,15 @@ const Services = () => {
       {/* Bottom CTA Section */}
       <section className="pt-14 pb-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
               Ready To <span className="text-primary">Get Started?</span>
             </h2>
