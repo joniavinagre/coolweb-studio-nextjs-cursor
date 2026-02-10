@@ -52,12 +52,7 @@ const Hero = () => {
 
             {/* Trust indicators */}
             <div className="mt-4 md:mt-8 flex-wrap gap-6 text-primary-foreground/60 flex items-center justify-center lg:justify-start">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-navy" />)}
-                </div>
-               <span className="text-base font-display font-extrabold text-primary-foreground">50+ Happy Clients</span>
-              </div>
+              
               <div className="flex items-center gap-2">
                 <div className="flex gap-1">
                   {[1, 2, 3, 4, 5].map(i => <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -70,7 +65,16 @@ const Hero = () => {
           </motion.div>
 
           {/* Right - Device Mockups */}
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative flex justify-center lg:justify-end">
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} animate={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="relative flex justify-center lg:justify-end">
             <img src={heroImage} alt="Website design showcase on laptop and mobile" className="w-full max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
           </motion.div>
         </div>
