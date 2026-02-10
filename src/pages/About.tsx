@@ -216,7 +216,7 @@ const About = () => {
           <div className="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
             <div>
               <span className="topper block">Our Process</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-tight">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
                 How We <span className="text-primary">Work</span>
               </h2>
             </div>
