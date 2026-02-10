@@ -221,7 +221,7 @@ const About = () => {
               </h2>
             </div>
             <div className="flex items-end">
-              <p className="text-primary-foreground/70 font-body text-sm leading-relaxed">
+              <p className="font-body text-sm leading-relaxed text-primary-foreground">
                 We follow a proven four-step process to bring your vision to life. From initial discovery to launch and beyond, every step is designed for your success.
               </p>
             </div>
@@ -238,7 +238,7 @@ const About = () => {
                   <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-primary-foreground/70 font-body text-xs leading-relaxed">
+                  <p className="font-body text-xs leading-relaxed text-primary-foreground">
                     {step.description}
                   </p>
                 </div>
