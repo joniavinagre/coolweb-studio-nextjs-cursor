@@ -50,7 +50,7 @@ const Testimonials = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="topper block">
+        }} className="topper block leading-none md:leading-tight;">
             Testimonials
           </motion.span>
           <motion.h2 initial={{
