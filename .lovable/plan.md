@@ -1,31 +1,39 @@
 
+# Restructure Contact Page
 
-# Fix: White gap between wave SVG and footer on mobile
+## Overview
+Rebuild the Contact page with a clean 50/50 two-column layout: contact info on the left, contact form on the right. On mobile, the form appears first with contact info below. Remove the Calendly/consultation section entirely.
 
-## Root Cause
+## Layout Structure
 
-The wave container is positioned 60px above the footer (`-top-[60px]`), but the SVG inside uses `h-auto` with a 1440:120 viewBox. On narrow mobile screens, the SVG scales down proportionally -- on a 390px screen it's only ~32px tall, not 60px. This leaves a visible white gap between the bottom of the SVG and the top of the footer's navy background.
+**Desktop (lg and up):**
+- Left column: "Get In Touch" heading, subtitle, then contact info items stacked vertically (Email, Phone/WhatsApp, Areas Served, Business Hours)
+- Right column: "Send Us a Message" heading, form with Name, Email, Phone, Message fields, and submit button
 
-On desktop (1440px wide), the SVG renders at ~120px tall, so 60px is plenty and no gap appears.
+**Mobile:**
+- Form section first (appears on top)
+- Contact info section second (appears below)
+- Achieved using `order-2 lg:order-1` / `order-1 lg:order-2` classes
 
-## Solution
+## Content Changes
 
-Force the SVG to always fill the full 60px height of its container by adding a fixed height (`h-[60px]`) to the SVG element. Combined with `preserveAspectRatio="none"` (already set), this stretches the wave to always cover the full gap.
+1. **Remove**: "Book a Free Consultation" / Calendly section entirely
+2. **Remove**: Service dropdown from the form
+3. **Update contact info**:
+   - Email: `contact@coolwebstudio.com` (mailto link)
+   - Phone/WhatsApp: `+34 697 76 04 18` (tel link, label changed to "Phone / WhatsApp")
+   - Areas Served (replaces Location): "Spain, France, Portugal, United States" (uses Globe icon instead of MapPin)
+   - Business Hours: keep as-is
+4. **Simplify form fields**: Name, Email, Phone, Message only (remove service dropdown)
+5. **Remove `service` from formData state**
 
-## File change
+## Technical Details
 
-### `src/components/layout/Footer.tsx` (line 9)
-
-Change the SVG class from:
-
-```
-w-full h-auto
-```
-
-to:
-
-```
-w-full h-[60px]
-```
-
-This single change ensures the wave always fills the 60px gap on all screen sizes.
+### File: `src/pages/Contact.tsx`
+- Update `contactInfo` array with new data (email, phone, areas served, hours)
+- Remove `Calendar` import, add `Globe` from lucide-react
+- Remove `service` from form state
+- Restructure the grid: contact info column gets `order-2 lg:order-1`, form column gets `order-1 lg:order-2`
+- Remove the entire Calendly embed block (lines 195-221)
+- Contact info items displayed as a vertical stack (not 2x2 grid), each with icon, title, and content
+- Each contact info item styled as a card with icon box, similar to current but stacked vertically for a cleaner left-column look
