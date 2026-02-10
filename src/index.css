@@ -189,7 +189,7 @@
   
   /* Section title - large ALL CAPS heading */
   .section-title {
-    @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-foreground leading-tight;
+    @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-foreground leading-none md:leading-tight;
   }
   
    /* Fixed nav link size - prevents scaling with root font-size */
