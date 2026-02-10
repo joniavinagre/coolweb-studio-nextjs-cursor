@@ -67,7 +67,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-28 pb-12 gradient-hero relative overflow-hidden">
+      <section className="pt-28 pb-12 md:pb-20 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-30" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div

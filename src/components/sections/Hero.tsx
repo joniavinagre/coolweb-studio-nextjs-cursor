@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-deep-blue opacity-90" />
 
-      <div className="container mx-auto px-4 relative z-10 pt-28 pb-16">
+      <div className="container mx-auto px-4 relative z-10 pt-28 pb-16 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <motion.div initial={{

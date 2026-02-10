@@ -293,7 +293,7 @@ const PricingPreview = () => {
                   </span>
                   {tier.priceNote && (
                     <span
-                      className={`ml-1 text-sm ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                      className={`ml-1 text-xs ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}
                     >
                       {tier.priceNote}
                     </span>

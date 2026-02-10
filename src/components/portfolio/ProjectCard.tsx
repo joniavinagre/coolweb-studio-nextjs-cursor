@@ -8,16 +8,6 @@ interface ProjectCardProps {
   project: Project;
 }
 
-const categoryColors: Record<string, string> = {
-  "Health & Wellness": "bg-emerald-500/90",
-  "Healthcare": "bg-teal-500/90",
-  "Technology & Design": "bg-violet-500/90",
-  "Travel & Tourism": "bg-sky-500/90",
-  "Beauty & Wellness": "bg-pink-500/90",
-  "Publishing": "bg-amber-500/90",
-  "Education": "bg-indigo-500/90",
-  "Food & Beverage": "bg-orange-500/90",
-};
 
 const item = {
   hidden: { opacity: 0, y: 40 },
@@ -25,12 +15,10 @@ const item = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const categoryColor = categoryColors[project.category] || "bg-primary/90";
-
   return (
     <motion.article
       variants={item}
-      className="group bg-card rounded-2xl overflow-hidden transition-all duration-500 border border-border flex flex-col"
+      className="group bg-card rounded-xl overflow-hidden transition-all duration-500 border border-border flex flex-col"
     >
       {/* Image Section */}
       <Link to={`/portfolio/${project.slug}`} className="relative overflow-hidden aspect-[16/10] block">
@@ -43,13 +31,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         
-        {/* Category Badge */}
-        <span
-          className={`absolute top-4 left-4 px-4 py-1.5 rounded-full text-white text-xs font-semibold ${categoryColor}`}
-        >
-          {project.category}
-        </span>
-
         {/* Location */}
         <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white/90 text-xs">
           {project.location}

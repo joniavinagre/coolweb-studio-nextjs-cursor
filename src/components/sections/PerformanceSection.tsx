@@ -14,13 +14,13 @@ const benefits = [{
 }];
 const stats = [{
   value: "100%",
-  label: "Satisfaction Guaranteed"
+  label: "Satisfaction\nGuaranteed"
 }, {
   value: "100",
-  label: "Page Speed Scores"
+  label: "Page Speed\nScores"
 }, {
   value: "5/5",
-  label: "Google Reviews"
+  label: "Google\nReviews"
 }];
 const PerformanceSection = () => {
   return <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
@@ -29,7 +29,7 @@ const PerformanceSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Row - Topper/Headline Left, Stats Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8 items-center">
           {/* Left - Topper & Headline */}
           <motion.div initial={{
           opacity: 0,
@@ -62,10 +62,10 @@ const PerformanceSection = () => {
           delay: 0.1
         }} className="flex flex-wrap justify-start lg:justify-end gap-4 lg:gap-8">
             {stats.map(stat => <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-1">
+                <div className="text-5xl md:text-6xl font-display font-extrabold text-primary mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs uppercase tracking-wider text-primary-foreground font-display">
+                <div className="text-sm uppercase tracking-wider text-primary-foreground font-display font-extrabold whitespace-pre-line">
                   {stat.label}
                 </div>
               </div>)}
@@ -138,7 +138,7 @@ const PerformanceSection = () => {
           duration: 0.6,
           delay: 0.2
         }} className="relative">
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-xl">
+            <div className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-xl">
               {/* Header */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
