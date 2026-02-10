@@ -1,35 +1,21 @@
 
-# Plan: Add Portfolio-style CTA section to Services and Home pages
+# Fix: Visual gap between CTA wave and footer on mobile
 
-## Overview
+## Problem
 
-Replace the navy-background CTA sections on the Services page and Home page with the same light-background CTA pattern used on the Portfolio and About pages. This includes the `bg-muted/30` background, `section-title` headline, subtitle, navy button, and proper spacing so the footer's wave divider transitions smoothly.
+The footer has a navy wave SVG positioned at `absolute -top-[60px]`, which is meant to overlap into the section above it. However, the CTA sections only have `py-14` padding, which doesn't leave enough room on mobile for the wave to overlap seamlessly. This creates a visible gap/line between the CTA section and the footer.
 
-## Changes
+## Solution
 
-### 1. Services page (`src/pages/Services.tsx`)
+Two changes:
 
-**Lines 280-304**: Replace the current navy `bg-navy` CTA section with the Portfolio-style CTA:
-- `bg-muted/30` background
-- `section-title` headline: "Ready To **Get Started?**"
-- Subtitle: "Let's create something amazing together. Book a free consultation to discuss your project."
-- Navy button with `btn-swipe-navy` class
-- Button text: "Book Free Consultation"
+1. **Footer (`src/components/layout/Footer.tsx`)**: Add `mt-[60px]` to the footer element so the absolutely positioned wave at `-top-[60px]` doesn't create a gap. This ensures the wave visually sits flush against the previous section.
 
-### 2. Home page (`src/pages/Index.tsx`)
+2. **All CTA sections**: Add extra bottom padding (`pb-24`) to give the wave enough room to overlap without crowding the button. Update the class from `py-14` to `pt-14 pb-24` on the final CTA sections in:
+   - `src/pages/Index.tsx` (line 26)
+   - `src/pages/Services.tsx` (line 281)
+   - `src/pages/Portfolio.tsx` (line 99)
+   - `src/pages/About.tsx` (line 251)
+   - `src/pages/Contact.tsx` -- check if it has a similar CTA or if the footer directly follows
 
-**Line 22**: Replace `<CTASection />` with an inline Portfolio-style CTA section (same pattern as above):
-- `bg-muted/30` background
-- `section-title` headline: "Ready To Get The Site **You Always Wanted?**"
-- Subtitle: "Let's create something amazing together. Book a free consultation to discuss your project."
-- Navy button with `btn-swipe-navy`, text: "Get Started Today"
-
-Remove the `CTASection` import since it will no longer be used on the Home page.
-
-### 3. Optional cleanup: `src/components/sections/CTASection.tsx`
-
-Check if `CTASection` is still imported anywhere else. If not, it can be deleted. If it is still used elsewhere, leave it.
-
-## Result
-
-All four sub-pages (Home, Services, Portfolio, About) will end with a consistent light-background CTA section that flows naturally into the footer's navy wave divider.
+This ensures the wave transition looks seamless on all screen sizes.
