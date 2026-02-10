@@ -60,11 +60,11 @@ const WhyChooseUs = () => {
           duration: 0.6
         }} className="relative">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-              <img alt="Professional web developer" className="w-full h-full object-cover rounded-md" src="/lovable-uploads/808a47d0-052b-4c2d-9540-e195460ddd98.webp" />
+              <img alt="Professional web developer" className="w-full h-full object-cover rounded-md" src="/lovable-uploads/b475cf2f-227d-464a-9544-033b0aac2a35.webp" />
               {/* Floating Name Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                 <h3 className="text-foreground text-lg font-extrabold">Joni Vinagre</h3>
-                <p className="text-xs text-card-foreground">Owner, Web Development</p>
+                <p className="text-xs text-card-foreground">Owner, Web Designer & Development</p>
               </div>
             </div>
           </motion.div>
