@@ -117,7 +117,7 @@ const About = () => {
             duration: 0.6
           }}>
               <span className="topper block">Our Story</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-3">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight;">
                 Building Digital Success{" "}
                 <span className="text-primary">Since 2019</span>
               </h2>
