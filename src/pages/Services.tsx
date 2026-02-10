@@ -133,13 +133,17 @@ const serviceCategories: ServiceCategory[] = [{
   tiers: [{
     name: "Setup",
     price: "200€",
-    priceLabel: "one-time",
-    features: ["Complete profile setup", "Profile verification", "Business category optimization", "Photo and video uploads", "Basic optimization"]
+    priceNote: "one-time",
+    description: "Get your profile up and running professionally",
+    features: [{ text: "Complete profile setup", included: true }, { text: "Profile verification", included: true }, { text: "Business category optimization", included: true }, { text: "Photo and video uploads", included: true }, { text: "Basic optimization", included: true }],
+    cta: "Get Started"
   }, {
     name: "Management",
     price: "75€",
-    priceLabel: "per month",
-    features: ["Ongoing optimization", "Weekly posts", "Review responses", "Photo updates", "Monthly reports"]
+    priceNote: "/month",
+    description: "Ongoing management to keep your profile performing",
+    features: [{ text: "Ongoing optimization", included: true }, { text: "Weekly posts", included: true }, { text: "Review responses", included: true }, { text: "Photo updates", included: true }, { text: "Monthly reports", included: true }],
+    cta: "Get Started"
   }]
 }, {
   id: "local-seo",
@@ -149,13 +153,17 @@ const serviceCategories: ServiceCategory[] = [{
   tiers: [{
     name: "Basic",
     price: "400€",
-    priceLabel: "per month",
-    features: ["5 target keywords", "Basic optimization", "Monthly report", "Citation building", "NAP consistency audit"]
+    priceNote: "/month",
+    description: "Essential local SEO to get you on the map",
+    features: [{ text: "5 target keywords", included: true }, { text: "Basic optimization", included: true }, { text: "Monthly report", included: true }, { text: "Citation building", included: true }, { text: "NAP consistency audit", included: true }],
+    cta: "Get Started"
   }, {
     name: "Advanced",
     price: "800€",
-    priceLabel: "per month",
-    features: ["15+ target keywords", "Full optimization", "Bi-weekly reports", "Link building", "Google Maps ranking", "Content optimization"]
+    priceNote: "/month",
+    description: "Full-scale local SEO to dominate your market",
+    features: [{ text: "15+ target keywords", included: true }, { text: "Full optimization", included: true }, { text: "Bi-weekly reports", included: true }, { text: "Link building", included: true }, { text: "Google Maps ranking", included: true }, { text: "Content optimization", included: true }],
+    cta: "Get Started"
   }]
 }];
 const container = {
@@ -214,17 +222,8 @@ const Services = () => {
       {serviceCategories.map((category, categoryIndex) => <section key={category.id} id={category.id} className={`py-14 md:py-18 ${categoryIndex % 2 === 1 ? "bg-muted/30" : "bg-background"}`}>
           <div className="container mx-auto px-4">
             {/* Category Header */}
-            {category.id === "web-development" ? <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
-                  
                   <h2 className="section-title">
                     {category.title} <span className="text-primary">Packages</span>
                   </h2>
@@ -238,29 +237,11 @@ const Services = () => {
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
-              </motion.div> : <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} className="text-center mb-8">
-                
-                <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-3">
-                  {category.title}
-                </h2>
-                <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm">
-                  {category.description}
-                </p>
-              </motion.div>}
+              </motion.div>
 
             {/* Pricing Cards Grid */}
-            {category.id === "web-development" ? <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
-          once: true
-        }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
+            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "flex flex-col md:flex-row justify-center gap-6"}>
+                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"} ${category.tiers.length === 2 ? "w-full md:w-[calc(33.333%-0.5rem)]" : ""}`}>
                     <div className="px-6 pt-6">
                       <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
                         {tier.name}
@@ -270,13 +251,13 @@ const Services = () => {
                     <div className="p-6 flex flex-col flex-grow">
                       <ul className="space-y-2 mb-4 flex-grow">
                         {(tier.features as PricingFeature[]).map(feature => <li key={feature.text} className="flex items-start gap-2">
-                            {feature.included ? <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 text-primary`} /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
+                            {feature.included ? <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
                             <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>
                               {feature.text}
                             </span>
                           </li>)}
                       </ul>
-                      <div className="mb-4">
+                      <div className="mb-4 mt-auto">
                         <span className={`text-4xl md:text-5xl font-display font-extrabold ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
                           {tier.price}
                         </span>
@@ -292,35 +273,7 @@ const Services = () => {
                       </Button>
                     </div>
                   </motion.div>)}
-              </motion.div> : <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
-          once: true
-        }} className="grid grid-cols-1 gap-6 max-w-5xl mx-auto md:grid-cols-2">
-                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className="bg-card border border-border rounded-xl p-6 flex flex-col h-full">
-                    <h3 className="text-2xl font-bold text-foreground mb-4 uppercase tracking-wider">
-                      {tier.name}
-                    </h3>
-                    <ul className="space-y-3 mb-6 flex-grow">
-                      {(tier.features as string[]).map(feature => <li key={feature} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="font-body text-muted-foreground text-xs">{feature}</span>
-                        </li>)}
-                    </ul>
-                    <div className="mt-auto pt-4 border-t border-border">
-                      <div className="mb-3">
-                        <span className="text-4xl font-bold text-foreground">{tier.price}</span>
-                        {tier.priceLabel && <span className="text-base font-body text-muted-foreground ml-2">
-                            {tier.priceLabel}
-                          </span>}
-                      </div>
-                      <Button asChild className="w-full btn-swipe-card font-extrabold uppercase text-sm tracking-wider">
-                        <Link to="/contact">
-                          Get Started
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </motion.div>)}
-              </motion.div>}
+              </motion.div>
           </div>
         </section>)}
 
