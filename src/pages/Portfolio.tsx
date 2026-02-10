@@ -36,9 +36,7 @@ const Portfolio = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Projects We're <span className="text-primary">Proud Of</span>
             </h1>
-            <p className="text-primary-foreground/70 text-lg md:text-xl">
-              Explore our latest work and see how we've helped businesses establish their digital presence.
-            </p>
+            
           </motion.div>
         </div>
         
