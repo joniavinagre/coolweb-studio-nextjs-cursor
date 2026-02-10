@@ -1,28 +1,48 @@
 
 
-# Contact Page Visual Refinements
+# Replace Hero Mockup with Uploaded Image
+
+## Overview
+Replace the placeholder laptop/phone mockup in the Hero section with the uploaded `hero_image.webp`. The image will be visible on all screen sizes -- on desktop it stays in the right column, and on mobile/tablet it appears below the social proof indicators.
 
 ## Changes
 
-### 1. Form card with background differentiation
-Wrap the entire form column (heading + form) in a card-style container with a light gray background (`bg-muted/30` or similar), rounded corners of size xl, padding, and a subtle border -- matching the reference screenshot's elevated card look.
+### 1. Copy the uploaded image into `src/assets/`
+Copy `user-uploads://hero_image.webp` to `src/assets/hero_image.webp` so it can be imported as an ES6 module.
 
-### 2. Remove Business Hours
-Delete the Business Hours entry from the `contactInfo` array and remove the `Clock` import.
+### 2. Update `src/components/sections/Hero.tsx`
 
-### 3. Consolidate contact info into a single card
-Instead of rendering 3 separate cards (Email, Phone, Areas Served), group all three into one card. Each item will be a row inside the card with its icon and text, separated by dividers.
+**Import the image:**
+Add `import heroImage from "@/assets/hero_image.webp";` at the top.
 
-### 4. Reduce icon sizes
-Change the icon container from `w-11 h-11` to `w-8 h-8` and the icon itself from `w-5 h-5` to `w-3.5 h-3.5` (roughly half).
+**Replace the right-column mockup (lines 71-117):**
+Remove the entire device mockup block (laptop frame, phone frame, decorative blurs) and replace it with a simple `img` tag rendering `heroImage`.
+
+**Make it visible on all screens:**
+Change the container class from `hidden lg:block` to always visible. On mobile/tablet it will appear below the left content (naturally, since it's the second grid item in a `grid-cols-1 lg:grid-cols-2`).
+
+**Move it below social proof on mobile:**
+The current grid structure already places the right column after the left column on mobile (`grid-cols-1`). Since the social proof indicators are the last element in the left column, the image will naturally appear below them on mobile. No reordering needed.
+
+**Styling the image:**
+- Use `max-w-md lg:max-w-full mx-auto` to keep it reasonably sized on mobile
+- Add `drop-shadow-2xl` for a polished floating effect against the dark navy background
 
 ## Technical Details
 
-### File: `src/pages/Contact.tsx`
+### File: `src/components/sections/Hero.tsx`
 
-- **Remove** `Clock` from the lucide-react import
-- **Update `contactInfo`**: Remove the Business Hours object, keeping only Email, Phone/WhatsApp, and Areas Served (3 items)
-- **Form column** (lines 136-176): Wrap content in a container with classes like `bg-muted/30 rounded-2xl p-6 md:p-8 border border-border`; move the heading inside
-- **Contact info section** (lines 116-132): Replace the `.map()` rendering individual cards with a single card containing all 3 items as rows, separated by `border-b` dividers (last item has no divider)
-- **Icons**: Reduce icon box to `w-8 h-8 rounded-md` and icon to `w-3.5 h-3.5`
+- **Line 1-4**: Add `import heroImage from "@/assets/hero_image.webp";`
+- **Lines 71-117**: Replace the entire `motion.div` block containing the laptop/phone mockups with:
 
+```tsx
+<motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative flex justify-center lg:justify-end">
+  <img src={heroImage} alt="Website design showcase on laptop and mobile" className="max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
+</motion.div>
+```
+
+Key differences from the old block:
+- Removed `hidden lg:block` so it shows on all screens
+- Replaced all mockup HTML with a single `img` tag
+- `max-w-xs sm:max-w-sm lg:max-w-full` keeps the image compact on mobile, medium on tablet, full on desktop
+- `drop-shadow-2xl` gives a nice floating effect on the dark background
