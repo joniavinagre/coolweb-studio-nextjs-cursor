@@ -1,51 +1,62 @@
 
 
-# Fix Page Transitions, Button Hover Colors, and Mobile Menu Styling
+# Multi-Section Updates: Image, Icons, Content, and Portfolio Cards
 
-## 1. Snap-to-top on page navigation
+## 1. Replace image in "Why Choose Us" section and update name card
 
-**File: `src/App.tsx`**
+**File: `src/components/sections/WhyChooseUs.tsx`**
 
-Create a `ScrollToTop` component that listens to route changes via `useLocation` and scrolls to the top on every navigation. Place it inside `BrowserRouter`.
+- Replace the Unsplash stock photo URL with the uploaded selfie image (copy `user-uploads://503328122_18031425833664346_1030377851877931299_n..webp` to `src/assets/joni-vinagre.webp`)
+- Move the floating name card from `bottom-6` to `top-6`
+- Reduce vertical padding from `p-4` to `px-4 py-2`
+- Update text from "Owner, Web Developer" to "Founder, Web Developer"
+- Change outer container from `rounded-2xl` to `rounded-xl` (Medium radius)
+- Change inner name card from `rounded-xl` to `rounded-xl` (already correct)
+- Ensure image itself uses `rounded-xl` instead of `rounded-md`
 
-## 2. Remove purple hover from "About Us" button in hero
+## 2. Replace Zap icons with custom SVGs in Performance section
 
-**File: `src/components/sections/Hero.tsx` (line 48)**
+**File: `src/components/sections/PerformanceSection.tsx`**
 
-The "About Us" button uses `variant="outline"`, which applies `hover:bg-accent` (purple). Remove `variant="outline"` and keep the existing explicit classes (`bg-navy border-2 border-primary-foreground/40 text-primary-foreground ... btn-swipe-navy`). The `btn-swipe-navy` class already handles the light-blue swipe hover effect, so no purple should appear.
+- Copy the three SVG files to `public/icons/stat1.svg`, `public/icons/stat2.svg`, `public/icons/stat3.svg`
+- Update the SVG files to use `fill="white"` instead of `fill="#001f3f"`
+- Replace the Lucide `Zap` icon for each benefit with an `<img>` tag referencing the corresponding SVG
+- Benefit 1 ("Better load times...") uses stat1.svg (hourglass)
+- Benefit 2 ("Faster websites...") uses stat2.svg (star/trophy)
+- Benefit 3 ("Our sites load instantly...") uses stat3.svg (devices)
+- Size the SVG icons to match current `w-5 h-5` sizing
+- Remove the `Zap` import if no longer needed
 
-## 3. Remove purple hover from burger menu icon
+## 3. Update feature text in "Why Choose Us" section
 
-**File: `src/components/layout/Header.tsx` (line 106)**
+**File: `src/components/sections/WhyChooseUs.tsx`**
 
-The burger menu button uses `variant="ghost"`, which applies `hover:bg-accent` (purple). Replace `variant="ghost"` with an unstyled approach: remove the variant and add `hover:bg-primary/20` (light blue tint) instead.
+Replace three features in the `features` array:
 
-## 4. Make mobile menu more compact and close button visible
+| Original Title | New Title | New Description |
+|---|---|---|
+| "100% Secure" | "Mobile First Design" | "We build your site for mobile devices first, ensuring lean, optimized code with no bloated waste for a fast, responsive experience." |
+| "100 PageSpeed Scores" | "Optimized Page Speed" | "If your site takes more than 3 seconds to load you can lose up to 50% of your traffic. Our sites load in under 1 second." |
+| "Money Back Guarantee" | "Fully Responsive" | "Your website will fit all screen sizes -- mobile, tablet, and desktop -- so visitors see a beautiful site no matter the device." |
 
-**File: `src/components/layout/Header.tsx`**
+## 4. Portfolio card descriptions: remove line-clamp and ensure equal card heights
 
-- **Line 112**: Reduce `gap-8` to `gap-4` and `mt-8` to `mt-4` in the inner flex container
-- **Line 124**: Reduce nav link `gap-2` to `gap-1` and link padding `py-3` to `py-2`
-- **Line 142-144**: Reduce CTA button `mt-4` to `mt-2`
+**Files: `src/components/sections/PortfolioPreview.tsx` and `src/pages/Portfolio.tsx`**
 
-**File: `src/components/ui/sheet.tsx`**
+- Remove `line-clamp-2` from the description `<p>` tags in both files so descriptions are always fully visible
+- Add `flex flex-col` to the `motion.article` in PortfolioPreview (Portfolio.tsx already has it)
+- Add `flex-grow` to the description paragraph in PortfolioPreview (Portfolio.tsx already has it)
+- Add `mt-auto self-start` to the Button in PortfolioPreview to pin it to the bottom (matching Portfolio.tsx)
+- This flex pattern ensures all cards stretch to the same height within each grid row
 
-- Update the close button `X` icon: add `text-white` class so it's visible against the navy background. This applies globally but since the sheet is only used for the mobile menu, it's appropriate.
+### Technical Details
 
-Alternatively, pass a custom class in `Header.tsx` by using `SheetClose` or styling via CSS. The simplest approach: in `sheet.tsx`, the close button `X` currently has no explicit text color -- add a conditional or just ensure it inherits. Since the `SheetContent` in the Header has `bg-navy`, we should override the close button color directly in `Header.tsx` by adding a custom class to `SheetContent` and styling the close button via CSS.
-
-**Simpler approach**: In `sheet.tsx` line 64, the close button has `opacity-70`. Add `text-primary-foreground` won't work universally. Instead, in `Header.tsx`, after `SheetContent`, we can style the close button by targeting it. The cleanest fix: update the `SheetContent` in `Header.tsx` to include a class that makes the X white, or override in `index.css`.
-
-**Chosen approach**: Add a `[&>button]:text-white` utility class to the `SheetContent` in `Header.tsx` (line 111) to make the close button white.
-
-## Technical Summary
-
-| File | Change |
-|------|--------|
-| `src/App.tsx` | Add `ScrollToTop` component inside `BrowserRouter` |
-| `src/components/sections/Hero.tsx` line 48 | Remove `variant="outline"` from About Us button |
-| `src/components/layout/Header.tsx` line 106 | Replace `variant="ghost"` with `variant="ghost"` + override: `hover:bg-primary/20 hover:text-primary` |
-| `src/components/layout/Header.tsx` line 111 | Add `[&>button]:text-white` to SheetContent className |
-| `src/components/layout/Header.tsx` line 112 | `gap-8 mt-8` to `gap-4 mt-4` |
-| `src/components/layout/Header.tsx` line 124 | `gap-2` to `gap-1`, link `py-3` to `py-2` |
-| `src/components/layout/Header.tsx` line 142-144 | `mt-4` to `mt-2` on CTA button |
+**Files modified:**
+- `src/assets/joni-vinagre.webp` (new file, copied from upload)
+- `public/icons/stat1.svg` (new file, white-colored SVG)
+- `public/icons/stat2.svg` (new file, white-colored SVG)
+- `public/icons/stat3.svg` (new file, white-colored SVG)
+- `src/components/sections/WhyChooseUs.tsx` (image source, name card position/text, feature content, border radius)
+- `src/components/sections/PerformanceSection.tsx` (replace Zap icons with custom SVG images)
+- `src/components/sections/PortfolioPreview.tsx` (remove line-clamp, add flex layout for equal heights)
+- `src/pages/Portfolio.tsx` (remove line-clamp)
