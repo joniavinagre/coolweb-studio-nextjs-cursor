@@ -71,7 +71,7 @@ const Hero = () => {
 
           {/* Right - Device Mockups */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative flex justify-center lg:justify-end">
-            <img src={heroImage} alt="Website design showcase on laptop and mobile" className="max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
+            <img src={heroImage} alt="Website design showcase on laptop and mobile" className="w-full max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
