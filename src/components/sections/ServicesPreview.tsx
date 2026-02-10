@@ -55,7 +55,7 @@ const ServicesPreview = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="topper block">
+        }} className="topper block leading-none md:leading-tight;">
             What We Do
           </motion.span>
           <motion.h2 initial={{
