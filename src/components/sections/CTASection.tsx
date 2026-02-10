@@ -24,9 +24,7 @@ const CTASection = () => {
           </h2>
 
           {/* Description */}
-         <p className="font-body max-w-2xl mx-auto mb-6 text-base text-primary-foreground">
-            Schedule a free consultation call and let's discuss how we can help you achieve your online goals. No obligation, just valuable insights.
-          </p>
+         
 
           {/* CTA Button */}
           <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-10 btn-swipe-primary">
