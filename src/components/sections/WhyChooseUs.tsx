@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
               <img alt="Professional web developer" className="w-full h-full object-cover rounded-md" src="/lovable-uploads/b475cf2f-227d-464a-9544-033b0aac2a35.webp" />
               {/* Floating Name Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
+              <div className="absolute top-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-border">
                 <h3 className="text-foreground text-lg font-extrabold">Joni Vinagre</h3>
                 <p className="text-xs text-card-foreground">Owner, Web Designer & Development</p>
               </div>
