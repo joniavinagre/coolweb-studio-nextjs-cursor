@@ -99,7 +99,7 @@ const About = () => {
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=750&fit=crop" alt="COOLWEB Studio team collaborating" className="w-full h-full object-cover rounded-md" />
                 <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                   <h3 className="font-bold text-foreground text-lg">COOLWEB Studio</h3>
-                  <p className="text-muted-foreground text-sm">Crafting Digital Success Since 2019</p>
+                  <p className="text-muted-foreground text-xs">Crafting Digital Success Since 2019</p>
                 </div>
               </div>
             </motion.div>
@@ -187,16 +187,16 @@ const About = () => {
 
             {/* Right Column - Image */}
             <motion.div initial={{
-              opacity: 0,
-              x: 30
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="relative">
+            opacity: 0,
+            x: 30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="relative">
               <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=750&fit=crop" alt="Digital analytics workspace" className="w-full h-full object-cover rounded-md" />
                 <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
@@ -250,23 +250,22 @@ const About = () => {
       {/* CTA Section */}
       <section className="pt-14 pb-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
               Ready To Work <span className="text-primary">With Us?</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
               Let's create something amazing together. Book a free consultation to discuss your project.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy"
-            >
+            <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
               <Link to="/contact">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />
