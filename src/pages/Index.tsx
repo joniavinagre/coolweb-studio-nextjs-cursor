@@ -23,7 +23,7 @@ const Index = () => {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-14 bg-muted/30">
+      <section className="pt-14 pb-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
