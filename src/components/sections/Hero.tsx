@@ -27,7 +27,7 @@ const Hero = () => {
            <span className="topper block">CUSTOM DESIGNS, MADE JUST FOR YOU</span>
 
             {/* Main Headline */}
-           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight mb-1 md:mb-4 font-extrabold lg:text-6xl">
+           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight; mb-1 md:mb-4 font-extrabold lg:text-6xl">
               Small Business{" "}
               <span className="text-primary">Web Designer</span>
             </h1>
