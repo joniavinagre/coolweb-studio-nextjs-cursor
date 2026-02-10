@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import heroImage from "@/assets/hero_image.webp";
 const Hero = () => {
   return <section className="relative flex items-center overflow-hidden bg-navy">
       {/* Background pattern */}
@@ -69,51 +70,8 @@ const Hero = () => {
           </motion.div>
 
           {/* Right - Device Mockups */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 30
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="relative hidden lg:block">
-            {/* Laptop mockup */}
-            <div className="relative">
-              <div className="bg-slate-800 rounded-t-xl p-2">
-                <div className="flex gap-1.5 mb-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                </div>
-                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg aspect-[16/10] flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl gradient-primary flex items-center justify-center">
-                      <span className="text-primary-foreground font-bold text-2xl">C</span>
-                    </div>
-                    <p className="text-primary-foreground/60 text-sm">Your Website Preview</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-slate-700 h-4 rounded-b-lg" />
-              <div className="bg-slate-600 h-2 w-1/2 mx-auto rounded-b-lg" />
-            </div>
-
-            {/* Phone mockup */}
-            <div className="absolute -bottom-8 -left-8 w-32">
-              <div className="bg-slate-800 rounded-2xl p-1.5">
-                <div className="bg-gradient-to-br from-secondary/30 to-primary/30 rounded-xl aspect-[9/16] flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-sm">C</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -top-8 -right-8 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 right-12 w-16 h-16 bg-secondary/20 rounded-full blur-xl" />
+          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative flex justify-center lg:justify-end">
+            <img src={heroImage} alt="Website design showcase on laptop and mobile" className="max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
