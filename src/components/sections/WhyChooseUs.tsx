@@ -63,8 +63,8 @@ const WhyChooseUs = () => {
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop" alt="Professional web developer" className="w-full h-full object-cover rounded-md" />
               {/* Floating Name Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
-                <h3 className="font-bold text-foreground text-lg">COOLWEB Studio</h3>
-                <p className="text-muted-foreground text-sm">Web Design & Development</p>
+                <h3 className="text-foreground text-lg font-extrabold">Joni Vinagre</h3>
+                <p className="text-muted-foreground text-sm">Owner, Web Designer & Development</p>
               </div>
             </div>
           </motion.div>
