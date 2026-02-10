@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, Globe, Clock, Send } from "lucide-react";
+import { Mail, Phone, Globe, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,11 +21,6 @@ const contactInfo = [{
   icon: Globe,
   title: "Areas Served",
   content: "Spain, France, Portugal, United States",
-  href: null
-}, {
-  icon: Clock,
-  title: "Business Hours",
-  content: "Mon - Fri: 9am - 6pm",
   href: null
 }];
 const Contact = () => {
@@ -113,10 +108,10 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="space-y-4">
-                {contactInfo.map(info => <div key={info.title} className="bg-card rounded-xl p-4 border border-border flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-white" />
+              <div className="bg-card rounded-xl border border-border overflow-hidden">
+                {contactInfo.map((info, index) => <div key={info.title} className={`p-4 flex items-start gap-4 ${index < contactInfo.length - 1 ? 'border-b border-border' : ''}`}>
+                    <div className="w-8 h-8 rounded-md bg-navy flex items-center justify-center flex-shrink-0">
+                      <info.icon className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground text-base uppercase tracking-wide">
@@ -142,6 +137,7 @@ const Contact = () => {
           }} viewport={{
             once: true
           }} className="order-1 lg:order-2">
+              <div className="bg-muted/30 rounded-xl p-6 md:p-8 border border-border">
               <h2 className="text-3xl font-extrabold text-foreground mb-4 uppercase tracking-wide md:text-4xl">
                 Send Us a Message
               </h2>
@@ -173,6 +169,7 @@ const Contact = () => {
                     </>}
                 </Button>
               </form>
+              </div>
             </motion.div>
           </div>
         </div>
