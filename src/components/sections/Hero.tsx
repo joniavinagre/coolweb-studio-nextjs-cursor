@@ -11,8 +11,8 @@ const Hero = () => {
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-deep-blue opacity-90" />
 
-      <div className="container mx-auto px-4 relative z-10 pt-28 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="container mx-auto px-4 relative z-10 pt-24 pb-10 md:pt-28 md:pb-16 lg:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
           {/* Left Content */}
           <motion.div initial={{
           opacity: 0,
@@ -27,18 +27,18 @@ const Hero = () => {
            <span className="topper block">CUSTOM DESIGNS, MADE JUST FOR YOU</span>
 
             {/* Main Headline */}
-           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-tight mb-4 font-extrabold lg:text-6xl">
+           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight mb-1 md:mb-4 font-extrabold lg:text-6xl">
               Small Business{" "}
               <span className="text-primary">Web Designer</span>
             </h1>
 
             {/* Description */}
-           <p className="font-body leading-relaxed mb-6 max-w-lg md:text-base text-primary-foreground text-base">
+           <p className="font-body leading-relaxed mb-3 md:mb-6 max-w-lg text-xs md:text-base text-primary-foreground">
               Expert web development, Google Business Profile optimization, and Local SEO services to help your business stand out and attract more customers.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
               <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-primary">
                 <Link to="/contact">
                   Get Started
@@ -51,7 +51,7 @@ const Hero = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-8 flex-wrap gap-6 text-primary-foreground/60 flex items-center justify-start">
+            <div className="mt-4 md:mt-8 flex-wrap gap-6 text-primary-foreground/60 flex items-center justify-center lg:justify-start">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-navy" />)}
