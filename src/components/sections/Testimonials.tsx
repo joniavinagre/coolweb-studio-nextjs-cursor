@@ -65,7 +65,7 @@ const Testimonials = () => {
           delay: 0.1
         }} className="section-title mb-4">
             Trusted Web Designer{" "}
-            <span className="text-primary">Across The Country</span>
+            <span className="text-primary">Across Industries   </span>
           </motion.h2>
         </div>
 
