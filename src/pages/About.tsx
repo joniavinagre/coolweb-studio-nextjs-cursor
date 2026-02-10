@@ -4,75 +4,70 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CTASection from "@/components/sections/CTASection";
 import { motion } from "framer-motion";
-
-const values = [
-  {
-    title: "Results-Driven",
-    description: "We focus on delivering measurable outcomes, not just pretty designs.",
-  },
-  {
-    title: "Client-Focused",
-    description: "Your success is our priority. We listen, adapt, and deliver.",
-  },
-  {
-    title: "Innovation",
-    description: "We stay ahead with the latest technologies and best practices.",
-  },
-  {
-    title: "Passion",
-    description: "We love what we do, and it shows in every project we deliver.",
-  },
-];
-
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Discovery",
-    description: "We learn about your business, goals, and target audience to create a tailored strategy.",
-  },
-  {
-    step: "02",
-    title: "Strategy",
-    description: "We develop a comprehensive plan that aligns with your objectives and budget.",
-  },
-  {
-    step: "03",
-    title: "Design & Build",
-    description: "Our team brings your vision to life with stunning designs and clean code.",
-  },
-  {
-    step: "04",
-    title: "Launch & Support",
-    description: "We launch your project and provide ongoing support to ensure success.",
-  },
-];
-
+const values = [{
+  title: "Results-Driven",
+  description: "We focus on delivering measurable outcomes, not just pretty designs."
+}, {
+  title: "Client-Focused",
+  description: "Your success is our priority. We listen, adapt, and deliver."
+}, {
+  title: "Innovation",
+  description: "We stay ahead with the latest technologies and best practices."
+}, {
+  title: "Passion",
+  description: "We love what we do, and it shows in every project we deliver."
+}];
+const processSteps = [{
+  step: "01",
+  title: "Discovery",
+  description: "We learn about your business, goals, and target audience to create a tailored strategy."
+}, {
+  step: "02",
+  title: "Strategy",
+  description: "We develop a comprehensive plan that aligns with your objectives and budget."
+}, {
+  step: "03",
+  title: "Design & Build",
+  description: "Our team brings your vision to life with stunning designs and clean code."
+}, {
+  step: "04",
+  title: "Launch & Support",
+  description: "We launch your project and provide ongoing support to ensure success."
+}];
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0
+  },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
-
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  show: {
+    opacity: 1,
+    y: 0
+  }
 };
-
 const About = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               We're <br className="md:hidden" /><span className="text-primary">COOLWEB Studio</span>
             </h1>
@@ -90,19 +85,19 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=750&fit=crop"
-                  alt="COOLWEB Studio team collaborating"
-                  className="w-full h-full object-cover rounded-md"
-                />
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=750&fit=crop" alt="COOLWEB Studio team collaborating" className="w-full h-full object-cover rounded-md" />
                 <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                   <h3 className="font-bold text-foreground text-lg">COOLWEB Studio</h3>
                   <p className="text-muted-foreground text-sm">Crafting Digital Success Since 2019</p>
@@ -111,12 +106,17 @@ const About = () => {
             </motion.div>
 
             {/* Right Column - Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }}>
               <span className="topper block">Our Story</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-3">
                 Building Digital Success{" "}
@@ -143,12 +143,17 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Features */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }}>
               <span className="topper block">Why Us</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-3">
                 What <span className="text-primary">Drives Us</span>
@@ -157,15 +162,10 @@ const About = () => {
                 We're not just another web agency. We're your dedicated digital partner committed to your growth and success.
               </p>
 
-              <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"
-              >
-                {values.map((value) => (
-                  <motion.div key={value.title} variants={item} className="flex items-start gap-2">
+              <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+              once: true
+            }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {values.map(value => <motion.div key={value.title} variants={item} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">
@@ -175,8 +175,7 @@ const About = () => {
                         {value.description}
                       </p>
                     </div>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </motion.div>
 
               <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
@@ -202,17 +201,14 @@ const About = () => {
             </h2>
           </div>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {processSteps.map((step) => (
-              <motion.div key={step.step} variants={item}>
-                <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/10 rounded-xl p-6 h-full">
-                  <div className="text-5xl font-extrabold text-primary mb-2" style={{ fontFamily: "'Fairweather', system-ui, sans-serif" }}>{step.step}</div>
+          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+          once: true
+        }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map(step => <motion.div key={step.step} variants={item}>
+                <div className="backdrop-blur-sm border-primary-foreground/10 rounded-xl p-6 h-full bg-transparent border-0">
+                  <div className="text-5xl font-extrabold text-primary mb-2" style={{
+                fontFamily: "'Fairweather', system-ui, sans-serif"
+              }}>{step.step}</div>
                   <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">
                     {step.title}
                   </h3>
@@ -220,16 +216,13 @@ const About = () => {
                     {step.description}
                   </p>
                 </div>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <CTASection />
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default About;
