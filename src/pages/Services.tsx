@@ -249,9 +249,7 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-8">
-                <div className="w-16 h-16 rounded-xl bg-navy flex items-center justify-center mx-auto mb-4">
-                  <category.icon className="w-8 h-8 text-white" />
-                </div>
+                
                 <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-3">
                   {category.title}
                 </h2>
