@@ -111,9 +111,7 @@ const Services = () => {
               Pricing Packages For{" "}
               <span className="text-primary">Every Budget</span>
             </h1>
-            <p className="font-body text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto mb-6">
-              Transparent pricing with no hidden fees. Choose the plan that fits your business needs.
-            </p>
+            
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
               <Link to="/contact">
                 Get Started
