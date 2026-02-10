@@ -1,6 +1,14 @@
 import portfolioGaston from "@/assets/portfolio-gaston.webp";
 import portfolio4dhues from "@/assets/portfolio-4dhues.webp";
 import portfolioBriet from "@/assets/portfolio-briet.webp";
+import portfolioTropical from "@/assets/portfolio-tropical.webp";
+import portfolioNails from "@/assets/portfolio-nails.webp";
+import portfolioQuiver from "@/assets/portfolio-quiver.webp";
+import portfolioOngles from "@/assets/portfolio-ongles.webp";
+import portfolioCoffee from "@/assets/portfolio-coffee.png";
+import portfolioTailang from "@/assets/portfolio-tailang.webp";
+import portfolioRaiz from "@/assets/portfolio-raiz.webp";
+import portfolioChico from "@/assets/portfolio-chico.webp";
 import type { LucideIcon } from "lucide-react";
 import { 
   Briefcase, 
@@ -241,7 +249,7 @@ export const projects: Project[] = [
     slug: "tropical-travel-agency",
     category: "Travel & Tourism",
     location: "Alicante / Murcia / Valencia, Spain",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=500&fit=crop",
+    image: portfolioTropical,
     description: "Travel agency offering organized tours, experiences, and routes throughout Spain and international destinations like Morocco and Portugal.",
     website: "https://tropicaltravel.coolwebstudio.com/",
     tagline: "Dynamic travel agency website showcasing tours across Spain and beyond",
@@ -293,7 +301,7 @@ export const projects: Project[] = [
     slug: "nails-by-anabela",
     category: "Beauty & Wellness",
     location: "Marseille, France",
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop",
+    image: portfolioNails,
     description: "Personalized nail care services including builder gel, nail art, and French manicures in a calm, one-on-one environment.",
     website: "https://nailsbbeauty.netlify.app/",
     tagline: "Elegant personal branding website for a nail artist in Marseille",
@@ -345,7 +353,7 @@ export const projects: Project[] = [
     slug: "quiver-and-quill",
     category: "Publishing",
     location: "Online",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
+    image: portfolioQuiver,
     description: "Fantasy book launch platform for 'Quiver & Quill' by Savanah Weakly, featuring world-building, characters, and pre-order functionality.",
     website: "http://quiverandquill.coolwebstudio.com/",
     tagline: "Fantasy book launch platform bringing a new literary world to life",
@@ -397,7 +405,7 @@ export const projects: Project[] = [
     slug: "ongles-fantaisies",
     category: "Beauty & Wellness",
     location: "Marseille, France",
-    image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=500&fit=crop",
+    image: portfolioOngles,
     description: "Nail salon offering beauty services including skin care and makeup in the heart of Marseille.",
     website: "https://onglesfantaisies.lovable.app/",
     tagline: "A modern, elegant website for a premium nail salon offering comprehensive beauty services",
@@ -501,7 +509,7 @@ export const projects: Project[] = [
     slug: "coffee-and-bakery-marseille",
     category: "Food & Beverage",
     location: "Marseille, France",
-    image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=500&fit=crop",
+    image: portfolioCoffee,
     description: "Vintage coffee shop with a cozy atmosphere, serving homemade hot drinks and meals.",
     website: "https://coffeebakerymarseille.lovable.app/",
     tagline: "Vintage-inspired website for a cozy coffee shop in Marseille",
@@ -545,6 +553,114 @@ export const projects: Project[] = [
       quote: "The vintage aesthetic they created matches our cozy atmosphere perfectly. Customer engagement has never been better!",
       author: "Vanessa",
       role: "Owner",
+    },
+  },
+  {
+    id: 10,
+    title: "Tailang Ramen Restaurant",
+    slug: "tailang-ramen-restaurant",
+    category: "Food & Beverage",
+    location: "Online",
+    image: portfolioTailang,
+    description: "Authentic ramen restaurant website showcasing traditional Japanese cuisine with a modern twist.",
+    website: "https://tailang.coolwebstudio.com/",
+    tagline: "Modern website for an authentic ramen restaurant",
+    services: ["Restaurant", "Japanese Cuisine", "Ramen"],
+    aboutProject: "Tailang Ramen Restaurant needed a website that captures the essence of authentic Japanese ramen culture while presenting a modern dining experience.",
+    challenges: [
+      "Convey authentic Japanese culinary tradition",
+      "Showcase the menu in an appetizing way",
+      "Create an immersive dining atmosphere online",
+      "Drive reservations and foot traffic"
+    ],
+    solutions: [
+      "Rich visual design with Japanese-inspired aesthetics",
+      "Appetizing menu presentation with photography",
+      "Atmospheric design reflecting the restaurant ambiance",
+      "Easy reservation and location information"
+    ],
+    features: [
+      { icon: UtensilsCrossed, title: "Menu Showcase", description: "Detailed ramen menu with appetizing photography" },
+      { icon: MapPinIcon, title: "Location", description: "Easy-to-find restaurant location with directions" },
+      { icon: Camera, title: "Atmosphere", description: "Photos capturing the restaurant's authentic ambiance" },
+      { icon: Store, title: "Branding", description: "Cohesive Japanese-inspired brand identity" }
+    ],
+    testimonial: {
+      quote: "The website perfectly captures our restaurant's authentic atmosphere and has increased our online visibility.",
+      author: "Tailang Team",
+      role: "Restaurant Owners",
+    },
+  },
+  {
+    id: 11,
+    title: "Raiz de Salud",
+    slug: "raiz-de-salud",
+    category: "Health & Wellness",
+    location: "Online",
+    image: portfolioRaiz,
+    description: "Massage therapy and rehabilitation center offering holistic wellness treatments and personalized care.",
+    website: "https://test-preview-raizdesalud.lovable.app/",
+    tagline: "Holistic wellness and rehabilitation platform",
+    services: ["Massage Therapy", "Rehabilitation", "Wellness"],
+    aboutProject: "Raiz de Salud provides massage therapy and rehabilitation services focused on holistic wellness. They needed a calming, professional website to attract clients.",
+    challenges: [
+      "Convey holistic wellness philosophy",
+      "Showcase diverse treatment options",
+      "Build trust with potential clients",
+      "Enable easy appointment scheduling"
+    ],
+    solutions: [
+      "Calming design reflecting wellness and healing",
+      "Clear service descriptions with treatment details",
+      "Professional credentials and testimonials",
+      "Streamlined contact and booking process"
+    ],
+    features: [
+      { icon: Heart, title: "Treatments", description: "Comprehensive overview of massage and rehabilitation services" },
+      { icon: Shield, title: "Credentials", description: "Professional qualifications and experience showcase" },
+      { icon: Calendar, title: "Booking", description: "Easy appointment scheduling system" },
+      { icon: User, title: "Personal Care", description: "Personalized treatment approach highlighted" }
+    ],
+    testimonial: {
+      quote: "Our website now reflects the care and professionalism we bring to every treatment session.",
+      author: "Raiz de Salud Team",
+      role: "Wellness Center",
+    },
+  },
+  {
+    id: 12,
+    title: "Chico Diez Barber Club",
+    slug: "chico-diez-barber-club",
+    category: "Beauty & Wellness",
+    location: "Spain",
+    image: portfolioChico,
+    description: "Premium barber club offering professional grooming services with a classic, masculine aesthetic.",
+    website: "https://chicodiezbarberclub.coolwebstudio.com/",
+    tagline: "Premium barber club website with classic masculine branding",
+    services: ["Barbering", "Grooming", "Men's Styling"],
+    aboutProject: "Chico Diez Barber Club is a premium barbershop that needed a website matching their classic, masculine brand identity while making it easy for clients to book appointments.",
+    challenges: [
+      "Create a strong masculine brand presence online",
+      "Showcase grooming services professionally",
+      "Enable easy appointment booking",
+      "Stand out in competitive barbershop market"
+    ],
+    solutions: [
+      "Bold, masculine design with premium aesthetics",
+      "Service showcase with professional photography",
+      "Integrated booking system",
+      "Strong brand identity throughout the site"
+    ],
+    features: [
+      { icon: Briefcase, title: "Services", description: "Complete grooming service portfolio" },
+      { icon: Calendar, title: "Booking", description: "Seamless appointment scheduling" },
+      { icon: Camera, title: "Gallery", description: "Professional barbering work showcase" },
+      { icon: Store, title: "Branding", description: "Premium masculine brand identity" }
+    ],
+    testimonial: {
+      quote: "The website captures our barber club's premium vibe perfectly. Bookings have gone through the roof!",
+      author: "Chico Diez Team",
+      role: "Barber Club Owners",
     },
   },
 ];
