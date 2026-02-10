@@ -80,7 +80,7 @@ const PortfolioPreview = () => {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
         once: true
       }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {previewProjects.map(project => <motion.article key={project.id} variants={item} className="group">
+          {previewProjects.map(project => <motion.article key={project.id} variants={item} className="group flex flex-col">
               {/* Portfolio Image */}
               <a href={project.website} target="_blank" rel="noopener noreferrer" className="relative mb-4 block cursor-pointer">
                 <div className="rounded-xl overflow-hidden aspect-[16/10]">
@@ -92,12 +92,12 @@ const PortfolioPreview = () => {
               <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                 {project.title}
               </h3>
-              <p className="mb-3 line-clamp-2 leading-relaxed text-xs text-popover-foreground">
+              <p className="mb-3 leading-relaxed text-xs text-popover-foreground flex-grow">
                 {project.description}
               </p>
 
               {/* Visit Website Button */}
-              <Button asChild className="btn-swipe-card font-semibold uppercase text-sm tracking-wider">
+              <Button asChild className="btn-swipe-card font-semibold uppercase text-sm tracking-wider mt-auto self-start">
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
                   Visit Website
                   
