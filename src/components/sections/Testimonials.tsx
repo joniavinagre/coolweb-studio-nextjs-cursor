@@ -85,7 +85,7 @@ const Testimonials = () => {
               {/* Author */}
               <div className="border-t border-border pt-3">
                <h4 className="font-bold text-foreground text-lg">{testimonial.name}</h4>
-               <p className="font-body text-muted-foreground text-xs">{testimonial.location}</p>
+               <p className="font-body text-xs text-card-foreground">{testimonial.location}</p>
               </div>
             </motion.div>)}
         </motion.div>
