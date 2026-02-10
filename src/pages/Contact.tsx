@@ -85,9 +85,7 @@ const Contact = () => {
            <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Let's Start Your <span className="text-primary">Project</span>
             </h1>
-           <p className="text-primary-foreground/70 text-xl md:text-2xl">
-              Ready to take your business to the next level? Get in touch and let's discuss your goals.
-            </p>
+           
           </motion.div>
         </div>
         
