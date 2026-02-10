@@ -99,7 +99,7 @@ const About = () => {
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=750&fit=crop" alt="COOLWEB Studio team collaborating" className="w-full h-full object-cover rounded-md" />
                 <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                   <h3 className="font-bold text-foreground text-lg">COOLWEB Studio</h3>
-                  <p className="text-muted-foreground text-xs">Crafting Digital Success Since 2019</p>
+                  <p className="text-xs text-card-foreground">Crafting Digital Success Since 2019</p>
                 </div>
               </div>
             </motion.div>
