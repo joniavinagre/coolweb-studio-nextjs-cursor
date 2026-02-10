@@ -365,9 +365,7 @@ const Services = () => {
             <h2 className="section-title mb-4">
               Ready To <span className="text-primary">Get Started?</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-6">
-              Let's create something amazing together. Book a free consultation to discuss your project.
-            </p>
+            
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
               <Link to="/contact">
                 Book Free Consultation
