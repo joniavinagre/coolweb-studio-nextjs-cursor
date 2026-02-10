@@ -62,10 +62,17 @@ const PortfolioPreview = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="lg:pl-12 flex items-center">
-            <p className="font-body leading-relaxed text-sm text-popover-foreground">
+        }} className="lg:pl-12 flex flex-col justify-center">
+            <p className="font-body leading-relaxed text-sm text-popover-foreground mb-6">
               We have worked with clients all over the world, from small local businesses to international brands. Each project is crafted with attention to detail and a focus on results. Take a look at some of our recent work.
             </p>
+            <div>
+              <Button asChild size="lg" className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy">
+                <Link to="/portfolio">
+                  View All Projects
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
 
@@ -109,23 +116,6 @@ const PortfolioPreview = () => {
             </motion.article>)}
         </motion.div>
 
-        {/* View All Link */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} className="text-center mt-10">
-          <Button asChild size="lg" className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-            <Link to="/portfolio">
-              View All Projects
-              
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>;
 };

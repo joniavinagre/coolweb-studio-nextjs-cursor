@@ -1,3 +1,6 @@
+import portfolioGaston from "@/assets/portfolio-gaston.webp";
+import portfolio4dhues from "@/assets/portfolio-4dhues.webp";
+import portfolioBriet from "@/assets/portfolio-briet.webp";
 import type { LucideIcon } from "lucide-react";
 import { 
   Briefcase, 
@@ -82,7 +85,7 @@ export const projects: Project[] = [
     slug: "masajes-gaston-molina",
     category: "Health & Wellness",
     location: "Alicante, Spain",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=500&fit=crop",
+    image: portfolioGaston,
     description: "Chiromassage and sports massage specialist with 14+ years of experience, offering therapeutic treatments for muscle pain, cervical issues, and postural problems.",
     website: "https://masajesgaston.com/",
     tagline: "Professional massage therapy website for a specialist with 14+ years of experience",
@@ -134,7 +137,7 @@ export const projects: Project[] = [
     slug: "4dhues-led-panels",
     category: "Technology & Design",
     location: "Online / International",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
+    image: portfolio4dhues,
     description: "Handcrafted LED art panels with app-controlled RGB lighting for gaming rooms, studios, and creative spaces.",
     website: "https://4dhues.coolwebstudio.com/",
     tagline: "E-commerce platform for handcrafted LED art panels with futuristic aesthetic",
@@ -186,7 +189,7 @@ export const projects: Project[] = [
     slug: "centro-clinico-vicente-briet",
     category: "Healthcare",
     location: "Alicante, Spain",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop",
+    image: portfolioBriet,
     description: "Expert psychologist and sexologist with 35+ years of experience, offering specialized therapy for individuals and couples.",
     website: "https://test-preview-vicentebriet.lovable.app/",
     tagline: "Professional healthcare website for an expert psychologist and sexologist",
