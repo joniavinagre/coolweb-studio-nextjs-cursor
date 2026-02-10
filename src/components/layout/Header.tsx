@@ -103,13 +103,13 @@ const Header = () => {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="text-foreground">
+              <Button variant="ghost" size="icon" className="text-foreground hover:bg-primary/20 hover:text-primary">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-navy border-none">
-              <div className="flex flex-col gap-8 mt-8">
+            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-navy border-none [&>button]:text-white">
+              <div className="flex flex-col gap-4 mt-4">
                 <Link
                   to="/"
                   className="flex items-center gap-2"
@@ -121,14 +121,14 @@ const Header = () => {
                   </span>
                 </Link>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       to={link.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "nav-link-fixed font-bold uppercase tracking-wider py-3 px-4 rounded-lg transition-colors",
+                        "nav-link-fixed font-bold uppercase tracking-wider py-2 px-4 rounded-lg transition-colors",
                         isActive(link.href)
                           ? "bg-primary/20 text-primary"
                           : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
@@ -141,7 +141,7 @@ const Header = () => {
 
                 <Button
                   asChild
-                  className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider mt-4 btn-swipe-primary"
+                  className="bg-primary text-primary-foreground font-semibold uppercase text-base tracking-wider mt-2 btn-swipe-primary"
                 >
                   <Link
                     to="/contact"
