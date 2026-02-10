@@ -1,30 +1,31 @@
 
 
-# Fix: White gap between CTA section and footer wave on mobile
+# Fix: White gap between wave SVG and footer on mobile
 
-## Problem
+## Root Cause
 
-The `mt-[60px]` margin on the footer creates a 60px gap with **no background behind it**. The wave SVG sits in that gap but has transparent areas (the curve shape), so the raw page background (white) shows through, creating a visible seam on mobile.
+The wave container is positioned 60px above the footer (`-top-[60px]`), but the SVG inside uses `h-auto` with a 1440:120 viewBox. On narrow mobile screens, the SVG scales down proportionally -- on a 390px screen it's only ~32px tall, not 60px. This leaves a visible white gap between the bottom of the SVG and the top of the footer's navy background.
+
+On desktop (1440px wide), the SVG renders at ~120px tall, so 60px is plenty and no gap appears.
 
 ## Solution
 
-Remove `mt-[60px]` from the footer. The wave (positioned at `-top-[60px]`) will overlap upward into the CTA section's existing `pb-24` bottom padding instead, where `bg-muted/30` fills behind the transparent parts of the wave seamlessly.
+Force the SVG to always fill the full 60px height of its container by adding a fixed height (`h-[60px]`) to the SVG element. Combined with `preserveAspectRatio="none"` (already set), this stretches the wave to always cover the full gap.
 
-## File changes
+## File change
 
-### `src/components/layout/Footer.tsx` (line 6)
+### `src/components/layout/Footer.tsx` (line 9)
 
-Remove `mt-[60px]` from the footer's class. Change:
+Change the SVG class from:
 
 ```
-bg-navy text-primary-foreground relative mt-[60px]
+w-full h-auto
 ```
 
 to:
 
 ```
-bg-navy text-primary-foreground relative
+w-full h-[60px]
 ```
 
-That is the only change needed. All CTA sections already have `pb-24` (96px of bottom padding), which is more than enough room for the 60px wave overlap.
-
+This single change ensures the wave always fills the 60px gap on all screen sizes.
