@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import CTASection from "@/components/sections/CTASection";
 import { motion } from "framer-motion";
 const values = [{
   title: "Results-Driven",
@@ -184,8 +183,28 @@ const About = () => {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-            </motion.div>
+          </motion.div>
 
+            {/* Right Column - Image */}
+            <motion.div initial={{
+              opacity: 0,
+              x: 30
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }} className="relative">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=750&fit=crop" alt="Digital analytics workspace" className="w-full h-full object-cover rounded-md" />
+                <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
+                  <h3 className="font-bold text-foreground text-lg">Your Digital Partner</h3>
+                  <p className="text-muted-foreground text-sm">Committed to Your Growth</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -194,11 +213,18 @@ const About = () => {
       <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-10">
-            <span className="topper block">Our Process</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-tight">
-              How We <span className="text-primary">Work</span>
-            </h2>
+          <div className="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
+            <div>
+              <span className="topper block">Our Process</span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-tight">
+                How We <span className="text-primary">Work</span>
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="text-primary-foreground/70 font-body text-sm leading-relaxed">
+                We follow a proven four-step process to bring your vision to life. From initial discovery to launch and beyond, every step is designed for your success.
+              </p>
+            </div>
           </div>
 
           <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
@@ -222,7 +248,33 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <CTASection />
+      <section className="py-14 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="section-title mb-4">
+              Ready To Work <span className="text-primary">With Us?</span>
+            </h2>
+            <p className="text-muted-foreground text-lg mb-6">
+              Let's create something amazing together. Book a free consultation to discuss your project.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy"
+            >
+              <Link to="/contact">
+                Start Your Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
     </Layout>;
 };
 export default About;
