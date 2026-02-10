@@ -226,7 +226,7 @@ const Services = () => {
           once: true
         }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
-                  <span className="topper block">Our Pricing</span>
+                  
                   <h2 className="section-title">
                     {category.title} <span className="text-primary">Packages</span>
                   </h2>
