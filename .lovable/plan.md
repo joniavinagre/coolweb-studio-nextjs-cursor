@@ -1,39 +1,28 @@
 
-# Restructure Contact Page
 
-## Overview
-Rebuild the Contact page with a clean 50/50 two-column layout: contact info on the left, contact form on the right. On mobile, the form appears first with contact info below. Remove the Calendly/consultation section entirely.
+# Contact Page Visual Refinements
 
-## Layout Structure
+## Changes
 
-**Desktop (lg and up):**
-- Left column: "Get In Touch" heading, subtitle, then contact info items stacked vertically (Email, Phone/WhatsApp, Areas Served, Business Hours)
-- Right column: "Send Us a Message" heading, form with Name, Email, Phone, Message fields, and submit button
+### 1. Form card with background differentiation
+Wrap the entire form column (heading + form) in a card-style container with a light gray background (`bg-muted/30` or similar), rounded corners of size xl, padding, and a subtle border -- matching the reference screenshot's elevated card look.
 
-**Mobile:**
-- Form section first (appears on top)
-- Contact info section second (appears below)
-- Achieved using `order-2 lg:order-1` / `order-1 lg:order-2` classes
+### 2. Remove Business Hours
+Delete the Business Hours entry from the `contactInfo` array and remove the `Clock` import.
 
-## Content Changes
+### 3. Consolidate contact info into a single card
+Instead of rendering 3 separate cards (Email, Phone, Areas Served), group all three into one card. Each item will be a row inside the card with its icon and text, separated by dividers.
 
-1. **Remove**: "Book a Free Consultation" / Calendly section entirely
-2. **Remove**: Service dropdown from the form
-3. **Update contact info**:
-   - Email: `contact@coolwebstudio.com` (mailto link)
-   - Phone/WhatsApp: `+34 697 76 04 18` (tel link, label changed to "Phone / WhatsApp")
-   - Areas Served (replaces Location): "Spain, France, Portugal, United States" (uses Globe icon instead of MapPin)
-   - Business Hours: keep as-is
-4. **Simplify form fields**: Name, Email, Phone, Message only (remove service dropdown)
-5. **Remove `service` from formData state**
+### 4. Reduce icon sizes
+Change the icon container from `w-11 h-11` to `w-8 h-8` and the icon itself from `w-5 h-5` to `w-3.5 h-3.5` (roughly half).
 
 ## Technical Details
 
 ### File: `src/pages/Contact.tsx`
-- Update `contactInfo` array with new data (email, phone, areas served, hours)
-- Remove `Calendar` import, add `Globe` from lucide-react
-- Remove `service` from form state
-- Restructure the grid: contact info column gets `order-2 lg:order-1`, form column gets `order-1 lg:order-2`
-- Remove the entire Calendly embed block (lines 195-221)
-- Contact info items displayed as a vertical stack (not 2x2 grid), each with icon, title, and content
-- Each contact info item styled as a card with icon box, similar to current but stacked vertically for a cleaner left-column look
+
+- **Remove** `Clock` from the lucide-react import
+- **Update `contactInfo`**: Remove the Business Hours object, keeping only Email, Phone/WhatsApp, and Areas Served (3 items)
+- **Form column** (lines 136-176): Wrap content in a container with classes like `bg-muted/30 rounded-2xl p-6 md:p-8 border border-border`; move the heading inside
+- **Contact info section** (lines 116-132): Replace the `.map()` rendering individual cards with a single card containing all 3 items as rows, separated by `border-b` dividers (last item has no divider)
+- **Icons**: Reduce icon box to `w-8 h-8 rounded-md` and icon to `w-3.5 h-3.5`
+
