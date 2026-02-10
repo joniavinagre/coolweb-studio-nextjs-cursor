@@ -94,7 +94,7 @@ const item = {
 const Services = () => {
   return <Layout>
       {/* Hero Section - Clean and minimal like Oak Harbor */}
-      <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
+      <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{

@@ -83,19 +83,9 @@ const PortfolioPreview = () => {
           {previewProjects.map(project => <motion.article key={project.id} variants={item} className="group">
               {/* Device Mockup Image */}
               <div className="relative mb-4">
-                {/* Laptop Frame */}
-                <div className="bg-slate-800 rounded-t-xl p-2">
-                  <div className="flex gap-1.5 mb-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden aspect-[16/10]">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                  </div>
+                <div className="rounded-xl overflow-hidden aspect-[16/10]">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 </div>
-                <div className="bg-slate-700 h-3 rounded-b-lg" />
-                <div className="bg-slate-600 h-1.5 w-1/3 mx-auto rounded-b-lg" />
               </div>
 
               {/* Content */}

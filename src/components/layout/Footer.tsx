@@ -30,12 +30,12 @@ const Footer = () => {
           {/* Navigation */}
           <div>
            <h3 className="font-bold text-base uppercase tracking-wider mb-4">Navigation</h3>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground">
-             <Link to="/" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Home</Link>
-             <Link to="/services" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Services</Link>
-             <Link to="/portfolio" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Portfolio</Link>
-             <Link to="/about" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">About</Link>
-             <Link to="/contact" className="text-primary-foreground/60 hover:text-primary text-base transition-colors">Contact</Link>
+            <div className="flex flex-col gap-2">
+             <Link to="/" className="text-primary-foreground hover:text-primary text-sm transition-colors">Home</Link>
+             <Link to="/services" className="text-primary-foreground hover:text-primary text-sm transition-colors">Services</Link>
+             <Link to="/portfolio" className="text-primary-foreground hover:text-primary text-sm transition-colors">Portfolio</Link>
+             <Link to="/about" className="text-primary-foreground hover:text-primary text-sm transition-colors">About</Link>
+             <Link to="/contact" className="text-primary-foreground hover:text-primary text-sm transition-colors">Contact</Link>
             </div>
           </div>
 
@@ -43,15 +43,15 @@ const Footer = () => {
           <div>
            <h3 className="font-bold text-base uppercase tracking-wider mb-4">Contact</h3>
             <ul className="space-y-2">
-             <li className="flex items-center gap-2 text-primary-foreground/60 text-base">
+             <li className="flex items-center gap-2 text-primary-foreground text-sm">
                 <Mail className="w-4 h-4 text-primary" />
                 hello@coolwebstudio.com
               </li>
-             <li className="flex items-center gap-2 text-primary-foreground/60 text-base">
+             <li className="flex items-center gap-2 text-primary-foreground text-sm">
                 <Phone className="w-4 h-4 text-primary" />
                 +1 (555) 123-4567
               </li>
-             <li className="flex items-center gap-2 text-primary-foreground/60 text-base">
+             <li className="flex items-center gap-2 text-primary-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
                 Serving clients worldwide
               </li>

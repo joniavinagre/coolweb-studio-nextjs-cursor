@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/portfolio/ProjectCard";
-import { projects, categories } from "@/data/portfolioProjects";
+import { projects } from "@/data/portfolioProjects";
 const container = {
   hidden: {
     opacity: 0
@@ -18,11 +17,9 @@ const container = {
   }
 };
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const filteredProjects = activeCategory === "All" ? projects : projects.filter(p => p.category === activeCategory);
   return <Layout>
       {/* Hero Section */}
-      <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
+      <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{
@@ -50,34 +47,10 @@ const Portfolio = () => {
       {/* Filter & Projects */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          {/* Filter Tabs */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
-            {categories.map(category => <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 md:px-6 py-2 md:py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${activeCategory === category ? "bg-navy text-primary-foreground shadow-lg" : "bg-muted text-muted-foreground hover:bg-navy hover:text-primary-foreground"}`}>
-                {category}
-              </button>)}
-          </motion.div>
-
           {/* Projects Grid - 2 columns on desktop */}
-          <motion.div variants={container} initial="hidden" animate="show" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {filteredProjects.map(project => <ProjectCard key={project.id} project={project} />)}
+          <motion.div variants={container} initial="hidden" animate="show" className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {projects.map(project => <ProjectCard key={project.id} project={project} />)}
           </motion.div>
-
-          {/* Empty State */}
-          {filteredProjects.length === 0 && <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} className="text-center py-16">
-              <p className="text-muted-foreground text-lg">
-                No projects found in this category.
-              </p>
-            </motion.div>}
         </div>
       </section>
 
