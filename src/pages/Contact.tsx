@@ -81,7 +81,7 @@ const Contact = () => {
           opacity: 1,
           y: 0
         }} className="max-w-4xl mx-auto text-center">
-           <span className="topper block">Contact Us</span>
+           
            <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Let's Start Your <span className="text-primary">Project</span>
             </h1>
