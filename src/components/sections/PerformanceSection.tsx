@@ -46,7 +46,7 @@ const PerformanceSection = () => {
             <span className="topper block">
               Performance
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-tight">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
               We Build{" "}
               <span className="text-primary">Better</span> Websites That Perform
             </h2>
