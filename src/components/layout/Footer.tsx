@@ -6,7 +6,7 @@ const Footer = () => {
   return <footer className="bg-navy text-primary-foreground relative">
       {/* Curved wave top edge */}
       <div className="absolute -top-[60px] left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[60px]" preserveAspectRatio="none">
           <path d="M0 0L48 10C96 20 192 40 288 50C384 60 480 60 576 55C672 50 768 40 864 35C960 30 1056 30 1152 35C1248 40 1344 50 1392 55L1440 60V120H0Z" className="fill-navy" />
         </svg>
       </div>
