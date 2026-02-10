@@ -68,7 +68,7 @@ const ServicesPreview = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="section-title mb-4">
+        }} className="section-title mb-0">
             Never Worry About Your <span className="text-primary">Website</span> Again
           </motion.h2>
           <motion.p initial={{
