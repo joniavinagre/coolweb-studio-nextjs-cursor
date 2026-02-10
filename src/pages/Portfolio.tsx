@@ -52,7 +52,7 @@ const Portfolio = () => {
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {projects.map((project) => (
               <motion.article
@@ -61,16 +61,16 @@ const Portfolio = () => {
                 className="group flex flex-col"
               >
                 {/* Image */}
-                <div className="relative mb-4">
+                <a href={project.website} target="_blank" rel="noopener noreferrer" className="relative mb-4 block cursor-pointer">
                   <div className="rounded-xl overflow-hidden aspect-[16/10]">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                       loading="lazy"
                     />
                   </div>
-                </div>
+                </a>
 
                 {/* Content */}
                 <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
