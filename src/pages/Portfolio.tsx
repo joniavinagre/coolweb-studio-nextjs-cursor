@@ -6,35 +6,34 @@ import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import { projects, categories } from "@/data/portfolioProjects";
-
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0
+  },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
 };
-
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
-
-  return (
-    <Layout>
+  const filteredProjects = activeCategory === "All" ? projects : projects.filter(p => p.category === activeCategory);
+  return <Layout>
       {/* Hero Section */}
       <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-4xl mx-auto text-center">
             <span className="topper block">Our Portfolio</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Projects We're <span className="text-primary">Proud Of</span>
             </h1>
             <p className="text-primary-foreground/70 text-lg md:text-xl">
@@ -54,63 +53,48 @@ const Portfolio = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           {/* Filter Tabs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8"
-          >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 md:px-6 py-2 md:py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
-                  activeCategory === category
-                    ? "bg-navy text-primary-foreground shadow-lg"
-                    : "bg-muted text-muted-foreground hover:bg-navy hover:text-primary-foreground"
-                }`}
-              >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
+            {categories.map(category => <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 md:px-6 py-2 md:py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${activeCategory === category ? "bg-navy text-primary-foreground shadow-lg" : "bg-muted text-muted-foreground hover:bg-navy hover:text-primary-foreground"}`}>
                 {category}
-              </button>
-            ))}
+              </button>)}
           </motion.div>
 
           {/* Projects Grid - 2 columns on desktop */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            key={activeCategory}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-          >
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+          <motion.div variants={container} initial="hidden" animate="show" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {filteredProjects.map(project => <ProjectCard key={project.id} project={project} />)}
           </motion.div>
 
           {/* Empty State */}
-          {filteredProjects.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-16"
-            >
+          {filteredProjects.length === 0 && <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} className="text-center py-16">
               <p className="text-muted-foreground text-lg">
                 No projects found in this category.
               </p>
-            </motion.div>
-          )}
+            </motion.div>}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-14 bg-muted/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
               Want Your Project <span className="text-primary">Featured Here?</span>
             </h2>
@@ -126,8 +110,6 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Portfolio;
