@@ -46,7 +46,7 @@ const ServicesPreview = () => {
   return <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
+        <div className="text-center max-w-4xl mx-auto mb-[10px]">
           <motion.span initial={{
           opacity: 0,
           y: 20
