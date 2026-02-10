@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
           duration: 0.6
         }}>
             {/* Section Header */}
-            <span className="topper block">What We Offer</span>
+            <span className="topper block leading-none md:leading-tight;">What We Offer</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight;">
               Websites Starting At <span className="text-primary">€0 Down And €100 Per Month</span>
             </h2>
