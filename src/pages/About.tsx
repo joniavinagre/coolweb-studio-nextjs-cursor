@@ -265,7 +265,12 @@ const About = () => {
             <p className="text-muted-foreground text-lg mb-6">
               Let's create something amazing together. Book a free consultation to discuss your project.
             </p>
-            
+            <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
+              <Link to="/contact">
+                Start Your Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>
