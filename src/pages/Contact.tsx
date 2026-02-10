@@ -127,7 +127,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wide lg:text-xl text-center">
+              <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wide lg:text-xl text-left">
                 Contact Info
               </h3>
 
