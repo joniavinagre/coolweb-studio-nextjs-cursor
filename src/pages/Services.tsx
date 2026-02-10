@@ -253,7 +253,7 @@ const Services = () => {
                 <h2 className="text-3xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide mb-3">
                   {category.title}
                 </h2>
-                <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
+                <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm">
                   {category.description}
                 </p>
               </motion.div>}
