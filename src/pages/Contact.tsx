@@ -7,85 +7,82 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    content: "hello@coolwebstudio.com",
-    href: "mailto:hello@coolwebstudio.com",
-  },
-  {
-    icon: Phone,
-    title: "Call Us",
-    content: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    content: "Serving clients worldwide",
-    href: null,
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    content: "Mon - Fri: 9am - 6pm",
-    href: null,
-  },
-];
-
+const contactInfo = [{
+  icon: Mail,
+  title: "Email Us",
+  content: "hello@coolwebstudio.com",
+  href: "mailto:hello@coolwebstudio.com"
+}, {
+  icon: Phone,
+  title: "Call Us",
+  content: "+1 (555) 123-4567",
+  href: "tel:+15551234567"
+}, {
+  icon: MapPin,
+  title: "Location",
+  content: "Serving clients worldwide",
+  href: null
+}, {
+  icon: Clock,
+  title: "Business Hours",
+  content: "Mon - Fri: 9am - 6pm",
+  href: null
+}];
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "",
-    message: "",
+    message: ""
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    await new Promise(resolve => setTimeout(resolve, 1500));
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
-
     setFormData({
       name: "",
       email: "",
       phone: "",
       service: "",
-      message: "",
+      message: ""
     });
     setIsSubmitting(false);
   };
-
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="pt-28 pb-12 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-4xl mx-auto text-center">
            <span className="topper block">Contact Us</span>
-           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
+           <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Let's Start Your <span className="text-primary">Project</span>
             </h1>
            <p className="text-primary-foreground/70 text-xl md:text-2xl">
@@ -106,11 +103,15 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }}>
               <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 uppercase tracking-wide">
                 Send Us a Message
               </h2>
@@ -118,50 +119,22 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                    />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                    />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" required />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+1 (555) 123-4567"
-                    />
+                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+1 (555) 123-4567" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="service">Service Interested In</Label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-                    >
+                    <select id="service" name="service" value={formData.service} onChange={handleChange} className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
                       <option value="">Select a service</option>
                       <option value="web-development">Web Development</option>
                       <option value="google-business">Google Business Profile</option>
@@ -173,53 +146,35 @@ const Contact = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Your Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project..."
-                    rows={5}
-                    required
-                  />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project..." rows={5} required />
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                 className="w-full bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-navy"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
+                <Button type="submit" size="lg" className="w-full bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-navy" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : <>
                       Send Message
                       <Send className="w-5 h-5 ml-2" />
-                    </>
-                  )}
+                    </>}
                 </Button>
               </form>
             </motion.div>
 
             {/* Contact Info & Calendly */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} className="space-y-8">
               {/* Contact Info Cards */}
               <div>
                <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 uppercase tracking-wide">
                   Get In Touch
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {contactInfo.map((info) => (
-                    <div
-                      key={info.title}
-                      className="bg-card rounded-xl p-3 border border-border"
-                    >
+                  {contactInfo.map(info => <div key={info.title} className="bg-card rounded-xl p-3 border border-border">
                       <div className="flex items-start gap-3">
                         <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
                           <info.icon className="w-5 h-5 text-white" />
@@ -228,22 +183,14 @@ const Contact = () => {
                          <h3 className="font-bold text-foreground text-base uppercase tracking-wide">
                             {info.title}
                           </h3>
-                          {info.href ? (
-                            <a
-                              href={info.href}
-                             className="text-muted-foreground text-base hover:text-primary transition-colors"
-                            >
+                          {info.href ? <a href={info.href} className="text-muted-foreground text-base hover:text-primary transition-colors">
                               {info.content}
-                            </a>
-                          ) : (
-                           <p className="text-muted-foreground text-base">
+                            </a> : <p className="text-muted-foreground text-base">
                               {info.content}
-                            </p>
-                          )}
+                            </p>}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -266,15 +213,8 @@ const Contact = () => {
                    <p className="text-muted-foreground mb-4 text-lg">
                       Click below to schedule your free consultation
                     </p>
-                    <Button
-                      asChild
-                     className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary"
-                    >
-                      <a
-                        href="https://calendly.com/coolwebstudio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                    <Button asChild className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
+                      <a href="https://calendly.com/coolwebstudio" target="_blank" rel="noopener noreferrer">
                         Open Scheduler
                       </a>
                     </Button>
@@ -285,8 +225,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Contact;
