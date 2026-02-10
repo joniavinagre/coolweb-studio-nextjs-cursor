@@ -196,7 +196,7 @@ const Services = () => {
           y: 0
         }} className="max-w-4xl mx-auto text-center">
             
-            <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
+            <h1 className="md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl text-4xl">
               Pricing Packages For{" "}
               <span className="text-primary">Every Budget</span>
             </h1>
