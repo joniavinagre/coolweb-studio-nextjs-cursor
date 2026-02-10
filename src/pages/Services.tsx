@@ -223,9 +223,7 @@ const Services = () => {
             <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide mb-4">
               Ready To <span className="text-primary">Get Started?</span>
             </h2>
-            <p className="font-body text-primary-foreground/70 text-lg mb-6 max-w-2xl mx-auto">
-              Book a free consultation to discuss your project and get a custom quote. No obligation, just valuable insights.
-            </p>
+            
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-primary">
               <Link to="/contact">
                 Book Free Consultation
