@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 const benefits = [{
   title: "Better load times means more conversions",
-  description: "Studies show that every second of delay reduces conversions by 7%. Our lightning-fast sites keep visitors engaged."
+  description: "Studies show that every second of delay reduces conversions by 7%. Our lightning-fast sites keep visitors engaged.",
+  icon: "/icons/stat1.svg"
 }, {
   title: "Faster websites can help improve SEO",
-  description: "Google uses page speed as a ranking factor. Our optimized sites help you climb search results naturally."
+  description: "Google uses page speed as a ranking factor. Our optimized sites help you climb search results naturally.",
+  icon: "/icons/stat2.svg"
 }, {
   title: "Our sites load instantly on any device",
-  description: "Whether on mobile, tablet, or desktop, your visitors get the same blazing-fast experience every time."
+  description: "Whether on mobile, tablet, or desktop, your visitors get the same blazing-fast experience every time.",
+  icon: "/icons/stat3.svg"
 }];
 const stats = [{
   value: "100%",
@@ -103,7 +106,7 @@ const PerformanceSection = () => {
               delay: index * 0.1
             }} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-5 h-5 text-primary" />
+                    <img src={benefit.icon} alt="" className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-primary-foreground mb-1 text-lg font-extrabold">

@@ -76,7 +76,7 @@ const Portfolio = () => {
                 <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                   {project.title}
                 </h3>
-                <p className="mb-3 line-clamp-2 leading-relaxed text-xs text-popover-foreground flex-grow">
+                <p className="mb-3 leading-relaxed text-xs text-popover-foreground flex-grow">
                   {project.description}
                 </p>
 

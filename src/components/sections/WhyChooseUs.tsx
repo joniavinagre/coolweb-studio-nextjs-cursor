@@ -3,23 +3,24 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import joniImage from "@/assets/joni-vinagre.webp";
 const features = [
   {
-    title: "100% Secure",
-    description: "Our sites are just static HTML and CSS code, meaning there's literally nothing that can be hacked.",
+    title: "Mobile First Design",
+    description: "We build your site for mobile devices first, ensuring lean, optimized code with no bloated waste for a fast, responsive experience.",
   },
   {
     title: "Custom Designed",
     description: "Our designs are made by an in-house design team, which allows us to make anything we want.",
   },
   {
-    title: "100 PageSpeed Scores",
+    title: "Optimized Page Speed",
     description:
-      "Our sites have zero bloat, zero waste, and built with purpose so we get perfect 98-100/100 speed scores.",
+      "If your site takes more than 3 seconds to load you can lose up to 50% of your traffic. Our sites load in under 1 second.",
   },
   {
-    title: "Money Back Guarantee",
-    description: "If we can't design something you like, you get your money back and the contract is cancelled.",
+    title: "Fully Responsive",
+    description: "Your website will fit all screen sizes — mobile, tablet, and desktop — so visitors see a beautiful site no matter the device.",
   },
   {
     title: "Unmatched Support",
@@ -74,16 +75,16 @@ const WhyChooseUs = () => {
             }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+            <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop"
-                alt="Professional web developer"
-                className="w-full h-full object-cover rounded-md"
+                src={joniImage}
+                alt="Joni Vinagre - Founder and Web Developer"
+                className="w-full h-full object-cover rounded-xl"
               />
               {/* Floating Name Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
+              <div className="absolute top-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2 border border-border">
                 <h3 className="text-foreground text-lg font-extrabold">Joni Vinagre</h3>
-                <p className="text-xs text-card-foreground">Owner, Web Developer</p>
+                <p className="text-xs text-card-foreground">Founder, Web Developer</p>
               </div>
             </div>
           </motion.div>
