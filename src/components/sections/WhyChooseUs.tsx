@@ -64,7 +64,7 @@ const WhyChooseUs = () => {
               {/* Floating Name Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                 <h3 className="text-foreground text-lg font-extrabold">Joni Vinagre</h3>
-                <p className="text-xs text-card-foreground">Owner, Web Designer & Development</p>
+                <p className="text-xs text-card-foreground">Owner, Web Development</p>
               </div>
             </div>
           </motion.div>
