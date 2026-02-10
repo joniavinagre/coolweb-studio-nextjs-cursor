@@ -1,57 +1,51 @@
 
 
-# Fix Portfolio Cards and Update Grid Layout
+# Fix Page Transitions, Button Hover Colors, and Mobile Menu Styling
 
-## Issue 1: Hover animation removal and clickable images not applied everywhere
+## 1. Snap-to-top on page navigation
 
-The previous fix only updated `ProjectCard.tsx`, but portfolio cards are rendered **inline** in two other files that were not changed:
-- `src/components/sections/PortfolioPreview.tsx` (homepage preview, line 87)
-- `src/pages/Portfolio.tsx` (full portfolio page, line 69)
+**File: `src/App.tsx`**
 
-Both still have `group-hover:scale-105 transition-transform duration-700` on images, and the images are not wrapped in links.
+Create a `ScrollToTop` component that listens to route changes via `useLocation` and scrolls to the top on every navigation. Place it inside `BrowserRouter`.
 
-### Fix for `PortfolioPreview.tsx` (lines 84-89)
-- Wrap the image container in an `<a>` tag linking to `project.website` (opens in new tab)
-- Remove `group-hover:scale-105 transition-transform duration-700` from the `<img>`
+## 2. Remove purple hover from "About Us" button in hero
 
-### Fix for `Portfolio.tsx` (lines 63-73)
-- Same changes: wrap image in `<a>` tag to `project.website`, remove hover animation classes from `<img>`
+**File: `src/components/sections/Hero.tsx` (line 48)**
 
----
+The "About Us" button uses `variant="outline"`, which applies `hover:bg-accent` (purple). Remove `variant="outline"` and keep the existing explicit classes (`bg-navy border-2 border-primary-foreground/40 text-primary-foreground ... btn-swipe-navy`). The `btn-swipe-navy` class already handles the light-blue swipe hover effect, so no purple should appear.
 
-## Issue 2: Grid layout update to 12-column, 32px gutter, 1120px content width
+## 3. Remove purple hover from burger menu icon
 
-The user wants:
-- Content width: 1120px
-- Gutters (side padding): 32px each side (total container = 1184px)
-- Grid gutter between columns: 32px (which is Tailwind's `gap-8`)
+**File: `src/components/layout/Header.tsx` (line 106)**
 
-### Changes in `tailwind.config.ts` (lines 8-14)
-Update the container config:
-- Change `padding` from `"2rem"` to `"2rem"` (32px = 2rem, already correct)
-- Change the `2xl` screen max-width from `"1400px"` to `"1184px"`
+The burger menu button uses `variant="ghost"`, which applies `hover:bg-accent` (purple). Replace `variant="ghost"` with an unstyled approach: remove the variant and add `hover:bg-primary/20` (light blue tint) instead.
 
-### Changes in grid classes
-Update the portfolio grids to use `gap-8` consistently:
-- `PortfolioPreview.tsx` line 82: change `gap-6 lg:gap-8` to `gap-8`
-- `Portfolio.tsx` line 55: change `gap-6 lg:gap-8` to `gap-8`
+## 4. Make mobile menu more compact and close button visible
 
-Note: The 3-column layout (`md:grid-cols-3`) effectively creates a 12-column system where each card spans 4 columns, which matches standard 12-column grids.
+**File: `src/components/layout/Header.tsx`**
 
----
+- **Line 112**: Reduce `gap-8` to `gap-4` and `mt-8` to `mt-4` in the inner flex container
+- **Line 124**: Reduce nav link `gap-2` to `gap-1` and link padding `py-3` to `py-2`
+- **Line 142-144**: Reduce CTA button `mt-4` to `mt-2`
 
-## Summary of file changes
+**File: `src/components/ui/sheet.tsx`**
 
-### `src/components/sections/PortfolioPreview.tsx`
-1. Wrap image div (lines 84-89) in `<a href={project.website} target="_blank" rel="noopener noreferrer">`
-2. Remove `group-hover:scale-105 transition-transform duration-700` from img (line 87)
-3. Change grid gap to `gap-8` (line 82)
+- Update the close button `X` icon: add `text-white` class so it's visible against the navy background. This applies globally but since the sheet is only used for the mobile menu, it's appropriate.
 
-### `src/pages/Portfolio.tsx`
-1. Wrap image div (lines 63-73) in `<a href={project.website} target="_blank" rel="noopener noreferrer">`
-2. Remove `group-hover:scale-105 transition-transform duration-700` from img (line 69)
-3. Change grid gap to `gap-8` (line 55)
+Alternatively, pass a custom class in `Header.tsx` by using `SheetClose` or styling via CSS. The simplest approach: in `sheet.tsx`, the close button `X` currently has no explicit text color -- add a conditional or just ensure it inherits. Since the `SheetContent` in the Header has `bg-navy`, we should override the close button color directly in `Header.tsx` by adding a custom class to `SheetContent` and styling the close button via CSS.
 
-### `tailwind.config.ts`
-1. Change container max-width from `"1400px"` to `"1184px"` (line 13)
+**Simpler approach**: In `sheet.tsx` line 64, the close button has `opacity-70`. Add `text-primary-foreground` won't work universally. Instead, in `Header.tsx`, after `SheetContent`, we can style the close button by targeting it. The cleanest fix: update the `SheetContent` in `Header.tsx` to include a class that makes the X white, or override in `index.css`.
 
+**Chosen approach**: Add a `[&>button]:text-white` utility class to the `SheetContent` in `Header.tsx` (line 111) to make the close button white.
+
+## Technical Summary
+
+| File | Change |
+|------|--------|
+| `src/App.tsx` | Add `ScrollToTop` component inside `BrowserRouter` |
+| `src/components/sections/Hero.tsx` line 48 | Remove `variant="outline"` from About Us button |
+| `src/components/layout/Header.tsx` line 106 | Replace `variant="ghost"` with `variant="ghost"` + override: `hover:bg-primary/20 hover:text-primary` |
+| `src/components/layout/Header.tsx` line 111 | Add `[&>button]:text-white` to SheetContent className |
+| `src/components/layout/Header.tsx` line 112 | `gap-8 mt-8` to `gap-4 mt-4` |
+| `src/components/layout/Header.tsx` line 124 | `gap-2` to `gap-1`, link `py-3` to `py-2` |
+| `src/components/layout/Header.tsx` line 142-144 | `mt-4` to `mt-2` on CTA button |
