@@ -114,12 +114,12 @@ const Contact = () => {
                       <info.icon className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-foreground text-base uppercase tracking-wide">
+                      <h3 className="text-foreground text-base uppercase tracking-wide font-extrabold">
                         {info.title}
                       </h3>
-                      {info.href ? <a href={info.href} className="transition-colors text-sm text-card-foreground">
+                      {info.href ? <a href={info.href} className="transition-colors text-card-foreground text-xs">
                           {info.content}
-                        </a> : <p className="text-sm text-card-foreground">
+                        </a> : <p className="text-card-foreground text-xs">
                           {info.content}
                         </p>}
                     </div>
