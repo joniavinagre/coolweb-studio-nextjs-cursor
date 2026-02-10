@@ -154,7 +154,7 @@ const About = () => {
             duration: 0.6
           }}>
               <span className="topper block">Why Us</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-tight mb-3">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight;">
                 What <span className="text-primary">Drives Us</span>
               </h2>
               <p className="font-body mb-6 leading-relaxed text-sm text-card-foreground">
