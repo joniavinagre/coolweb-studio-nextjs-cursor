@@ -240,8 +240,8 @@ const Services = () => {
               </motion.div>
 
             {/* Pricing Cards Grid */}
-            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "flex flex-col md:flex-row justify-center gap-6"}>
-                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"} ${category.tiers.length === 2 ? "w-full md:w-[calc(33.333%-0.5rem)]" : ""}`}>
+            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={`grid grid-cols-1 gap-6 ${category.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-3 md:max-w-[calc(66.666%+0.75rem)] md:mx-auto"}`}>
+                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
                     <div className="px-6 pt-6">
                       <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
                         {tier.name}
