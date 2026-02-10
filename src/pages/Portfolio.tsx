@@ -29,7 +29,7 @@ const Portfolio = () => {
           opacity: 1,
           y: 0
         }} className="max-w-4xl mx-auto text-center">
-            <span className="topper block">Our Portfolio</span>
+            
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Projects We're <span className="text-primary">Proud Of</span>
             </h1>
