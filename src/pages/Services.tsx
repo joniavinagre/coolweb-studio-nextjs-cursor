@@ -107,7 +107,7 @@ const Services = () => {
             <span className="topper block">
               Our Pricing
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase tracking-wide mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
               Pricing Packages For{" "}
               <span className="text-primary">Every Budget</span>
             </h1>
