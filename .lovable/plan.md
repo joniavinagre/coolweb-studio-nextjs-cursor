@@ -1,120 +1,70 @@
 
+# Plan: Replicate Home Page Pricing Cards to Services Page
 
-# Plan: Multiple UI Refinements
+## Overview
 
-## 1. Portfolio Preview - Remove Mac Frames
+Replace the current Web Development section in the Services page with the same 3-card layout (Lump Sum, Monthly, Custom) from the Home page's `PricingPreview` component. Also update the section header to be left-aligned with a "Get Started" button on the right, matching the screenshot reference.
 
-**File: `src/components/sections/PortfolioPreview.tsx`** (lines 85-99)
+## Changes
 
-Remove the laptop frame (dark gray bars, colored dots, bottom bar, stand) and replace with a simple rounded image container:
+### File: `src/pages/Services.tsx`
+
+**1. Replace the Web Development category data** (lines 20-36)
+
+Replace the current `web-development` entry in `serviceCategories` with the same pricing tiers used in `PricingPreview.tsx` (Lump Sum, Monthly, Custom). This requires changing the data structure to match the `PricingPreview` format with `included` boolean per feature, `description`, `featured`, and `cta` fields.
+
+Update the `PricingTier` and `ServiceCategory` interfaces to support:
+- `features` as `{ text: string; included: boolean }[]` instead of `string[]`
+- `description` on each tier
+- `featured` boolean
+- `cta` string
+
+**2. Update the Web Development section header layout** (lines 128-146)
+
+For the `web-development` category only, change the header from centered to a flex row layout:
+- Left side: title (left-aligned, no icon box) + description
+- Right side: "Get Started" button aligned to the bottom
+
+For other categories (Google Business, Local SEO), keep the current centered layout.
+
+**3. Update the Web Development card rendering** (lines 148-200)
+
+For the `web-development` category, render cards using the same structure as `PricingPreview`:
+- 3-column grid with `rounded-xl`
+- Featured card (Monthly) gets `bg-navy border-primary ring-2 ring-primary/20`
+- Features show Check/X icons based on `included` boolean
+- Price and button pinned to bottom with `mt-auto`
+- Custom card uses "Reach Out" CTA with outline style
+
+For other categories, keep the current simple card rendering.
+
+### Detailed Card Structure (matching PricingPreview)
 
 ```
-<div className="relative mb-4">
-  <div className="rounded-xl overflow-hidden aspect-[16/10]">
-    <img ... />
-  </div>
-</div>
++------------------+
+| Title (h3)       |  px-6 pt-6
+| Description      |
++------------------+
+| Features (grow)  |  p-6, flex-grow
+|  Check/X icons   |
+|                  |
+| Price            |  mt-auto
+| Button           |
++------------------+
 ```
 
-Remove: `bg-slate-800` frame, colored dots, `bg-slate-700` bar, `bg-slate-600` stand.
+### Data for Web Development Cards
 
-## 2. Pricing Card Price Note Size
+| Card | Price | Note | Featured | CTA |
+|------|-------|------|----------|-----|
+| Lump Sum | 1.000€ | +25€/mo hosting | No | Get Started |
+| Monthly | 100€ | /month | Yes (navy bg) | Get Started |
+| Custom | Let's Talk! | - | No | Reach Out |
 
-**File: `src/components/sections/PricingPreview.tsx`** (line 296)
+Features match exactly what's in `PricingPreview.tsx`.
 
-Change the `priceNote` text from `text-sm` to `text-xs`.
-
-## 3. Global Card Border Radius
-
-**File: `src/index.css`**
-
-Add a global utility rule in the base layer to set all cards to `rounded-xl`:
-
-```css
-.rounded-2xl {
-  border-radius: 0.75rem; /* override to match rounded-xl */
-}
-```
-
-Alternatively, update individual card components. Files with `rounded-2xl` on cards:
-- `src/components/sections/PerformanceSection.tsx` line 141 - change to `rounded-xl`
-- `src/components/portfolio/ProjectCard.tsx` line 33 - change to `rounded-xl`
-
-These are the only components using `rounded-2xl` on cards. Other cards already use `rounded-xl`.
-
-## 4. Performance Section Stats Updates
-
-**File: `src/components/sections/PerformanceSection.tsx`**
-
-**Font size increase** (line 65): Change stat values from `text-4xl md:text-5xl` to `text-5xl md:text-6xl` and change `font-bold` to `font-extrabold`.
-
-**Font size increase for labels** (line 68): Change from `text-xs` to `text-sm` and add `font-extrabold`.
-
-**Line breaks in labels** (lines 15-24): Update the stat labels to use line breaks:
-
-```js
-const stats = [{
-  value: "100%",
-  label: "Satisfaction\nGuaranteed"
-}, {
-  value: "100",
-  label: "Page Speed\nScores"
-}, {
-  value: "5/5",
-  label: "Google\nReviews"
-}];
-```
-
-Then add `whitespace-pre-line` to the label div (line 68).
-
-**Alignment** (line 32): Change grid alignment from `items-start` to `items-center` so the stats row is vertically centered with the headline.
-
-## 5. Footer Nav and Contact Styling
-
-**File: `src/components/layout/Footer.tsx`**
-
-**Nav links** (lines 33-39): Change from horizontal flex (`flex-wrap gap-x-6 gap-y-2`) to vertical stack (`flex flex-col gap-2`). Change link size from `text-base` to `text-sm`. Change color from `text-primary-foreground/60` to `text-primary-foreground`.
-
-**Contact info** (lines 46-57): Change text size from `text-base` to `text-sm`. Change color from `text-primary-foreground/60` to `text-primary-foreground`.
-
-## 6. Portfolio Page - Remove Filters
-
-**File: `src/pages/Portfolio.tsx`**
-
-- Remove the filter tabs (lines 53-64): Delete the entire filter buttons `motion.div` block.
-- Remove the `activeCategory` state and `filteredProjects` logic (lines 21-22). Just use `projects` directly.
-- Remove `categories` import (line 8).
-
-**File: `src/components/portfolio/ProjectCard.tsx`**
-
-- Remove the category badge (lines 47-51): Delete the `span` with the category badge overlay.
-- Remove the `categoryColors` map (lines 11-20) since it's no longer needed.
-
-## 7. Hero Section Bottom Spacing (Desktop/Tablet Only)
-
-Add more bottom padding on `md:` breakpoint to all hero sections:
-
-| File | Current | New |
-|------|---------|-----|
-| `src/components/sections/Hero.tsx` line 13 | `pb-16` | `pb-16 md:pb-24` |
-| `src/pages/About.tsx` line 70 | `pb-12` | `pb-12 md:pb-20` |
-| `src/pages/Services.tsx` line 97 | `pb-12` | `pb-12 md:pb-20` |
-| `src/pages/Contact.tsx` line 74 | `pb-12` | `pb-12 md:pb-20` |
-| `src/pages/Portfolio.tsx` line 25 | `pb-12` | `pb-12 md:pb-20` |
-
-## Summary of Files to Modify
+## Summary
 
 | File | Changes |
 |------|---------|
-| `src/components/sections/PortfolioPreview.tsx` | Remove Mac frame, show plain images |
-| `src/components/sections/PricingPreview.tsx` | priceNote text-xs |
-| `src/components/sections/PerformanceSection.tsx` | Stats: bigger font, extrabold, line breaks, centered alignment; card rounded-xl |
-| `src/components/portfolio/ProjectCard.tsx` | Remove category badge + colors; rounded-xl |
-| `src/components/layout/Footer.tsx` | Vertical nav links, text-sm, white color for nav and contact |
-| `src/pages/Portfolio.tsx` | Remove filter tabs and state |
-| `src/components/sections/Hero.tsx` | Add md:pb-24 |
-| `src/pages/About.tsx` | Add md:pb-20 |
-| `src/pages/Services.tsx` | Add md:pb-20 |
-| `src/pages/Contact.tsx` | Add md:pb-20 |
-| `src/pages/Portfolio.tsx` | Add md:pb-20 |
-
+| `src/pages/Services.tsx` | Update interfaces, replace web-dev data with 3-tier pricing, left-align header with button for web-dev section, render cards with Check/X icons and featured styling |
