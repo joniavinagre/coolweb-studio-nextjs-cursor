@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import fullLogo from "@/assets/coolweb-logo-full.webp";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
+
   return <footer className="bg-navy text-primary-foreground relative">
       {/* Curved wave top edge */}
       <div className="absolute -top-[60px] left-0 right-0">
@@ -20,25 +24,25 @@ const Footer = () => {
               <img src={fullLogo} alt="COOLWEB Studio" className="h-8 brightness-0 invert" />
             </Link>
            <p className="font-body leading-relaxed max-w-xs text-sm text-primary-foreground">
-              We create stunning websites and boost your online presence.
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-           <h3 className="font-bold text-base uppercase tracking-wider mb-4">Navigation</h3>
+           <h3 className="font-bold text-base uppercase tracking-wider mb-4">{t("footer.navigation")}</h3>
             <div className="flex flex-col gap-2">
-             <Link to="/" className="text-primary-foreground hover:text-primary text-sm transition-colors">Home</Link>
-             <Link to="/services" className="text-primary-foreground hover:text-primary text-sm transition-colors">Services</Link>
-             <Link to="/portfolio" className="text-primary-foreground hover:text-primary text-sm transition-colors">Portfolio</Link>
-             <Link to="/about" className="text-primary-foreground hover:text-primary text-sm transition-colors">About</Link>
-             <Link to="/contact" className="text-primary-foreground hover:text-primary text-sm transition-colors">Contact</Link>
+             <Link to="/" className="text-primary-foreground hover:text-primary text-sm transition-colors">{t("header.home")}</Link>
+             <Link to="/services" className="text-primary-foreground hover:text-primary text-sm transition-colors">{t("header.services")}</Link>
+             <Link to="/portfolio" className="text-primary-foreground hover:text-primary text-sm transition-colors">{t("header.portfolio")}</Link>
+             <Link to="/about" className="text-primary-foreground hover:text-primary text-sm transition-colors">{t("header.about")}</Link>
+             <Link to="/contact" className="text-primary-foreground hover:text-primary text-sm transition-colors">{t("header.contact")}</Link>
             </div>
           </div>
 
           {/* Contact Info */}
           <div>
-           <h3 className="font-bold text-base uppercase tracking-wider mb-4">Contact</h3>
+           <h3 className="font-bold text-base uppercase tracking-wider mb-4">{t("footer.contact")}</h3>
             <ul className="space-y-2">
              <li className="flex items-center gap-2 text-primary-foreground text-sm">
                 <Mail className="w-4 h-4 text-primary" />
@@ -50,7 +54,7 @@ const Footer = () => {
               </li>
              <li className="flex items-center gap-2 text-primary-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                Serving clients worldwide
+                {t("footer.servingClients")}
               </li>
             </ul>
           </div>
@@ -61,7 +65,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-4">
          <p className="text-primary-foreground/40 text-sm text-center">
-            © {currentYear} COOLWEB Studio. All rights reserved.
+            {t("footer.copyright").replace("{year}", String(currentYear))}
           </p>
         </div>
       </div>

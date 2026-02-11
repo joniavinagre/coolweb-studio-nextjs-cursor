@@ -2,81 +2,49 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { projects } from "@/data/portfolioProjects";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const container = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 const item = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-// Show specific projects on homepage: Gaston (1), 4DHUES (2), Nails by Anabela (5)
-const previewProjects = projects.filter((p) => [1, 2, 5].includes(p.id));
+const previewProjectIds = [1, 2, 5];
+
 const PortfolioPreview = () => {
+  const { t } = useLanguage();
+  const previewProjects = projects.filter((p) => previewProjectIds.includes(p.id));
+
   return (
     <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Split Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10 items-start">
-          {/* Left - Topper & Headline */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="lg:border-r lg:border-border lg:pr-12"
           >
-            <span className="topper block text-xl font-extrabold leading-none md:leading-tight">Portfolio</span>
+            <span className="topper block text-xl font-extrabold leading-none md:leading-tight">{t("portfolio.topper")}</span>
             <h2 className="section-title leading-tight md:leading-tight">
-              Some Of The Work <span className="text-primary">We've Done Over The Years</span>
+              {t("portfolio.headline1")}<span className="text-primary">{t("portfolio.headline2")}</span>
             </h2>
           </motion.div>
 
-          {/* Right - Description */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.1,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             className="lg:pl-12 flex flex-col justify-center"
           >
             <p className="font-body leading-relaxed text-sm text-popover-foreground mb-6">
-              We have worked with clients all over the world! Each project is crafted with attention to detail and a
-              focus on results. Take a look at some of our recent work.
+              {t("portfolio.description")}
             </p>
             <div>
               <Button
@@ -84,25 +52,22 @@ const PortfolioPreview = () => {
                 size="lg"
                 className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy"
               >
-                <Link to="/portfolio">View All Projects</Link>
+                <Link to="/portfolio">{t("portfolio.viewAll")}</Link>
               </Button>
             </div>
           </motion.div>
         </div>
 
-        {/* Portfolio Grid - Device Mockup Style */}
+        {/* Portfolio Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{
-            once: true,
-          }}
+          viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {previewProjects.map((project) => (
             <motion.article key={project.id} variants={item} className="group flex flex-col">
-              {/* Portfolio Image */}
               <a
                 href={project.website}
                 target="_blank"
@@ -113,20 +78,16 @@ const PortfolioPreview = () => {
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </a>
-
-              {/* Content */}
               <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                 {project.title}
               </h3>
-              <p className="mb-3 leading-relaxed text-xs text-popover-foreground flex-grow">{project.description}</p>
-
-              {/* Visit Website Button */}
+              <p className="mb-3 leading-relaxed text-xs text-popover-foreground flex-grow">{t(`project.${project.id}.description`)}</p>
               <Button
                 asChild
                 className="btn-swipe-card font-semibold uppercase text-sm tracking-wider mt-auto self-start"
               >
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
-                  Visit Website
+                  {t("portfolio.visitWebsite")}
                 </a>
               </Button>
             </motion.article>
