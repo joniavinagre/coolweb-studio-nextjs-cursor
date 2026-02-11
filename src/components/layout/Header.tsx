@@ -50,9 +50,17 @@ const Header = () => {
         isScrolled ? "py-0" : "py-2"
       )}
     >
-      <div className="container mx-auto px-4">
+      <div className={cn(
+        "transition-all duration-500 ease-out",
+        isScrolled ? "w-full lg:w-auto lg:container lg:mx-auto lg:px-4" : "container mx-auto px-4"
+      )}>
         <nav
-          className="flex items-center justify-between px-4 md:px-6 py-2 floating-header"
+          className={cn(
+            "flex items-center justify-between px-4 md:px-6 py-2 transition-all duration-500 ease-out",
+            isScrolled
+              ? "bg-card border-b border-border shadow-sm rounded-none lg:rounded-full lg:floating-header lg:border-none lg:shadow-lg"
+              : "floating-header"
+          )}
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
