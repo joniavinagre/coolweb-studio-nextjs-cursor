@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/logo.webp";
+import fullLogo from "@/assets/coolweb-logo-full.webp";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-navy text-primary-foreground relative">
@@ -16,11 +16,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Column */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <img src={logo} alt="COOLWEB Studio" className="h-9 w-9" />
-              <span className="font-bold text-lg text-primary-foreground">
-                COOL<span className="text-primary">WEB</span>
-              </span>
+            <Link to="/">
+              <img src={fullLogo} alt="COOLWEB Studio" className="h-8 brightness-0 invert" />
             </Link>
            <p className="font-body leading-relaxed max-w-xs text-sm text-primary-foreground">
               We create stunning websites and boost your online presence.
