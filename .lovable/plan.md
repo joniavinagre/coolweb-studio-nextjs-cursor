@@ -1,37 +1,87 @@
 
 
-## Fix Font Flash (FOUT) and Logo Issues
+## Add Language Selector and Spanish Translation
 
-### Problem 1: Font flash on page refresh
+### Overview
 
-**Root cause:** Two things are causing the brief flash of fallback fonts:
+Create a lightweight i18n (internationalization) system using React Context to support English and Spanish (Spain). Add a language dropdown button in the header, and translate every piece of text across the entire website.
 
-1. **Poppins is loaded via a CSS `@import` inside `src/index.css`** (line 6). This means the browser only discovers and starts downloading Poppins *after* it has downloaded and parsed the CSS file, which itself is loaded via JavaScript. This creates a waterfall delay where fallback fonts render first.
+### Language Selector Placement
 
-2. **Fairweather fonts are preloaded in `index.html`, but only 3 of the 9 weights.** The ExtraBold (800) weight -- used heavily for headings, buttons, nav links, and toppers -- is NOT preloaded. So the most visually prominent font weight still flashes.
+- **Desktop**: To the left of the "Get Started" button in the header nav bar
+- **Mobile/Tablet**: To the left of the hamburger menu icon
+- The selector will be a small dropdown button showing a globe icon + language code (EN/ES), with a dropdown to switch
 
-**Fix:**
-- Move the Poppins Google Font loading from the CSS `@import` to a `<link>` tag in `index.html` with `rel="preload"` so the browser discovers it immediately.
-- Add preload for the ExtraBold weight of Fairweather (the most commonly used weight).
-- Add `<link rel="preconnect">` for Google Fonts to speed up the connection.
+### Architecture
 
-### Problem 2: Old logo showing in Lovable preview
+A React Context-based approach (no external library needed):
 
-**Root cause:** Both Header and Footer correctly import from `src/assets/coolweb-logo-full.webp` using ES6 imports. The old logo appearing is likely a caching issue in the preview environment. To force cache-busting, we can re-copy the correct logo file over the asset to ensure Vite generates a new hashed filename in the build.
+```text
+src/
+  contexts/
+    LanguageContext.tsx        -- Context provider, hook, and language state (persisted to localStorage)
+  i18n/
+    en.ts                      -- All English strings
+    es.ts                      -- All Spanish strings
+    index.ts                   -- Export helper
+```
 
-**Fix:**
-- Re-copy the current correct logo to `src/assets/coolweb-logo-full.webp` to force a new build hash.
+### Components to Update
 
----
+Every component with visible text will use a `useLanguage()` hook that returns a `t` function for translations:
 
-### Technical Changes
+1. **Header** -- nav links (Home, Services, Portfolio, About, Contact), "Get Started" button, "Open menu" sr-only text, + add language selector
+2. **Footer** -- tagline, navigation heading, contact heading, copyright, link labels
+3. **Hero** -- topper, headline, description, CTA buttons
+4. **ServicesPreview** -- topper, headline, description, service cards (titles, descriptions, CTAs), "View All Services" button
+5. **WhyChooseUs** -- topper, headline, description, feature titles and descriptions, CTA button, founder card text
+6. **PortfolioPreview** -- topper, headline, description, "View All Projects" button, "Visit Website" button
+7. **PerformanceSection** -- topper, headline, stat labels, description, benefit titles and descriptions, CTA button
+8. **PricingPreview** -- topper, headline, tier names/descriptions/features/CTAs, price notes
+9. **Testimonials** -- topper, headline, testimonial content (names/locations stay as-is since they're proper nouns)
+10. **Index page** -- CTA section heading and button
+11. **Services page** -- hero heading, category headers, all tier names/descriptions/features/CTAs, bottom CTA
+12. **Portfolio page** -- hero heading, "Visit Website" buttons, CTA section
+13. **About page** -- hero, story section, process section, values section, CTA section
+14. **Contact page** -- hero, form labels/placeholders/headings, contact info titles, toast messages
+15. **CaseStudy page** -- "Back to Portfolio", info bar labels (Location, Category, Services), section toppers/headings, CTA section
+16. **NotFound page** -- 404 text and link
+17. **Portfolio data** -- project descriptions, taglines, about text, challenges, solutions, feature titles/descriptions, testimonial quotes (note: project titles stay as-is since they're brand names)
 
-**`index.html`** -- Add font preloading and preconnect:
-- Add `<link rel="preconnect" href="https://fonts.googleapis.com">` and `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
-- Add `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">` directly in the `<head>`
-- Add preload for `Fairweather-ExtraBold.otf`
+### Technical Details
 
-**`src/index.css`** -- Remove the CSS `@import` for Poppins (line 6), since it will now be loaded from `index.html` directly.
+**New files:**
 
-**`src/assets/coolweb-logo-full.webp`** -- Re-copy the current uploaded logo to bust the cache.
+- `src/contexts/LanguageContext.tsx` -- React context with `LanguageProvider` wrapping the app, `useLanguage` hook returning `{ language, setLanguage, t }`. Language persisted in `localStorage`.
+- `src/i18n/en.ts` -- Flat key-value object with all English strings organized by section (e.g., `"header.home"`, `"hero.topper"`, `"services.webDev.title"`, etc.)
+- `src/i18n/es.ts` -- Matching Spanish (Spain) translations for every key
+- `src/i18n/index.ts` -- Exports translations map
+- `src/components/LanguageSelector.tsx` -- Dropdown component using Radix DropdownMenu, showing globe icon + "EN"/"ES", with two options. Styled to match the site (navy theme for mobile sheet variant).
+
+**Files to modify:**
+
+- `src/App.tsx` -- Wrap with `LanguageProvider`
+- `src/components/layout/Header.tsx` -- Add `LanguageSelector` in desktop (left of Get Started) and mobile (left of burger icon)
+- `src/components/layout/Footer.tsx` -- Use `t()` for all text
+- `src/components/sections/Hero.tsx` -- Use `t()` for all text
+- `src/components/sections/ServicesPreview.tsx` -- Use `t()` for all text
+- `src/components/sections/WhyChooseUs.tsx` -- Use `t()` for all text
+- `src/components/sections/PortfolioPreview.tsx` -- Use `t()` for all text
+- `src/components/sections/PerformanceSection.tsx` -- Use `t()` for all text
+- `src/components/sections/PricingPreview.tsx` -- Use `t()` for all text
+- `src/components/sections/Testimonials.tsx` -- Use `t()` for all text
+- `src/pages/Index.tsx` -- Use `t()` for CTA section
+- `src/pages/Services.tsx` -- Use `t()` for all text
+- `src/pages/Portfolio.tsx` -- Use `t()` for all text
+- `src/pages/About.tsx` -- Use `t()` for all text
+- `src/pages/Contact.tsx` -- Use `t()` for all text, including form labels, placeholders, toast messages
+- `src/pages/CaseStudy.tsx` -- Use `t()` for all static UI text (labels, toppers, headings, CTAs)
+- `src/pages/NotFound.tsx` -- Use `t()` for all text
+- `src/data/portfolioProjects.ts` -- Export a function that accepts language and returns translated project data, or use translation keys for translatable fields
+
+**Translation scope (Spanish from Spain):**
+
+All user-facing text will be translated to Castilian Spanish (Spain), using "vosotros" form where appropriate, and Spanish conventions (e.g., "Empezar" not "Comenzar" for casual CTAs). Proper nouns (brand names, person names, city names) will remain unchanged.
+
+**No layout or styling changes** -- only text content swaps via the translation system.
 
