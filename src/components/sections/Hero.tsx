@@ -3,7 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero_image.webp";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Hero = () => {
+  const { t } = useLanguage();
+
   return <section className="relative flex items-center overflow-hidden bg-navy">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-20" />
@@ -24,29 +28,29 @@ const Hero = () => {
           duration: 0.6
         }}>
             {/* Topper */}
-           <span className="topper block leading-none md:leading-tight text-left">CUSTOM DESIGNS, MADE JUST FOR YOU</span>
+           <span className="topper block leading-none md:leading-tight text-left">{t("hero.topper")}</span>
 
             {/* Main Headline */}
            <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight md:mb-4 font-extrabold lg:text-6xl text-left">
-              Small Business<br />
-              <span className="text-primary">Web Designer</span>
+              {t("hero.headline1")}<br />
+              <span className="text-primary">{t("hero.headline2")}</span>
             </h1>
 
             {/* Description */}
            <p className="font-body leading-relaxed mb-3 md:mb-6 max-w-lg text-xs md:text-base text-primary-foreground">
-              Expert web development, Google Business Profile optimization, and Local SEO services to help your business stand out and attract more customers.
+              {t("hero.description")}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
               <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-primary">
                 <Link to="/contact">
-                  Get Started
+                  {t("hero.cta1")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild size="lg" className="bg-navy border-2 border-primary-foreground/40 text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-                <Link to="/about">About Us</Link>
+                <Link to="/about">{t("hero.cta2")}</Link>
               </Button>
             </div>
 
