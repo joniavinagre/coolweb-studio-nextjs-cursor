@@ -33,7 +33,8 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
+    honeypot: ""
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
@@ -57,7 +58,7 @@ const Contact = () => {
         title: "Message Sent!",
         description: "We'll get back to you within 24 hours."
       });
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
     } catch (error: any) {
       toast({
         title: "Error",
@@ -182,6 +183,12 @@ const Contact = () => {
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+1 (555) 123-4567" />
+                  </div>
+
+                  {/* Honeypot field - hidden from real users */}
+                  <div className="absolute opacity-0 pointer-events-none" style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true" tabIndex={-1}>
+                    <Label htmlFor="honeypot">Leave this empty</Label>
+                    <Input id="honeypot" name="honeypot" value={formData.honeypot} onChange={handleChange} tabIndex={-1} autoComplete="off" />
                   </div>
 
                   <div className="space-y-2">
