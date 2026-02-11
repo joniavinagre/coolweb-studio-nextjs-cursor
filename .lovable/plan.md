@@ -1,62 +1,103 @@
 
+# Multi-Update Plan: Icons, Layout, Content, and Contact Form
 
-# Multi-Section Updates: Image, Icons, Content, and Portfolio Cards
+## 1. Replace service card icons in "Never Worry About Your Website Again"
 
-## 1. Replace image in "Why Choose Us" section and update name card
+**File: `src/components/sections/ServicesPreview.tsx`**
 
-**File: `src/components/sections/WhyChooseUs.tsx`**
+- Remove Lucide icon imports (Globe, MapPin, Search)
+- Replace the service icon rendering with `<img>` tags pointing to SVG files in `public/icons/`
+- Web Development card: `web-development.svg` (2nd uploaded SVG)
+- Google Business Profile card: `googlemybusiness.svg` (1st uploaded SVG)
+- Local SEO card: `seo.svg` (3rd uploaded SVG)
+- All SVGs will have their fill set to white
 
-- Replace the Unsplash stock photo URL with the uploaded selfie image (copy `user-uploads://503328122_18031425833664346_1030377851877931299_n..webp` to `src/assets/joni-vinagre.webp`)
-- Move the floating name card from `bottom-6` to `top-6`
-- Reduce vertical padding from `p-4` to `px-4 py-2`
-- Update text from "Owner, Web Developer" to "Founder, Web Developer"
-- Change outer container from `rounded-2xl` to `rounded-xl` (Medium radius)
-- Change inner name card from `rounded-xl` to `rounded-xl` (already correct)
-- Ensure image itself uses `rounded-xl` instead of `rounded-md`
 
-## 2. Replace Zap icons with custom SVGs in Performance section
+**New files:**
+- `public/icons/web-development.svg` (white fill)
+- `public/icons/googlemybusiness.svg` (white fill)
+- `public/icons/seo.svg` (white fill)
+
+**File: `src/index.css`**
+
+- Change `.service-icon-swipe` from `rounded-2xl` to `rounded-xl` (Medium radius)
+- Check that the left-to-right hover animation stays as it is, making the background light blue when hovering it.
+
+## 2. H1 line break in hero section
+
+**File: `src/components/sections/Hero.tsx`**
+
+- Add an explicit `<br />` tag after "Small Business" so the H1 renders as:
+  - Line 1: "Small Business"
+  - Line 2: "Web Designer"
+
+## 3. Swap portfolio preview: Replace Briet with Nails by Anabela
+
+**File: `src/components/sections/PortfolioPreview.tsx`**
+
+- Instead of `projects.slice(0, 3)` (which shows Gaston, 4DHUES, Briet), change to pick projects by specific IDs: 1 (Gaston), 2 (4DHUES), and 5 (Nails by Anabela)
+
+## 4. Reduce line spacing on portfolio section headline
+
+**File: `src/components/sections/PortfolioPreview.tsx`**
+
+- The `.section-title` class already has `leading-none md:leading-tight` from a previous update, but verify it applies here. If the h2 has additional leading classes, ensure it uses `leading-none md:leading-tight`.
+
+## 5. Replace PageSpeed mockup with uploaded image in Performance section
 
 **File: `src/components/sections/PerformanceSection.tsx`**
 
-- Copy the three SVG files to `public/icons/stat1.svg`, `public/icons/stat2.svg`, `public/icons/stat3.svg`
-- Update the SVG files to use `fill="white"` instead of `fill="#001f3f"`
-- Replace the Lucide `Zap` icon for each benefit with an `<img>` tag referencing the corresponding SVG
-- Benefit 1 ("Better load times...") uses stat1.svg (hourglass)
-- Benefit 2 ("Faster websites...") uses stat2.svg (star/trophy)
-- Benefit 3 ("Our sites load instantly...") uses stat3.svg (devices)
-- Size the SVG icons to match current `w-5 h-5` sizing
-- Remove the `Zap` import if no longer needed
+- Replace the entire PageSpeed dashboard mockup (the card with circles, metrics grid, and decorative elements on lines 144-201) with an `<img>` tag using the uploaded image
+- Copy `user-uploads://Untitled_design_4.webp` to `src/assets/performance-dashboard.webp`
+- Apply `rounded-xl` for Medium border radius
 
-## 3. Update feature text in "Why Choose Us" section
+## 6. Remove Testimonials section from Home page
 
-**File: `src/components/sections/WhyChooseUs.tsx`**
+**File: `src/pages/Index.tsx`**
 
-Replace three features in the `features` array:
+- Remove the `<Testimonials />` component from the page
+- Remove the Testimonials import
 
-| Original Title | New Title | New Description |
-|---|---|---|
-| "100% Secure" | "Mobile First Design" | "We build your site for mobile devices first, ensuring lean, optimized code with no bloated waste for a fast, responsive experience." |
-| "100 PageSpeed Scores" | "Optimized Page Speed" | "If your site takes more than 3 seconds to load you can lose up to 50% of your traffic. Our sites load in under 1 second." |
-| "Money Back Guarantee" | "Fully Responsive" | "Your website will fit all screen sizes -- mobile, tablet, and desktop -- so visitors see a beautiful site no matter the device." |
+## 7. Swap section order on About page
 
-## 4. Portfolio card descriptions: remove line-clamp and ensure equal card heights
+**File: `src/pages/About.tsx`**
 
-**Files: `src/components/sections/PortfolioPreview.tsx` and `src/pages/Portfolio.tsx`**
+- Move the "Our Process" section (lines 212-248) above the "Why Us" section (lines 140-210)
+- The order will become: Hero, Story, Our Process, Why Us, CTA
 
-- Remove `line-clamp-2` from the description `<p>` tags in both files so descriptions are always fully visible
-- Add `flex flex-col` to the `motion.article` in PortfolioPreview (Portfolio.tsx already has it)
-- Add `flex-grow` to the description paragraph in PortfolioPreview (Portfolio.tsx already has it)
-- Add `mt-auto self-start` to the Button in PortfolioPreview to pin it to the bottom (matching Portfolio.tsx)
-- This flex pattern ensures all cards stretch to the same height within each grid row
+## 8. Connect Contact form to Resend
 
-### Technical Details
+This requires:
+- A Supabase/Cloud edge function to send emails via Resend
+- The `RESEND_API_KEY` secret stored securely
 
-**Files modified:**
-- `src/assets/joni-vinagre.webp` (new file, copied from upload)
-- `public/icons/stat1.svg` (new file, white-colored SVG)
-- `public/icons/stat2.svg` (new file, white-colored SVG)
-- `public/icons/stat3.svg` (new file, white-colored SVG)
-- `src/components/sections/WhyChooseUs.tsx` (image source, name card position/text, feature content, border radius)
-- `src/components/sections/PerformanceSection.tsx` (replace Zap icons with custom SVG images)
-- `src/components/sections/PortfolioPreview.tsx` (remove line-clamp, add flex layout for equal heights)
-- `src/pages/Portfolio.tsx` (remove line-clamp)
+Before implementing this, I need your Resend API key. Here is what you need to do:
+
+1. Go to [resend.com](https://resend.com) and sign up if you haven't already
+2. Verify your email domain at [resend.com/domains](https://resend.com/domains)
+3. Create an API key at [resend.com/api-keys](https://resend.com/api-keys)
+
+Once you provide the API key, I will:
+- Create an edge function (`send-contact-email`) that receives the form data and sends an email via Resend to your business email (contact@coolwebstudio.com)
+- Update the Contact page form to call this edge function instead of the current simulated delay
+- Add proper error handling and validation
+
+---
+
+### Technical Summary
+
+| File | Change |
+|---|---|
+| `public/icons/web-development.svg` | New file - white SVG icon |
+| `public/icons/googlemybusiness.svg` | New file - white SVG icon |
+| `public/icons/seo.svg` | New file - white SVG icon |
+| `src/assets/performance-dashboard.webp` | New file - uploaded image |
+| `src/index.css` | Change `.service-icon-swipe` to `rounded-xl` |
+| `src/components/sections/ServicesPreview.tsx` | Replace Lucide icons with custom SVG images |
+| `src/components/sections/Hero.tsx` | Add line break in H1 |
+| `src/components/sections/PortfolioPreview.tsx` | Swap Briet for Nails by Anabela; verify headline spacing |
+| `src/components/sections/PerformanceSection.tsx` | Replace PageSpeed mockup with uploaded image |
+| `src/pages/Index.tsx` | Remove Testimonials section |
+| `src/pages/About.tsx` | Swap "Why Us" and "Our Process" section order |
+| `src/pages/Contact.tsx` | Connect form to Resend edge function (pending API key) |
+| `supabase/functions/send-contact-email/index.ts` | New edge function for Resend (pending API key) |
