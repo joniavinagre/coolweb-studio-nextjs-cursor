@@ -137,6 +137,44 @@ const About = () => {
         </div>
       </section>
 
+      {/* Process Section */}
+      <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
+        <div className="absolute inset-0 bg-hero-pattern opacity-10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
+            <div>
+              <span className="topper block">Our Process</span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
+                How We <span className="text-primary">Work</span>
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="font-body text-sm leading-relaxed text-primary-foreground">
+                We follow a proven four-step process to bring your vision to life. From initial discovery to launch and beyond, every step is designed for your success.
+              </p>
+            </div>
+          </div>
+
+          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+          once: true
+        }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map(step => <motion.div key={step.step} variants={item}>
+                <div className="backdrop-blur-sm border-primary-foreground/10 rounded-xl p-6 h-full bg-transparent border-0">
+                  <div className="text-5xl font-extrabold text-primary mb-2" style={{
+                fontFamily: "'Fairweather', system-ui, sans-serif"
+              }}>{step.step}</div>
+                  <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="font-body text-xs leading-relaxed text-primary-foreground">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>)}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Why Us / Values Section */}
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -206,44 +244,6 @@ const About = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-16 md:py-20 bg-navy relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
-            <div>
-              <span className="topper block">Our Process</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
-                How We <span className="text-primary">Work</span>
-              </h2>
-            </div>
-            <div className="flex items-end">
-              <p className="font-body text-sm leading-relaxed text-primary-foreground">
-                We follow a proven four-step process to bring your vision to life. From initial discovery to launch and beyond, every step is designed for your success.
-              </p>
-            </div>
-          </div>
-
-          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
-          once: true
-        }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map(step => <motion.div key={step.step} variants={item}>
-                <div className="backdrop-blur-sm border-primary-foreground/10 rounded-xl p-6 h-full bg-transparent border-0">
-                  <div className="text-5xl font-extrabold text-primary mb-2" style={{
-                fontFamily: "'Fairweather', system-ui, sans-serif"
-              }}>{step.step}</div>
-                  <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="font-body text-xs leading-relaxed text-primary-foreground">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>)}
-          </motion.div>
         </div>
       </section>
 

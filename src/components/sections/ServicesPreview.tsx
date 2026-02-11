@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
-import { Globe, MapPin, Search, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 const services = [{
-  icon: Globe,
+  icon: "/icons/web-development.svg",
   title: "Web Development",
   description: "Custom, responsive websites that look stunning on all devices and convert visitors into customers.",
   href: "/services#web-development"
 }, {
-  icon: MapPin,
+  icon: "/icons/googlemybusiness.svg",
   title: "Google Business Profile",
   description: "Optimize your Google Business Profile to appear in local searches and attract nearby customers.",
   href: "/services#google-business"
 }, {
-  icon: Search,
+  icon: "/icons/seo.svg",
   title: "Local SEO",
   description: "Dominate local search results and get found by customers actively looking for your services.",
   href: "/services#local-seo"
@@ -93,7 +93,7 @@ const ServicesPreview = () => {
           {services.map(service => <motion.div key={service.title} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
               {/* Icon */}
               <div className="service-icon-swipe">
-                <service.icon className="w-8 h-8" />
+                <img src={service.icon} alt="" className="w-8 h-8 relative z-10" />
               </div>
 
               {/* Content */}

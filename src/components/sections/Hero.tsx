@@ -28,7 +28,7 @@ const Hero = () => {
 
             {/* Main Headline */}
            <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight md:mb-4 font-extrabold lg:text-6xl mb-[10px]">
-              Small Business{" "}
+              Small Business<br />
               <span className="text-primary">Web Designer</span>
             </h1>
 

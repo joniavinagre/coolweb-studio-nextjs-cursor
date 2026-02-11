@@ -27,8 +27,8 @@ const item = {
   },
 };
 
-// Show first 3 projects on homepage
-const previewProjects = projects.slice(0, 3);
+// Show specific projects on homepage: Gaston (1), 4DHUES (2), Nails by Anabela (5)
+const previewProjects = projects.filter(p => [1, 2, 5].includes(p.id));
 const PortfolioPreview = () => {
   return (
     <section className="py-16 md:py-20 bg-background">
