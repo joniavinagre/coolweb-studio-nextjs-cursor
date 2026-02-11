@@ -68,7 +68,7 @@ const ServicesPreview = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="section-title mb-[10px] leading-none md:leading-tight">
+        }} className="section-title leading-none md:leading-tight">
             Never Worry About Your <span className="text-primary">Website</span> Again
           </motion.h2>
           <motion.p initial={{
