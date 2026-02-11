@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, Globe, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -47,18 +48,25 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours."
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
-    setIsSubmitting(false);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: formData,
+      });
+      if (error) throw error;
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours."
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return <Layout>
       {/* Hero Section */}
