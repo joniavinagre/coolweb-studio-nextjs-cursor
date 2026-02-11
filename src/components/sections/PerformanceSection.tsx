@@ -43,7 +43,7 @@ const PerformanceSection = () => {
         }} viewport={{
           once: true
         }}>
-            <span className="topper block leading-none md:leading-tight;">
+            <span className="topper block leading-none md:leading-tight">
               Performance
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
