@@ -50,8 +50,8 @@ const PortfolioPreview = () => {
             }}
             className="lg:border-r lg:border-border lg:pr-12"
           >
-            <span className="topper block text-xl font-extrabold leading-none md:leading-tight;">Portfolio</span>
-            <h2 className="section-title leading-none md:leading-tight;">
+            <span className="topper block text-xl font-extrabold leading-none md:leading-tight">Portfolio</span>
+            <h2 className="section-title leading-none md:leading-tight">
               Some Of The Work <span className="text-primary">We've Done Over The Years</span>
             </h2>
           </motion.div>
@@ -75,8 +75,9 @@ const PortfolioPreview = () => {
             className="lg:pl-12 flex flex-col justify-center"
           >
             <p className="font-body leading-relaxed text-sm text-popover-foreground mb-6">
-              We have worked with clients all over the world! Each project is crafted with attention to detail and a
-              focus on results. Take a look at some of our recent work.
+              We have worked with clients all over the world, from small local businesses to international brands. Each
+              project is crafted with attention to detail and a focus on results. Take a look at some of our recent
+              work.
             </p>
             <div>
               <Button
