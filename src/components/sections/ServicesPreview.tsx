@@ -2,76 +2,129 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/contexts/LanguageContext";
-
+const services = [{
+  icon: "/icons/web-development.svg",
+  title: "Web Development",
+  description: "Custom, responsive websites that look stunning on all devices and convert visitors into customers.",
+  href: "/services#web-development"
+}, {
+  icon: "/icons/googlemybusiness.svg",
+  title: "Google Business Profile",
+  description: "Optimize your Google Business Profile to appear in local searches and attract nearby customers.",
+  href: "/services#google-business"
+}, {
+  icon: "/icons/seo.svg",
+  title: "Local SEO",
+  description: "Dominate local search results and get found by customers actively looking for your services.",
+  href: "/services#local-seo"
+}];
 const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
 };
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: {
+    opacity: 0,
+    y: 30
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
 };
-
 const ServicesPreview = () => {
-  const { t } = useLanguage();
-
-  const services = [{
-    icon: "/icons/web-development.svg",
-    title: t("services.webDev.title"),
-    description: t("services.webDev.description"),
-    href: "/services#web-development"
-  }, {
-    icon: "/icons/googlemybusiness.svg",
-    title: t("services.gbp.title"),
-    description: t("services.gbp.description"),
-    href: "/services#google-business"
-  }, {
-    icon: "/icons/seo.svg",
-    title: t("services.seo.title"),
-    description: t("services.seo.description"),
-    href: "/services#local-seo"
-  }];
-
   return <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-[10px]">
-          <motion.span initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="topper block leading-none md:leading-tight">
-            {t("services.topper")}
+          <motion.span initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="topper block leading-none md:leading-tight">
+            What We Do
           </motion.span>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="section-title leading-none md:leading-tight">
-            {t("services.headline1")}<span className="text-primary">{t("services.headline2")}</span>{t("services.headline3")}
+          <motion.h2 initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.1
+        }} className="section-title leading-none md:leading-tight">
+            Never Worry About Your <span className="text-primary">Website</span> Again
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="font-body max-w-2xl mx-auto text-card-foreground text-sm">
-            {t("services.description")}
+          <motion.p initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.2
+        }} className="font-body max-w-2xl mx-auto text-card-foreground text-sm">
+            We provide comprehensive digital solutions tailored to your business needs.
           </motion.p>
         </div>
 
         {/* Services Grid */}
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+        once: true
+      }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map(service => <motion.div key={service.title} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
+              {/* Icon */}
               <div className="service-icon-swipe">
                 <img src={service.icon} alt="" className="w-8 h-8 relative z-10" />
               </div>
+
+              {/* Content */}
               <h3 className="text-2xl text-foreground mb-2 uppercase tracking-wide card-hover-title font-extrabold">
                 {service.title}
               </h3>
               <p className="font-body mb-4 leading-relaxed flex-grow text-xs text-card-foreground">
                 {service.description}
               </p>
+
+              {/* Link */}
               <Link to={service.href} className="inline-flex items-center justify-center px-4 py-2 rounded-full font-semibold text-xs uppercase tracking-wider btn-swipe-card mt-auto self-start">
-                {t("services.cardCta")}
+                Get Started
                 <ArrowRight className="w-3 h-3 ml-2" />
               </Link>
             </motion.div>)}
         </motion.div>
 
         {/* CTA */}
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-10">
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} className="text-center mt-10">
           <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
             <Link to="/services">
-              {t("services.viewAll")}
+              View All Services
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>

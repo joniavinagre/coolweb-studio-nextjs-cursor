@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 interface PricingFeature {
   text: string;
   included: boolean;
@@ -13,8 +11,9 @@ interface PricingTier {
   name: string;
   price: string;
   priceNote?: string;
+  priceLabel?: string;
   description?: string;
-  features: PricingFeature[];
+  features: (string | PricingFeature)[];
   cta?: string;
   featured?: boolean;
 }
@@ -24,153 +23,257 @@ interface ServiceCategory {
   title: string;
   description: string;
   tiers: PricingTier[];
+  showCustomCard?: boolean;
 }
-
+const webDevTiers: PricingTier[] = [{
+  name: "Lump Sum",
+  price: "1.000€",
+  priceNote: "+25€/mo hosting",
+  description: "One-time payment for your complete website",
+  features: [{
+    text: "Custom Design & Development",
+    included: true
+  }, {
+    text: "Up to 5 Pages",
+    included: true
+  }, {
+    text: "Mobile Responsive",
+    included: true
+  }, {
+    text: "Basic SEO Setup",
+    included: true
+  }, {
+    text: "25€/month Hosting",
+    included: true
+  }, {
+    text: "Unlimited Edits",
+    included: false
+  }, {
+    text: "24/7 Support",
+    included: false
+  }, {
+    text: "Lifetime Updates",
+    included: false
+  }],
+  cta: "Get Started"
+}, {
+  name: "Monthly",
+  price: "100€",
+  priceNote: "/month",
+  description: "No upfront cost, everything included",
+  features: [{
+    text: "Custom Design & Development",
+    included: true
+  }, {
+    text: "Up to 5 Pages",
+    included: true
+  }, {
+    text: "Mobile Responsive",
+    included: true
+  }, {
+    text: "Advanced SEO Optimization",
+    included: true
+  }, {
+    text: "Hosting Included",
+    included: true
+  }, {
+    text: "Unlimited Edits",
+    included: true
+  }, {
+    text: "24/7 Support",
+    included: true
+  }, {
+    text: "Lifetime Updates",
+    included: true
+  }],
+  cta: "Get Started",
+  featured: true
+}, {
+  name: "Custom",
+  price: "Let's Talk!",
+  description: "Need something more? We've got you covered",
+  features: [{
+    text: "E-commerce Solutions",
+    included: true
+  }, {
+    text: "Custom Integrations",
+    included: true
+  }, {
+    text: "Advanced Functionality",
+    included: true
+  }, {
+    text: "Multi-language Support",
+    included: true
+  }, {
+    text: "Priority Development",
+    included: true
+  }, {
+    text: "Dedicated Support",
+    included: true
+  }, {
+    text: "Custom Hosting",
+    included: true
+  }, {
+    text: "Ongoing Maintenance",
+    included: true
+  }],
+  cta: "Reach Out"
+}];
+const serviceCategories: ServiceCategory[] = [{
+  id: "web-development",
+  icon: Globe,
+  title: "Web Development",
+  description: "High-performance websites built from scratch, tailored to your business goals.",
+  tiers: webDevTiers
+}, {
+  id: "google-business",
+  icon: MapPin,
+  title: "Google Business Profile",
+  description: "Maximize your visibility in local searches and Google Maps.",
+  tiers: [{
+    name: "Setup",
+    price: "200€",
+    priceNote: "one-time",
+    description: "Get your profile up and running professionally",
+    features: [{
+      text: "Complete profile setup",
+      included: true
+    }, {
+      text: "Profile verification",
+      included: true
+    }, {
+      text: "Business category optimization",
+      included: true
+    }, {
+      text: "Photo and video uploads",
+      included: true
+    }, {
+      text: "Basic optimization",
+      included: true
+    }],
+    cta: "Get Started"
+  }, {
+    name: "Management",
+    price: "75€",
+    priceNote: "/month",
+    description: "Ongoing management to keep your profile performing",
+    features: [{
+      text: "Ongoing optimization",
+      included: true
+    }, {
+      text: "Weekly posts",
+      included: true
+    }, {
+      text: "Review responses",
+      included: true
+    }, {
+      text: "Photo updates",
+      included: true
+    }, {
+      text: "Monthly reports",
+      included: true
+    }],
+    cta: "Get Started"
+  }]
+}, {
+  id: "local-seo",
+  icon: Search,
+  title: "Local SEO",
+  description: "Rank higher in local search results and outperform your competitors.",
+  tiers: [{
+    name: "Basic",
+    price: "400€",
+    priceNote: "/month",
+    description: "Essential local SEO to get you on the map",
+    features: [{
+      text: "5 target keywords",
+      included: true
+    }, {
+      text: "Basic optimization",
+      included: true
+    }, {
+      text: "Monthly report",
+      included: true
+    }, {
+      text: "Citation building",
+      included: true
+    }, {
+      text: "NAP consistency audit",
+      included: true
+    }],
+    cta: "Get Started"
+  }, {
+    name: "Advanced",
+    price: "800€",
+    priceNote: "/month",
+    description: "Full-scale local SEO to dominate your market",
+    features: [{
+      text: "15+ target keywords",
+      included: true
+    }, {
+      text: "Full optimization",
+      included: true
+    }, {
+      text: "Bi-weekly reports",
+      included: true
+    }, {
+      text: "Link building",
+      included: true
+    }, {
+      text: "Google Maps ranking",
+      included: true
+    }, {
+      text: "Content optimization",
+      included: true
+    }],
+    cta: "Get Started"
+  }]
+}];
 const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
 };
-
 const Services = () => {
-  const { t } = useLanguage();
-
-  const webDevTiers: PricingTier[] = [{
-    name: t("pricing.lumpSum.name"),
-    price: t("pricing.lumpSum.price"),
-    priceNote: t("pricing.lumpSum.priceNote"),
-    description: t("pricing.lumpSum.description"),
-    features: [
-      { text: t("pricing.feature.customDesign"), included: true },
-      { text: t("pricing.feature.upTo5Pages"), included: true },
-      { text: t("pricing.feature.mobileResponsive"), included: true },
-      { text: t("pricing.feature.basicSeo"), included: true },
-      { text: t("pricing.feature.hosting25"), included: true },
-      { text: t("pricing.feature.unlimitedEdits"), included: false },
-      { text: t("pricing.feature.support247"), included: false },
-      { text: t("pricing.feature.lifetimeUpdates"), included: false },
-    ],
-    cta: t("pricing.lumpSum.cta"),
-  }, {
-    name: t("pricing.monthly.name"),
-    price: t("pricing.monthly.price"),
-    priceNote: t("pricing.monthly.priceNote"),
-    description: t("pricing.monthly.description"),
-    features: [
-      { text: t("pricing.feature.customDesign"), included: true },
-      { text: t("pricing.feature.upTo5Pages"), included: true },
-      { text: t("pricing.feature.mobileResponsive"), included: true },
-      { text: t("pricing.feature.advancedSeo"), included: true },
-      { text: t("pricing.feature.hostingIncluded"), included: true },
-      { text: t("pricing.feature.unlimitedEdits"), included: true },
-      { text: t("pricing.feature.support247"), included: true },
-      { text: t("pricing.feature.lifetimeUpdates"), included: true },
-    ],
-    cta: t("pricing.monthly.cta"),
-    featured: true,
-  }, {
-    name: t("pricing.custom.name"),
-    price: t("pricing.custom.price"),
-    description: t("pricing.custom.description"),
-    features: [
-      { text: t("pricing.feature.ecommerce"), included: true },
-      { text: t("pricing.feature.customIntegrations"), included: true },
-      { text: t("pricing.feature.advancedFunctionality"), included: true },
-      { text: t("pricing.feature.multiLanguage"), included: true },
-      { text: t("pricing.feature.priorityDev"), included: true },
-      { text: t("pricing.feature.dedicatedSupport"), included: true },
-      { text: t("pricing.feature.customHosting"), included: true },
-      { text: t("pricing.feature.ongoingMaintenance"), included: true },
-    ],
-    cta: t("pricing.custom.cta"),
-  }];
-
-  const serviceCategories: ServiceCategory[] = [{
-    id: "web-development",
-    icon: Globe,
-    title: t("servicesPage.webDev.title"),
-    description: t("servicesPage.webDev.description"),
-    tiers: webDevTiers,
-  }, {
-    id: "google-business",
-    icon: MapPin,
-    title: t("servicesPage.gbp.title"),
-    description: t("servicesPage.gbp.description"),
-    tiers: [{
-      name: t("servicesPage.gbp.setup.name"),
-      price: t("servicesPage.gbp.setup.price"),
-      priceNote: t("servicesPage.gbp.setup.priceNote"),
-      description: t("servicesPage.gbp.setup.description"),
-      features: [
-        { text: t("servicesPage.gbp.feature.completeSetup"), included: true },
-        { text: t("servicesPage.gbp.feature.verification"), included: true },
-        { text: t("servicesPage.gbp.feature.categoryOpt"), included: true },
-        { text: t("servicesPage.gbp.feature.photoVideo"), included: true },
-        { text: t("servicesPage.gbp.feature.basicOpt"), included: true },
-      ],
-      cta: t("servicesPage.gbp.setup.cta"),
-    }, {
-      name: t("servicesPage.gbp.mgmt.name"),
-      price: t("servicesPage.gbp.mgmt.price"),
-      priceNote: t("servicesPage.gbp.mgmt.priceNote"),
-      description: t("servicesPage.gbp.mgmt.description"),
-      features: [
-        { text: t("servicesPage.gbp.feature.ongoingOpt"), included: true },
-        { text: t("servicesPage.gbp.feature.weeklyPosts"), included: true },
-        { text: t("servicesPage.gbp.feature.reviewResponses"), included: true },
-        { text: t("servicesPage.gbp.feature.photoUpdates"), included: true },
-        { text: t("servicesPage.gbp.feature.monthlyReports"), included: true },
-      ],
-      cta: t("servicesPage.gbp.mgmt.cta"),
-    }],
-  }, {
-    id: "local-seo",
-    icon: Search,
-    title: t("servicesPage.seo.title"),
-    description: t("servicesPage.seo.description"),
-    tiers: [{
-      name: t("servicesPage.seo.basic.name"),
-      price: t("servicesPage.seo.basic.price"),
-      priceNote: t("servicesPage.seo.basic.priceNote"),
-      description: t("servicesPage.seo.basic.description"),
-      features: [
-        { text: t("servicesPage.seo.feature.5keywords"), included: true },
-        { text: t("servicesPage.seo.feature.basicOpt"), included: true },
-        { text: t("servicesPage.seo.feature.monthlyReport"), included: true },
-        { text: t("servicesPage.seo.feature.citationBuilding"), included: true },
-        { text: t("servicesPage.seo.feature.napAudit"), included: true },
-      ],
-      cta: t("servicesPage.seo.basic.cta"),
-    }, {
-      name: t("servicesPage.seo.advanced.name"),
-      price: t("servicesPage.seo.advanced.price"),
-      priceNote: t("servicesPage.seo.advanced.priceNote"),
-      description: t("servicesPage.seo.advanced.description"),
-      features: [
-        { text: t("servicesPage.seo.feature.15keywords"), included: true },
-        { text: t("servicesPage.seo.feature.fullOpt"), included: true },
-        { text: t("servicesPage.seo.feature.biweeklyReports"), included: true },
-        { text: t("servicesPage.seo.feature.linkBuilding"), included: true },
-        { text: t("servicesPage.seo.feature.mapsRanking"), included: true },
-        { text: t("servicesPage.seo.feature.contentOpt"), included: true },
-      ],
-      cta: t("servicesPage.seo.advanced.cta"),
-    }],
-  }];
-
   return <Layout>
+      {/* Hero Section - Clean and minimal like Oak Harbor */}
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-4xl mx-auto text-center">
+            
             <h1 className="font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl text-4xl md:text-5xl">
-              {t("servicesPage.heroTitle1")}<span className="text-primary">{t("servicesPage.heroTitle2")}</span>
+              Pricing Packages For{" "}
+              <span className="text-primary">Every Budget</span>
             </h1>
           </motion.div>
         </div>
+
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" className="w-full h-auto" preserveAspectRatio="none">
             <path d="M0 120L48 110C96 100 192 80 288 70C384 60 480 60 576 65C672 70 768 80 864 85C960 90 1056 90 1152 85C1248 80 1344 70 1392 65L1440 60V120H0Z" className="fill-background" />
@@ -178,38 +281,62 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Pricing Categories */}
       {serviceCategories.map((category, categoryIndex) => <section key={category.id} id={category.id} className={`py-14 md:py-18 ${categoryIndex % 2 === 1 ? "bg-muted/30" : "bg-background"}`}>
           <div className="container mx-auto px-4">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            {/* Category Header */}
+            <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
                   <h2 className="section-title">
-                    {category.title} <span className="text-primary">{t("servicesPage.packages")}</span>
+                    {category.title} <span className="text-primary">Packages</span>
                   </h2>
-                  <p className="font-body max-w-2xl text-sm text-card-foreground">{category.description}</p>
+                  <p className="font-body max-w-2xl text-sm text-card-foreground">
+                    {category.description}
+                  </p>
                 </div>
                 <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
                   <Link to="/contact">
-                    {t("header.getStarted")}
+                    Get Started
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
               </motion.div>
-            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto"}>
+
+            {/* Pricing Cards Grid */}
+            <motion.div variants={container} initial="hidden" whileInView="show" viewport={{
+          once: true
+        }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto"}>
                 {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
                     <div className="px-6 pt-6">
-                      <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>{tier.name}</h3>
+                      <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
+                        {tier.name}
+                      </h3>
                       <p className={`text-sm ${tier.featured ? "text-primary-foreground" : "text-card-foreground"}`}>{tier.description}</p>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <ul className="space-y-2 mb-4 flex-grow">
-                        {tier.features.map(feature => <li key={feature.text} className="flex items-start gap-2">
+                        {(tier.features as PricingFeature[]).map(feature => <li key={feature.text} className="flex items-start gap-2">
                             {feature.included ? <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
-                            <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>{feature.text}</span>
+                            <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>
+                              {feature.text}
+                            </span>
                           </li>)}
                       </ul>
                       <div className="mb-4 mt-auto">
-                        <span className={`text-4xl md:text-5xl font-display font-extrabold ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>{tier.price}</span>
-                        {tier.priceNote && <span className={`ml-1 text-xs ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{tier.priceNote}</span>}
+                        <span className={`text-4xl md:text-5xl font-display font-extrabold ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>
+                          {tier.price}
+                        </span>
+                        {tier.priceNote && <span className={`ml-1 text-xs ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                            {tier.priceNote}
+                          </span>}
                       </div>
                       <Button asChild className={`w-full font-extrabold uppercase text-sm tracking-wider ${tier.featured ? "bg-primary text-primary-foreground btn-swipe-primary" : "btn-swipe-card"}`}>
                         <Link to="/contact">
@@ -223,15 +350,25 @@ const Services = () => {
           </div>
         </section>)}
 
+      {/* Bottom CTA Section */}
       <section className="pt-14 pb-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
-              {t("servicesPage.bottomCta.headline1")}<span className="text-primary">{t("servicesPage.bottomCta.headline2")}</span>
+              Ready To <span className="text-primary">Get Started?</span>
             </h2>
+            
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
               <Link to="/contact">
-                {t("servicesPage.bottomCta.button")}
+                Book Free Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
