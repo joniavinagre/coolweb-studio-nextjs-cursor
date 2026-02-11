@@ -147,7 +147,7 @@ const PricingPreview = () => {
             y: 0
           }} viewport={{
             once: true
-          }} className="topper block leading-none md:leading-tight;">
+          }} className="topper block leading-none md:leading-tight">
               Our Pricing
             </motion.span>
             <motion.h2 initial={{
@@ -160,7 +160,7 @@ const PricingPreview = () => {
             once: true
           }} transition={{
             delay: 0.1
-          }} className="section-title">
+          }} className="section-title leading-none md:leading-tight">
               Pricing Packages For <span className="text-primary">Every Budget</span>
             </motion.h2>
           </div>
