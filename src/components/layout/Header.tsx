@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.webp";
+import fullLogo from "@/assets/coolweb-logo-full.webp";
 
 const navLinks = [{
   href: "/",
@@ -63,15 +63,12 @@ const Header = () => {
           )}
         >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="group">
             <img
-              src={logo}
+              src={fullLogo}
               alt="COOLWEB Studio"
-              className="h-8 w-8 group-hover:scale-105 transition-transform"
+              className="h-8 group-hover:scale-105 transition-transform"
             />
-            <span className="font-bold text-lg text-foreground">
-              COOL<span className="text-primary">WEB</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -112,13 +109,9 @@ const Header = () => {
               <div className="flex flex-col gap-4 mt-4">
                 <Link
                   to="/"
-                  className="flex items-center gap-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  <img src={logo} alt="COOLWEB Studio" className="h-8 w-8" />
-                  <span className="font-bold text-lg text-primary-foreground">
-                    COOL<span className="text-primary">WEB</span>
-                  </span>
+                  <img src={fullLogo} alt="COOLWEB Studio" className="h-8 brightness-0 invert" />
                 </Link>
 
                 <div className="flex flex-col gap-1">
