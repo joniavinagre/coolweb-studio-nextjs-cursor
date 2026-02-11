@@ -45,7 +45,7 @@ const PortfolioPreview = () => {
           once: true
         }} className="lg:border-r lg:border-border lg:pr-12">
             <span className="topper block text-xl font-extrabold leading-none md:leading-tight">Portfolio</span>
-            <h2 className="section-title leading-none md:leading-tight text-center">
+            <h2 className="section-title leading-none md:leading-tight text-left">
               Some Of The Work <span className="text-primary">We've Done Over The Years</span>
             </h2>
           </motion.div>
