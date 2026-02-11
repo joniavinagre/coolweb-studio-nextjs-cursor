@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import performanceDashboard from "@/assets/performance-dashboard.webp";
 const benefits = [{
   title: "Better load times means more conversions",
   description: "Studies show that every second of delay reduces conversions by 7%. Our lightning-fast sites keep visitors engaged.",
@@ -141,63 +142,7 @@ const PerformanceSection = () => {
           duration: 0.6,
           delay: 0.2
         }} className="relative">
-            <div className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-xl">
-              {/* Header */}
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="ml-4 text-muted-foreground text-sm">PageSpeed Insights</span>
-              </div>
-
-              {/* Score Display */}
-              <div className="flex flex-col items-center mb-8">
-                <div className="relative w-32 h-32 md:w-40 md:h-40">
-                  {/* Circular Progress */}
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle cx="50%" cy="50%" r="45%" stroke="hsl(var(--muted))" strokeWidth="8" fill="none" />
-                    <circle cx="50%" cy="50%" r="45%" stroke="hsl(142, 76%, 36%)" strokeWidth="8" fill="none" strokeDasharray="283" strokeDashoffset="0" strokeLinecap="round" />
-                  </svg>
-                  {/* Score Number */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-4xl md:text-5xl font-bold text-green-500">100</span>
-                  </div>
-                </div>
-                <p className="text-foreground font-bold mt-4 text-lg">Performance</p>
-              </div>
-
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {[{
-                label: "Accessibility",
-                score: "100",
-                color: "text-green-500"
-              }, {
-                label: "Best Practices",
-                score: "100",
-                color: "text-green-500"
-              }, {
-                label: "SEO",
-                score: "100",
-                color: "text-green-500"
-              }, {
-                label: "PWA",
-                score: "100",
-                color: "text-green-500"
-              }].map(metric => <div key={metric.label} className="bg-muted/50 rounded-lg p-4 text-center">
-                    <div className={`text-2xl font-bold ${metric.color} mb-1`}>
-                      {metric.score}
-                    </div>
-                    <div className="text-muted-foreground text-xs uppercase tracking-wider">
-                      {metric.label}
-                    </div>
-                  </div>)}
-              </div>
-            </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/20 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-500/20 rounded-full blur-xl" />
+            <img src={performanceDashboard} alt="PageSpeed performance dashboard showing perfect scores" className="w-full rounded-xl shadow-xl" />
           </motion.div>
         </div>
       </div>

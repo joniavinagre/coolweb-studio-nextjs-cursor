@@ -5,7 +5,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
 import PerformanceSection from "@/components/sections/PerformanceSection";
 import PricingPreview from "@/components/sections/PricingPreview";
-import Testimonials from "@/components/sections/Testimonials";
+
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ const Index = () => {
       <PortfolioPreview />
       <PerformanceSection />
       <PricingPreview />
-      <Testimonials />
+      
 
       {/* CTA Section */}
       <section className="pt-14 pb-24 bg-muted/30">

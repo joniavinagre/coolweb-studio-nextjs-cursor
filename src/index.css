@@ -262,7 +262,7 @@
 
   /* Service icon with swipe animation on card hover */
   .service-icon-swipe {
-    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-4 relative overflow-hidden;
+    @apply w-16 h-16 rounded-xl flex items-center justify-center mb-4 relative overflow-hidden;
     background: hsl(var(--navy));
     z-index: 1;
     transition: all 0.4s ease;
