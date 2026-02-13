@@ -19,8 +19,7 @@ export const es: Record<string, string> = {
   "hero.topper": "DISEÑOS A MEDIDA, HECHOS PARA TI",
   "hero.headline1": "Diseñador Web",
   "hero.headline2": "Para Pequeños Negocios",
-  "hero.description":
-    "Desarrollo web experto, optimización de Google Business Profile y servicios de SEO Local para ayudar a tu negocio a destacar y atraer más clientes.",
+  "hero.description": "Desarrollo web experto, optimización de Google Business Profile y servicios de SEO Local para ayudar a tu negocio a destacar y atraer más clientes.",
   "hero.cta1": "Empezar",
   "hero.cta2": "Sobre Nosotros",
 
@@ -28,16 +27,14 @@ export const es: Record<string, string> = {
   "services.topper": "Lo Que Hacemos",
   "services.headline1": "No Te Preocupes Más Por Tu ",
   "services.headline2": "Página Web",
+  "services.headline3": "",
   "services.description": "Ofrecemos soluciones digitales integrales adaptadas a las necesidades de tu negocio.",
   "services.webDev.title": "Desarrollo Web",
-  "services.webDev.description":
-    "Sitios web personalizados y responsivos que lucen increíbles en todos los dispositivos y convierten visitantes en clientes.",
+  "services.webDev.description": "Sitios web personalizados y responsivos que lucen increíbles en todos los dispositivos y convierten visitantes en clientes.",
   "services.gbp.title": "Google Business Profile",
-  "services.gbp.description":
-    "Optimiza tu perfil de Google Business para aparecer en búsquedas locales y atraer clientes cercanos.",
+  "services.gbp.description": "Optimiza tu perfil de Google Business para aparecer en búsquedas locales y atraer clientes cercanos.",
   "services.seo.title": "SEO Local",
-  "services.seo.description":
-    "Domina los resultados de búsqueda locales y que te encuentren los clientes que buscan tus servicios.",
+  "services.seo.description": "Domina los resultados de búsqueda locales y que te encuentren los clientes que buscan tus servicios.",
   "services.cardCta": "Empezar",
   "services.viewAll": "Ver Todos Los Servicios",
 
@@ -45,23 +42,17 @@ export const es: Record<string, string> = {
   "why.topper": "Lo Que Ofrecemos",
   "why.headline1": "Sitios Web Desde ",
   "why.headline2": "€0 De Entrada Y €100 Al Mes",
-  "why.description":
-    "Ofrecemos servicios profesionales de diseño web con opciones de pago flexibles. Consigue un sitio web increíble sin costes iniciales.",
+  "why.description": "Ofrecemos servicios profesionales de diseño web con opciones de pago flexibles. Consigue un sitio web increíble sin costes iniciales.",
   "why.feature1.title": "Diseño Mobile First",
-  "why.feature1.description":
-    "Construimos tu sitio primero para móviles, asegurando un código optimizado para una experiencia rápida y responsiva.",
+  "why.feature1.description": "Construimos tu sitio primero para móviles, asegurando un código optimizado para una experiencia rápida y responsiva.",
   "why.feature2.title": "Diseño Personalizado",
-  "why.feature2.description":
-    "Nuestros diseños son creados por un equipo de diseño interno, lo que nos permite hacer cualquier cosa.",
+  "why.feature2.description": "Nuestros diseños son creados por un equipo de diseño interno, lo que nos permite hacer cualquier cosa.",
   "why.feature3.title": "Velocidad Optimizada",
-  "why.feature3.description":
-    "Si tu sitio tarda más de 3 segundos en cargar, pierdes hasta el 50% del tráfico. Nuestros sitios cargan en menos de 1,5 segundos.",
+  "why.feature3.description": "Si tu sitio tarda más de 3 segundos en cargar, pierdes hasta el 50% del tráfico. Nuestros sitios cargan en menos de 1,5 segundos.",
   "why.feature4.title": "Totalmente Responsivo",
-  "why.feature4.description":
-    "Tu sitio web se adaptará a todas las pantallas — móvil, tablet y escritorio — para que los visitantes vean tu sitio perfecto.",
+  "why.feature4.description": "Tu sitio web se adaptará a todas las pantallas — móvil, tablet y escritorio — para que los visitantes vean tu sitio perfecto.",
   "why.feature5.title": "Soporte Inigualable",
-  "why.feature5.description":
-    "Llámanos o escríbenos en cualquier momento, sin centralitas ni robots. Cuando nos llamáis, os atiende el propietario y desarrollador.",
+  "why.feature5.description": "Llámanos o escríbenos en cualquier momento, sin centralitas ni robots. Cuando nos llamáis, os atiende el propietario y desarrollador.",
   "why.feature6.title": "Expertos en SEO",
   "why.feature6.description": "Sin trucos ni mentiras. Os explicamos de forma muy clara qué es el SEO y cómo funciona.",
   "why.founderName": "Joni Vinagre",
@@ -72,8 +63,7 @@ export const es: Record<string, string> = {
   "portfolio.topper": "Portfolio",
   "portfolio.headline1": "Algunos De Los Trabajos ",
   "portfolio.headline2": "Que Hemos Hecho A Lo Largo De Los Años",
-  "portfolio.description":
-    "¡Hemos trabajado con clientes de todo el mundo! Cada proyecto se elabora con atención al detalle y enfoque en resultados. Echa un vistazo a algunos de nuestros trabajos recientes.",
+  "portfolio.description": "¡Hemos trabajado con clientes de todo el mundo! Cada proyecto se elabora con atención al detalle y enfoque en resultados. Echa un vistazo a algunos de nuestros trabajos recientes.",
   "portfolio.viewAll": "Ver Todos Los Proyectos",
   "portfolio.visitWebsite": "Visitar Web",
 
@@ -88,17 +78,13 @@ export const es: Record<string, string> = {
   "performance.stat2.label": "Puntuación\nPageSpeed",
   "performance.stat3.value": "5/5",
   "performance.stat3.label": "Reseñas\nGoogle",
-  "performance.description":
-    "La velocidad importa. Nuestros sitios web están programados a mano para el máximo rendimiento, asegurando la mejor experiencia para tus visitantes.",
+  "performance.description": "La velocidad importa. Nuestros sitios web están programados a mano para el máximo rendimiento, asegurando la mejor experiencia para tus visitantes.",
   "performance.benefit1.title": "Mejores tiempos de carga significan más conversiones",
-  "performance.benefit1.description":
-    "Los estudios muestran que cada segundo de retraso reduce las conversiones un 7%. Nuestros sitios ultrarrápidos mantienen a los visitantes enganchados.",
+  "performance.benefit1.description": "Los estudios muestran que cada segundo de retraso reduce las conversiones un 7%. Nuestros sitios ultrarrápidos mantienen a los visitantes enganchados.",
   "performance.benefit2.title": "Los sitios más rápidos pueden mejorar el SEO",
-  "performance.benefit2.description":
-    "Google usa la velocidad de carga como factor de posicionamiento. Nuestros sitios optimizados te ayudan a escalar en los resultados de búsqueda.",
+  "performance.benefit2.description": "Google usa la velocidad de carga como factor de posicionamiento. Nuestros sitios optimizados te ayudan a escalar en los resultados de búsqueda.",
   "performance.benefit3.title": "Nuestros sitios cargan al instante en cualquier dispositivo",
-  "performance.benefit3.description":
-    "Ya sea en móvil, tablet o escritorio, tus visitantes tendrán la misma experiencia ultrarrápida cada vez.",
+  "performance.benefit3.description": "Ya sea en móvil, tablet o escritorio, tus visitantes tendrán la misma experiencia ultrarrápida cada vez.",
   "performance.cta": "Empieza Hoy",
 
   // Pricing Preview
@@ -142,12 +128,9 @@ export const es: Record<string, string> = {
   "testimonials.topper": "Testimonios",
   "testimonials.headline1": "Diseñador Web De Confianza ",
   "testimonials.headline2": "En Todas Las Industrias",
-  "testimonials.1.content":
-    "¡COOLWEB transformó nuestra presencia online por completo. Nuestro perfil de Google Business ahora atrae 3 veces más clientes!",
-  "testimonials.2.content":
-    "Trabajar con COOLWEB fue un punto de inflexión. Nos entregaron un sitio web impresionante que representa perfectamente nuestra marca.",
-  "testimonials.3.content":
-    "Nuestro posicionamiento SEO local se disparó tras trabajar con COOLWEB. Ahora aparecemos entre los 3 primeros para todas nuestras palabras clave.",
+  "testimonials.1.content": "¡COOLWEB transformó nuestra presencia online por completo. Nuestro perfil de Google Business ahora atrae 3 veces más clientes!",
+  "testimonials.2.content": "Trabajar con COOLWEB fue un punto de inflexión. Nos entregaron un sitio web impresionante que representa perfectamente nuestra marca.",
+  "testimonials.3.content": "Nuestro posicionamiento SEO local se disparó tras trabajar con COOLWEB. Ahora aparecemos entre los 3 primeros para todas nuestras palabras clave.",
 
   // Index CTA
   "index.cta.headline1": "¿Listo Para Tener La Web ",
@@ -159,13 +142,11 @@ export const es: Record<string, string> = {
   "servicesPage.heroTitle2": "Todos Los Presupuestos",
   "servicesPage.packages": "Paquetes",
   "servicesPage.webDev.title": "Desarrollo Web",
-  "servicesPage.webDev.description":
-    "Sitios web de alto rendimiento construidos desde cero, adaptados a los objetivos de tu negocio.",
+  "servicesPage.webDev.description": "Sitios web de alto rendimiento construidos desde cero, adaptados a los objetivos de tu negocio.",
   "servicesPage.gbp.title": "Google Business Profile",
   "servicesPage.gbp.description": "Maximiza tu visibilidad en búsquedas locales y Google Maps.",
   "servicesPage.seo.title": "SEO Local",
-  "servicesPage.seo.description":
-    "Posiciónate más alto en los resultados de búsqueda locales y supera a tu competencia.",
+  "servicesPage.seo.description": "Posiciónate más alto en los resultados de búsqueda locales y supera a tu competencia.",
   "servicesPage.gbp.setup.name": "Configuración",
   "servicesPage.gbp.setup.price": "200€",
   "servicesPage.gbp.setup.priceNote": "pago único",
@@ -226,33 +207,25 @@ export const es: Record<string, string> = {
   "aboutPage.story.headline2": "Desde 2019",
   "aboutPage.story.cardTitle": "COOLWEB Studio",
   "aboutPage.story.cardSubtitle": "Creando Éxito Digital Desde 2019",
-  "aboutPage.story.p1":
-    "COOLWEB Studio nació con una misión sencilla: ayudar a pequeñas y medianas empresas a competir en el panorama digital sin arruinarse.",
-  "aboutPage.story.p2":
-    "Nos dimos cuenta de que muchos negocios tenían dificultades para encontrar servicios de desarrollo web y marketing digital asequibles y de calidad. Las grandes agencias eran demasiado caras y los freelancers a menudo carecían de la experiencia necesaria.",
-  "aboutPage.story.p3":
-    "Por eso creamos COOLWEB – para cerrar esa brecha. Combinamos la experiencia de una agencia con un servicio personalizado y precios justos. Cada cliente recibe toda nuestra atención y un enfoque dedicado a sus necesidades únicas.",
+  "aboutPage.story.p1": "COOLWEB Studio nació con una misión sencilla: ayudar a pequeñas y medianas empresas a competir en el panorama digital sin arruinarse.",
+  "aboutPage.story.p2": "Nos dimos cuenta de que muchos negocios tenían dificultades para encontrar servicios de desarrollo web y marketing digital asequibles y de calidad. Las grandes agencias eran demasiado caras y los freelancers a menudo carecían de la experiencia necesaria.",
+  "aboutPage.story.p3": "Por eso creamos COOLWEB – para cerrar esa brecha. Combinamos la experiencia de una agencia con un servicio personalizado y precios justos. Cada cliente recibe toda nuestra atención y un enfoque dedicado a sus necesidades únicas.",
   "aboutPage.process.topper": "Nuestro Proceso",
   "aboutPage.process.headline1": "Cómo ",
   "aboutPage.process.headline2": "Trabajamos",
-  "aboutPage.process.description":
-    "Seguimos un proceso probado de cuatro pasos para dar vida a tu visión. Desde el descubrimiento inicial hasta el lanzamiento y más allá, cada paso está diseñado para tu éxito.",
+  "aboutPage.process.description": "Seguimos un proceso probado de cuatro pasos para dar vida a tu visión. Desde el descubrimiento inicial hasta el lanzamiento y más allá, cada paso está diseñado para tu éxito.",
   "aboutPage.process.step1.title": "Descubrimiento",
-  "aboutPage.process.step1.description":
-    "Aprendemos sobre tu negocio, objetivos y público objetivo para crear una estrategia a medida.",
+  "aboutPage.process.step1.description": "Aprendemos sobre tu negocio, objetivos y público objetivo para crear una estrategia a medida.",
   "aboutPage.process.step2.title": "Estrategia",
-  "aboutPage.process.step2.description":
-    "Desarrollamos un plan integral que se alinea con tus objetivos y presupuesto.",
+  "aboutPage.process.step2.description": "Desarrollamos un plan integral que se alinea con tus objetivos y presupuesto.",
   "aboutPage.process.step3.title": "Diseño y Desarrollo",
   "aboutPage.process.step3.description": "Nuestro equipo da vida a tu visión con diseños impactantes y código limpio.",
   "aboutPage.process.step4.title": "Lanzamiento y Soporte",
-  "aboutPage.process.step4.description":
-    "Lanzamos tu proyecto y proporcionamos soporte continuo para asegurar el éxito.",
+  "aboutPage.process.step4.description": "Lanzamos tu proyecto y proporcionamos soporte continuo para asegurar el éxito.",
   "aboutPage.values.topper": "Por Qué Nosotros",
   "aboutPage.values.headline1": "Lo Que Nos ",
   "aboutPage.values.headline2": "Impulsa",
-  "aboutPage.values.description":
-    "No somos una agencia web más. Somos vuestro socio digital dedicado, comprometido con vuestro crecimiento y éxito.",
+  "aboutPage.values.description": "No somos una agencia web más. Somos vuestro socio digital dedicado, comprometido con vuestro crecimiento y éxito.",
   "aboutPage.values.v1.title": "Orientados a Resultados",
   "aboutPage.values.v1.description": "Nos enfocamos en entregar resultados medibles, no solo diseños bonitos.",
   "aboutPage.values.v2.title": "Centrados en el Cliente",
@@ -272,8 +245,7 @@ export const es: Record<string, string> = {
   "contactPage.heroTitle1": "Empecemos Tu ",
   "contactPage.heroTitle2": "Proyecto",
   "contactPage.getInTouch": "Ponte En Contacto",
-  "contactPage.getInTouchDescription":
-    "Envíanos un mensaje o llámanos y cuéntanos todo lo que quieres para tu nuevo sitio web. Respondemos a todos en un plazo de 24 horas.",
+  "contactPage.getInTouchDescription": "Envíanos un mensaje o llámanos y cuéntanos todo lo que quieres para tu nuevo sitio web. Respondemos a todos en un plazo de 24 horas.",
   "contactPage.contactInfo": "Información de Contacto",
   "contactPage.emailUs": "Escríbenos",
   "contactPage.phoneWhatsApp": "Teléfono / WhatsApp",
@@ -320,12 +292,9 @@ export const es: Record<string, string> = {
   "notFound.link": "Volver al Inicio",
 
   // Portfolio Project Descriptions
-  "project.1.description":
-    "Especialista en quiromasaje y masaje deportivo con más de 14 años de experiencia, ofreciendo tratamientos terapéuticos para dolor muscular, problemas cervicales y posturales.",
-  "project.1.tagline":
-    "Sitio web profesional de masajes terapéuticos para un especialista con más de 14 años de experiencia",
-  "project.1.aboutProject":
-    "Gastón Molina necesitaba una presencia online profesional que reflejara su experiencia y más de 14 años en masaje terapéutico. El sitio web debía transmitir confianza, profesionalidad y facilitar a los clientes potenciales la comprensión de sus servicios y la reserva de citas.",
+  "project.1.description": "Especialista en quiromasaje y masaje deportivo con más de 14 años de experiencia, ofreciendo tratamientos terapéuticos para dolor muscular, problemas cervicales y posturales.",
+  "project.1.tagline": "Sitio web profesional de masajes terapéuticos para un especialista con más de 14 años de experiencia",
+  "project.1.aboutProject": "Gastón Molina necesitaba una presencia online profesional que reflejara su experiencia y más de 14 años en masaje terapéutico. El sitio web debía transmitir confianza, profesionalidad y facilitar a los clientes potenciales la comprensión de sus servicios y la reserva de citas.",
   "project.1.challenge1": "Mostrar la amplia experiencia y más de 14 años de forma efectiva",
   "project.1.challenge2": "Generar confianza en clientes que buscan tratamientos terapéuticos",
   "project.1.challenge3": "Crear un sistema de reserva de citas fácil de usar",
@@ -335,24 +304,18 @@ export const es: Record<string, string> = {
   "project.1.solution3": "Sistema de reservas integrado con descripciones claras de servicios",
   "project.1.solution4": "Diseño totalmente responsivo optimizado para todos los dispositivos",
   "project.1.feature1.title": "Catálogo de Servicios",
-  "project.1.feature1.description":
-    "Exhibición completa de terapias de masaje incluyendo quiromasaje, masaje deportivo y tratamientos especializados",
+  "project.1.feature1.description": "Exhibición completa de terapias de masaje incluyendo quiromasaje, masaje deportivo y tratamientos especializados",
   "project.1.feature2.title": "Reserva Online",
   "project.1.feature2.description": "Sistema de programación de citas integrado directamente en el sitio web",
   "project.1.feature3.title": "Exhibición de Credenciales",
-  "project.1.feature3.description":
-    "Presentación profesional de cualificaciones, certificaciones y años de experiencia",
+  "project.1.feature3.description": "Presentación profesional de cualificaciones, certificaciones y años de experiencia",
   "project.1.feature4.title": "Optimización Móvil",
-  "project.1.feature4.description":
-    "Diseño totalmente responsivo asegurando una experiencia perfecta en móviles y tablets",
-  "project.1.testimonial":
-    "Un sitio web profesional que refleja la calidad de nuestros servicios. Los clientes nos encuentran fácilmente online.",
+  "project.1.feature4.description": "Diseño totalmente responsivo asegurando una experiencia perfecta en móviles y tablets",
+  "project.1.testimonial": "Un sitio web profesional que refleja la calidad de nuestros servicios. Los clientes nos encuentran fácilmente online.",
 
-  "project.2.description":
-    "Paneles LED artesanales con iluminación RGB controlada por app para salas gaming, estudios y espacios creativos.",
+  "project.2.description": "Paneles LED artesanales con iluminación RGB controlada por app para salas gaming, estudios y espacios creativos.",
   "project.2.tagline": "Plataforma e-commerce para paneles LED artesanales con estética futurista",
-  "project.2.aboutProject":
-    "4DHUES crea impresionantes paneles LED artesanales que transforman espacios con iluminación RGB controlada por app. Necesitaban una plataforma e-commerce que mostrara sus productos innovadores y transmitiera la naturaleza futurista y tecnológica de su marca.",
+  "project.2.aboutProject": "4DHUES crea impresionantes paneles LED artesanales que transforman espacios con iluminación RGB controlada por app. Necesitaban una plataforma e-commerce que mostrara sus productos innovadores y transmitiera la naturaleza futurista y tecnológica de su marca.",
   "project.2.challenge1": "Mostrar el impacto visual de los paneles LED online de forma efectiva",
   "project.2.challenge2": "Transmitir la innovación tecnológica y las capacidades de integración con app",
   "project.2.challenge3": "Permitir compras online fluidas para clientes internacionales",
@@ -362,23 +325,18 @@ export const es: Record<string, string> = {
   "project.2.solution3": "Funcionalidad e-commerce completa con opciones de envío internacional",
   "project.2.solution4": "Destacados detallados de características incluyendo demostraciones del control por app",
   "project.2.feature1.title": "Escaparate de Productos",
-  "project.2.feature1.description":
-    "Impresionante galería visual mostrando paneles LED en entornos reales con efectos de iluminación",
+  "project.2.feature1.description": "Impresionante galería visual mostrando paneles LED en entornos reales con efectos de iluminación",
   "project.2.feature2.title": "Integración E-commerce",
   "project.2.feature2.description": "Tienda online completa con pago seguro y soporte de envío internacional",
   "project.2.feature3.title": "Funciones de la App",
-  "project.2.feature3.description":
-    "Explicación detallada de las funciones controladas por app y opciones de personalización RGB",
+  "project.2.feature3.description": "Explicación detallada de las funciones controladas por app y opciones de personalización RGB",
   "project.2.feature4.title": "Galería Visual",
   "project.2.feature4.description": "Galería interactiva mostrando varios modos de color y ejemplos de instalación",
-  "project.2.testimonial":
-    "¡El sitio web captura la estética futurista de nuestra marca a la perfección. Las ventas online han crecido significativamente!",
+  "project.2.testimonial": "¡El sitio web captura la estética futurista de nuestra marca a la perfección. Las ventas online han crecido significativamente!",
 
-  "project.3.description":
-    "Psicólogo y sexólogo experto con más de 35 años de experiencia, ofreciendo terapia especializada para individuos y parejas.",
+  "project.3.description": "Psicólogo y sexólogo experto con más de 35 años de experiencia, ofreciendo terapia especializada para individuos y parejas.",
   "project.3.tagline": "Sitio web sanitario profesional para un psicólogo y sexólogo experto",
-  "project.3.aboutProject":
-    "El Dr. Vicente Briet es un reconocido psicólogo y sexólogo con más de 35 años de experiencia clínica. El sitio web necesitaba transmitir profesionalidad y confianza al tratar temas sensibles con cuidado, facilitando que los pacientes contacten de forma confidencial.",
+  "project.3.aboutProject": "El Dr. Vicente Briet es un reconocido psicólogo y sexólogo con más de 35 años de experiencia clínica. El sitio web necesitaba transmitir profesionalidad y confianza al tratar temas sensibles con cuidado, facilitando que los pacientes contacten de forma confidencial.",
   "project.3.challenge1": "Transmitir confianza y profesionalidad en áreas sanitarias sensibles",
   "project.3.challenge2": "Tratar temas delicados con la sensibilidad y discreción apropiadas",
   "project.3.challenge3": "Facilitar que los pacientes contacten con la clínica de forma privada",
@@ -395,14 +353,11 @@ export const es: Record<string, string> = {
   "project.3.feature3.description": "Opciones de contacto discretas y fáciles garantizando la privacidad del paciente",
   "project.3.feature4.title": "Diseño Accesible",
   "project.3.feature4.description": "Diseño intuitivo que facilita encontrar y comprender la información",
-  "project.3.testimonial":
-    "Un sitio web limpio y profesional que transmite confianza y experiencia. Los pacientes se sienten cómodos contactando.",
+  "project.3.testimonial": "Un sitio web limpio y profesional que transmite confianza y experiencia. Los pacientes se sienten cómodos contactando.",
 
-  "project.4.description":
-    "Agencia de viajes que ofrece tours organizados, experiencias y rutas por España y destinos internacionales como Marruecos y Portugal.",
+  "project.4.description": "Agencia de viajes que ofrece tours organizados, experiencias y rutas por España y destinos internacionales como Marruecos y Portugal.",
   "project.4.tagline": "Sitio web dinámico de agencia de viajes mostrando tours por España y más allá",
-  "project.4.aboutProject":
-    "Tropical Travel Agency ofrece tours organizados únicos y experiencias por toda España y destinos internacionales. Necesitaban un sitio web vibrante que inspirara ganas de viajar y facilitara la navegación y reserva de tours.",
+  "project.4.aboutProject": "Tropical Travel Agency ofrece tours organizados únicos y experiencias por toda España y destinos internacionales. Necesitaban un sitio web vibrante que inspirara ganas de viajar y facilitara la navegación y reserva de tours.",
   "project.4.challenge1": "Mostrar destinos diversos de forma inspiradora y organizada",
   "project.4.challenge2": "Crear contenido que inspire viajes y aventura",
   "project.4.challenge3": "Facilitar la navegación y el acceso a información de tours",
@@ -419,14 +374,11 @@ export const es: Record<string, string> = {
   "project.4.feature3.description": "Experiencias destacadas y aventuras únicas para viajeros",
   "project.4.feature4.title": "Integración de Contacto",
   "project.4.feature4.description": "Sistema de consultas fácil con opciones de contacto multi-oficina",
-  "project.4.testimonial":
-    "¡Nuestro nuevo sitio web facilita la reserva de tours. A los clientes les encanta navegar por nuestros destinos online!",
+  "project.4.testimonial": "¡Nuestro nuevo sitio web facilita la reserva de tours. A los clientes les encanta navegar por nuestros destinos online!",
 
-  "project.5.description":
-    "Servicios personalizados de cuidado de uñas incluyendo gel de construcción, nail art y manicura francesa en un ambiente tranquilo e individual.",
+  "project.5.description": "Servicios personalizados de cuidado de uñas incluyendo gel de construcción, nail art y manicura francesa en un ambiente tranquilo e individual.",
   "project.5.tagline": "Sitio web elegante de marca personal para una artista de uñas en Marsella",
-  "project.5.aboutProject":
-    "Anabela es una talentosa artista de uñas en Marsella que ofrece servicios personalizados e individuales de cuidado de uñas. Su sitio web necesitaba reflejar su toque personal y su arte, facilitando a las clientas ver su trabajo y reservar citas.",
+  "project.5.aboutProject": "Anabela es una talentosa artista de uñas en Marsella que ofrece servicios personalizados e individuales de cuidado de uñas. Su sitio web necesitaba reflejar su toque personal y su arte, facilitando a las clientas ver su trabajo y reservar citas.",
   "project.5.challenge1": "Crear una marca personal fuerte para una artista independiente",
   "project.5.challenge2": "Mostrar el intrincado arte de uñas de forma efectiva",
   "project.5.challenge3": "Transmitir la experiencia íntima e individual del servicio",
@@ -436,22 +388,18 @@ export const es: Record<string, string> = {
   "project.5.solution3": "Mensajes personales que transmiten calidez y atención al detalle",
   "project.5.solution4": "Proceso de contacto y reserva simplificado",
   "project.5.feature1.title": "Catálogo de Servicios",
-  "project.5.feature1.description":
-    "Listado completo de servicios de uñas desde gel de construcción hasta arte intrincado",
+  "project.5.feature1.description": "Listado completo de servicios de uñas desde gel de construcción hasta arte intrincado",
   "project.5.feature2.title": "Galería Visual",
   "project.5.feature2.description": "Hermoso portfolio mostrando las creaciones de nail art de Anabela",
   "project.5.feature3.title": "Marca Personal",
   "project.5.feature3.description": "Identidad de marca cohesiva que refleja el estilo único de Anabela",
   "project.5.feature4.title": "Reserva Fácil",
   "project.5.feature4.description": "Programación de citas sencilla para sesiones personalizadas",
-  "project.5.testimonial":
-    "¡El sitio web captura perfectamente mi toque personal y atención al detalle. Las reservas han aumentado!",
+  "project.5.testimonial": "¡El sitio web captura perfectamente mi toque personal y atención al detalle. Las reservas han aumentado!",
 
-  "project.6.description":
-    "Plataforma de lanzamiento de libro de fantasía 'Quiver & Quill' de Savanah Weakly, con construcción de mundos, personajes y funcionalidad de pre-pedido.",
+  "project.6.description": "Plataforma de lanzamiento de libro de fantasía 'Quiver & Quill' de Savanah Weakly, con construcción de mundos, personajes y funcionalidad de pre-pedido.",
   "project.6.tagline": "Plataforma de lanzamiento de libro de fantasía que da vida a un nuevo mundo literario",
-  "project.6.aboutProject":
-    "Savanah Weakly necesitaba una plataforma cautivadora para lanzar su novela de fantasía 'Quiver & Quill'. El sitio web necesitaba sumergir a los visitantes en su mundo fantástico, presentar personajes y lore, y permitir pre-pedidos mientras creaba expectación.",
+  "project.6.aboutProject": "Savanah Weakly necesitaba una plataforma cautivadora para lanzar su novela de fantasía 'Quiver & Quill'. El sitio web necesitaba sumergir a los visitantes en su mundo fantástico, presentar personajes y lore, y permitir pre-pedidos mientras creaba expectación.",
   "project.6.challenge1": "Capturar la atmósfera de fantasía oscura del libro",
   "project.6.challenge2": "Presentar el mundo, personajes y lore de forma atractiva",
   "project.6.challenge3": "Habilitar pre-pedidos con funcionalidad e-commerce",
@@ -468,15 +416,11 @@ export const es: Record<string, string> = {
   "project.6.feature3.description": "Integración e-commerce fluida para pre-pedidos del libro",
   "project.6.feature4.title": "Diseño Atmosférico",
   "project.6.feature4.description": "Diseño oscuro e inmersivo que captura la esencia de la fantasía",
-  "project.6.testimonial":
-    "¡El sitio web da vida a mi mundo fantástico. Los lectores quedan cautivados antes incluso de comprar el libro!",
+  "project.6.testimonial": "¡El sitio web da vida a mi mundo fantástico. Los lectores quedan cautivados antes incluso de comprar el libro!",
 
-  "project.7.description":
-    "Salón de uñas que ofrece servicios de belleza incluyendo cuidado de la piel y maquillaje en el corazón de Marsella.",
-  "project.7.tagline":
-    "Un sitio web moderno y elegante para un salón de uñas premium que ofrece servicios integrales de belleza",
-  "project.7.aboutProject":
-    "Ongles Fantaisies es un salón de uñas premium en Marsella que ofrece servicios integrales de belleza. Necesitaban un sitio web elegante que mostrara sus diversos servicios y transmitiera la atmósfera exclusiva y acogedora de su salón.",
+  "project.7.description": "Salón de uñas que ofrece servicios de belleza incluyendo cuidado de la piel y maquillaje en el corazón de Marsella.",
+  "project.7.tagline": "Un sitio web moderno y elegante para un salón de uñas premium que ofrece servicios integrales de belleza",
+  "project.7.aboutProject": "Ongles Fantaisies es un salón de uñas premium en Marsella que ofrece servicios integrales de belleza. Necesitaban un sitio web elegante que mostrara sus diversos servicios y transmitiera la atmósfera exclusiva y acogedora de su salón.",
   "project.7.challenge1": "Mostrar diversos servicios de belleza con una presentación elegante",
   "project.7.challenge2": "Transmitir la naturaleza exclusiva y premium del salón",
   "project.7.challenge3": "Crear una experiencia de reserva online fluida",
@@ -493,14 +437,11 @@ export const es: Record<string, string> = {
   "project.7.feature3.description": "Ubicación fácil de encontrar con mapas y direcciones integrados",
   "project.7.feature4.title": "Diseño Elegante",
   "project.7.feature4.description": "Estética sofisticada acorde con el posicionamiento premium del salón",
-  "project.7.testimonial":
-    "¡COOLWEB Studio creó un sitio web impresionante que captura perfectamente la elegancia de nuestro salón. Las reservas online han aumentado significativamente!",
+  "project.7.testimonial": "¡COOLWEB Studio creó un sitio web impresionante que captura perfectamente la elegancia de nuestro salón. Las reservas online han aumentado significativamente!",
 
-  "project.8.description":
-    "Clases de español online con instrucción personalizada adaptada a las necesidades de cada estudiante.",
+  "project.8.description": "Clases de español online con instrucción personalizada adaptada a las necesidades de cada estudiante.",
   "project.8.tagline": "Plataforma de aprendizaje online para instrucción personalizada de español",
-  "project.8.aboutProject":
-    "Mariline es una profesora de español apasionada que ofrece instrucción personalizada online. Su sitio web necesitaba transmitir su enfoque de enseñanza, conectar con estudiantes potenciales y facilitar que conozcan las clases y se pongan en contacto.",
+  "project.8.aboutProject": "Mariline es una profesora de español apasionada que ofrece instrucción personalizada online. Su sitio web necesitaba transmitir su enfoque de enseñanza, conectar con estudiantes potenciales y facilitar que conozcan las clases y se pongan en contacto.",
   "project.8.challenge1": "Transmitir el enfoque de enseñanza único y la pasión de Mariline",
   "project.8.challenge2": "Construir una presencia online sólida para la instrucción virtual",
   "project.8.challenge3": "Crear conexión con estudiantes potenciales a nivel global",
@@ -517,13 +458,11 @@ export const es: Record<string, string> = {
   "project.8.feature3.description": "Proceso de consulta sencillo para estudiantes potenciales",
   "project.8.feature4.title": "Enfoque Online",
   "project.8.feature4.description": "Diseño optimizado para el entorno de aprendizaje virtual",
-  "project.8.testimonial":
-    "Mi presencia online se ha transformado por completo. El sitio web facilita que los estudiantes conozcan mis clases y contacten.",
+  "project.8.testimonial": "Mi presencia online se ha transformado por completo. El sitio web facilita que los estudiantes conozcan mis clases y contacten.",
 
   "project.9.description": "Cafetería vintage con ambiente acogedor, sirviendo bebidas calientes y comidas caseras.",
   "project.9.tagline": "Sitio web de inspiración vintage para una cafetería acogedora en Marsella",
-  "project.9.aboutProject":
-    "Coffee & Bakery Marseille es una encantadora cafetería vintage conocida por su ambiente acogedor y ofertas caseras. El sitio web necesitaba capturar esa sensación cálida y acogedora mientras mostraba su carta y facilitaba encontrar la ubicación.",
+  "project.9.aboutProject": "Coffee & Bakery Marseille es una encantadora cafetería vintage conocida por su ambiente acogedor y ofertas caseras. El sitio web necesitaba capturar esa sensación cálida y acogedora mientras mostraba su carta y facilitaba encontrar la ubicación.",
   "project.9.challenge1": "Capturar el ambiente vintage y acogedor digitalmente",
   "project.9.challenge2": "Mostrar la variada carta de bebidas y comidas",
   "project.9.challenge3": "Facilitar encontrar la ubicación en Marsella",
@@ -540,14 +479,11 @@ export const es: Record<string, string> = {
   "project.9.feature3.description": "Integración de mapa fácil de usar para encontrar la cafetería",
   "project.9.feature4.title": "Branding Vintage",
   "project.9.feature4.description": "Estética retro cohesiva que refleja la personalidad de la cafetería",
-  "project.9.testimonial":
-    "¡La estética vintage que crearon combina perfectamente con nuestro ambiente acogedor. La interacción con los clientes nunca ha sido mejor!",
+  "project.9.testimonial": "¡La estética vintage que crearon combina perfectamente con nuestro ambiente acogedor. La interacción con los clientes nunca ha sido mejor!",
 
-  "project.10.description":
-    "Sitio web de restaurante de ramen auténtico mostrando cocina japonesa tradicional con un toque moderno.",
+  "project.10.description": "Sitio web de restaurante de ramen auténtico mostrando cocina japonesa tradicional con un toque moderno.",
   "project.10.tagline": "Sitio web moderno para un restaurante de ramen auténtico",
-  "project.10.aboutProject":
-    "Tailang Ramen Restaurant necesitaba un sitio web que capturara la esencia de la auténtica cultura del ramen japonés mientras presentaba una experiencia gastronómica moderna.",
+  "project.10.aboutProject": "Tailang Ramen Restaurant necesitaba un sitio web que capturara la esencia de la auténtica cultura del ramen japonés mientras presentaba una experiencia gastronómica moderna.",
   "project.10.challenge1": "Transmitir la tradición culinaria japonesa auténtica",
   "project.10.challenge2": "Mostrar la carta de forma apetitosa",
   "project.10.challenge3": "Crear una atmósfera gastronómica inmersiva online",
@@ -564,14 +500,11 @@ export const es: Record<string, string> = {
   "project.10.feature3.description": "Fotos que capturan el auténtico ambiente del restaurante",
   "project.10.feature4.title": "Branding",
   "project.10.feature4.description": "Identidad de marca cohesiva de inspiración japonesa",
-  "project.10.testimonial":
-    "El sitio web captura perfectamente la atmósfera auténtica de nuestro restaurante y ha aumentado nuestra visibilidad online.",
+  "project.10.testimonial": "El sitio web captura perfectamente la atmósfera auténtica de nuestro restaurante y ha aumentado nuestra visibilidad online.",
 
-  "project.11.description":
-    "Centro de masajes terapéuticos y rehabilitación que ofrece tratamientos de bienestar holístico y atención personalizada.",
+  "project.11.description": "Centro de masajes terapéuticos y rehabilitación que ofrece tratamientos de bienestar holístico y atención personalizada.",
   "project.11.tagline": "Plataforma de bienestar holístico y rehabilitación",
-  "project.11.aboutProject":
-    "Raiz de Salud ofrece servicios de masaje terapéutico y rehabilitación centrados en el bienestar holístico. Necesitaban un sitio web calmante y profesional para atraer clientes.",
+  "project.11.aboutProject": "Raiz de Salud ofrece servicios de masaje terapéutico y rehabilitación centrados en el bienestar holístico. Necesitaban un sitio web calmante y profesional para atraer clientes.",
   "project.11.challenge1": "Transmitir la filosofía de bienestar holístico",
   "project.11.challenge2": "Mostrar las diversas opciones de tratamiento",
   "project.11.challenge3": "Generar confianza en clientes potenciales",
@@ -588,14 +521,11 @@ export const es: Record<string, string> = {
   "project.11.feature3.description": "Sistema fácil de programación de citas",
   "project.11.feature4.title": "Atención Personal",
   "project.11.feature4.description": "Enfoque de tratamiento personalizado destacado",
-  "project.11.testimonial":
-    "Nuestro sitio web ahora refleja el cuidado y profesionalidad que aportamos a cada sesión de tratamiento.",
+  "project.11.testimonial": "Nuestro sitio web ahora refleja el cuidado y profesionalidad que aportamos a cada sesión de tratamiento.",
 
-  "project.12.description":
-    "Club de barbería premium que ofrece servicios profesionales de peluquería con una estética clásica y masculina.",
+  "project.12.description": "Club de barbería premium que ofrece servicios profesionales de peluquería con una estética clásica y masculina.",
   "project.12.tagline": "Sitio web de club de barbería premium con branding clásico y masculino",
-  "project.12.aboutProject":
-    "Chico Diez Barber Club es una barbería premium que necesitaba un sitio web acorde con su identidad de marca clásica y masculina, facilitando a los clientes la reserva de citas.",
+  "project.12.aboutProject": "Chico Diez Barber Club es una barbería premium que necesitaba un sitio web acorde con su identidad de marca clásica y masculina, facilitando a los clientes la reserva de citas.",
   "project.12.challenge1": "Crear una presencia de marca masculina fuerte online",
   "project.12.challenge2": "Mostrar los servicios de peluquería profesionalmente",
   "project.12.challenge3": "Facilitar la reserva de citas",
@@ -612,6 +542,5 @@ export const es: Record<string, string> = {
   "project.12.feature3.description": "Exhibición de trabajos profesionales de barbería",
   "project.12.feature4.title": "Branding",
   "project.12.feature4.description": "Identidad de marca premium y masculina",
-  "project.12.testimonial":
-    "¡El sitio web captura la esencia premium de nuestro club de barbería a la perfección. Las reservas se han disparado!",
+  "project.12.testimonial": "¡El sitio web captura la esencia premium de nuestro club de barbería a la perfección. Las reservas se han disparado!",
 };
