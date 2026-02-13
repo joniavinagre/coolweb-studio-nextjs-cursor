@@ -1,52 +1,41 @@
 
-## Fix Translation System Bugs and Spanish Text Issues
 
-### Problem Summary
-
-Three related issues are causing content to disappear and translations to display incorrectly:
-
-1. **Critical bug in the translation function** -- empty Spanish translations incorrectly fall back to English text
-2. **Incorrect Spanish wording** in the "What We Do" section headline
-3. **Wrong word order** in the Services page section titles when displayed in Spanish
+## Fix Disappearing Cards After Language Switch
 
 ### Root Cause
 
-The `t()` function in `LanguageContext.tsx` uses the `||` operator to check for translations:
+The issue is that **translated text is used as React `key` props** on elements inside framer-motion containers that have `viewport={{ once: true }}`.
 
-```text
-return dict[key] || translations.en[key] || key
-```
+Here's what happens:
+1. On first load, framer-motion animates cards from `opacity: 0` to `opacity: 1` using `whileInView` with `once: true`
+2. When the language switches, the `key` prop changes (e.g., `key="Web Development"` becomes `key="Desarrollo Web"`)
+3. React treats a changed key as a completely new element -- it **unmounts** the old one and **mounts** a fresh one
+4. The fresh element starts at `initial="hidden"` (opacity: 0)
+5. But the parent container's `whileInView` already fired and won't fire again (`once: true`)
+6. Result: the new element is stuck at opacity 0 -- invisible
 
-The problem: JavaScript's `||` treats empty strings (`""`) as falsy. When a Spanish translation is intentionally set to `""` (e.g., `services.headline3` which should be empty because Spanish doesn't need "Again"), the function skips it and returns the English value instead. This causes mixed-language output like "No Te Preocupes Mas Por Tu Pagina Web **Again**".
+### Affected Components
 
-This same bug can cause other subtle rendering issues when translations return unexpected values.
+Every component that uses `key={translatedText}` inside a framer-motion staggered container:
 
-### Changes
+| File | Current key | Fix |
+|------|------------|-----|
+| `ServicesPreview.tsx` (line 53) | `key={service.title}` | `key={service.href}` (stable) |
+| `PricingPreview.tsx` (line 91) | `key={tier.name}` | `key={index}` |
+| `PricingPreview.tsx` (line 98) | `key={feature.text}` | `key={index}` |
+| `WhyChooseUs.tsx` (line 55) | `key={feature.title}` | `key={index}` |
+| `PerformanceSection.tsx` (line 48) | `key={stat.label}` | `key={index}` |
+| `PerformanceSection.tsx` (line 59) | `key={benefit.title}` | `key={index}` |
+| `Testimonials.tsx` | `key={testimonial.name}` | `key={index}` (names are stable, but for consistency) |
+| `Services.tsx` (line 199) | `key={tier.name}` | `key={tierIndex}` |
+| `Services.tsx` (line 206) | `key={feature.text}` | `key={featureIndex}` |
+| `About.tsx` (line 118) | `key={value.title}` | `key={index}` |
 
-**1. `src/contexts/LanguageContext.tsx`** -- Fix the `t()` function
+### The Fix
 
-Replace `||` with proper undefined checks so that empty strings are treated as valid translations. Change from:
-```text
-return dict[key] || translations.en[key] || key
-```
-To logic that checks if the key exists (is not undefined) rather than if the value is truthy.
+Replace all translated-text-based `key` props with **stable keys** -- either array indices or non-translated identifiers (like `href` or `id`). Since these are static lists that never reorder or change length, using index as key is perfectly safe and correct.
 
-**2. `src/i18n/es.ts`** -- Fix Spanish translations
+### No Layout or Styling Changes
 
-- Change `services.headline1` from "No Te Preocupes Mas Por Tu " to "Nunca Mas Te Preocupes Por Tu "
-- Add new keys for the Services page section titles that use correct Spanish word order
+Only `key` props change. No visual, layout, or animation behavior changes.
 
-**3. `src/i18n/en.ts`** -- Add matching English keys for the Services page section title pattern
-
-Add new keys like `servicesPage.webDev.packagesTitle`, `servicesPage.gbp.packagesTitle`, `servicesPage.seo.packagesTitle` so each language can have its own full section title.
-
-**4. `src/pages/Services.tsx`** -- Use the new per-section title keys
-
-Instead of the current pattern `{category.title} + "Packages"`, use a single translation key per section that contains the full, properly ordered title for each language.
-
-### Technical Details
-
-- English section titles: "Web Development Packages", "Google Business Profile Packages", "Local SEO Packages"
-- Spanish section titles: "Paquetes de Desarrollo Web", "Paquetes de Perfiles de Google Business", "Paquetes de SEO Local"
-- The `t()` fix uses `!== undefined` checks instead of `||` to properly handle empty string translations
-- No layout or styling changes -- only translation logic and text content
