@@ -25,7 +25,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const t = useCallback(
     (key: string): string => {
       const dict = translations[language];
-      return dict[key] || translations.en[key] || key;
+      if (dict[key] !== undefined) return dict[key];
+      if (translations.en[key] !== undefined) return translations.en[key];
+      return key;
     },
     [language]
   );
