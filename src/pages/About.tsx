@@ -115,7 +115,7 @@ const About = () => {
               </h2>
               <p className="font-body mb-6 leading-relaxed text-sm text-card-foreground">{t("aboutPage.values.description")}</p>
               <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                {values.map(value => <motion.div key={value.title} variants={item} className="flex items-start gap-2">
+                {values.map((value, index) => <motion.div key={index} variants={item} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">{value.title}</h3>

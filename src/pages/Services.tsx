@@ -196,14 +196,14 @@ const Services = () => {
                 </Button>
               </motion.div>
             <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className={category.tiers.length === 3 ? "grid grid-cols-1 md:grid-cols-3 gap-6" : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto"}>
-                {category.tiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
+                {category.tiers.map((tier, tierIndex) => <motion.div key={tierIndex} variants={item} className={`rounded-xl border flex flex-col overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
                     <div className="px-6 pt-6">
                       <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>{tier.name}</h3>
                       <p className={`text-sm ${tier.featured ? "text-primary-foreground" : "text-card-foreground"}`}>{tier.description}</p>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <ul className="space-y-2 mb-4 flex-grow">
-                        {tier.features.map(feature => <li key={feature.text} className="flex items-start gap-2">
+                        {tier.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start gap-2">
                             {feature.included ? <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
                             <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>{feature.text}</span>
                           </li>)}

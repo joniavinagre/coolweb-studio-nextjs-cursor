@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
             </p>
 
             <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              {features.map(feature => <motion.div key={feature.title} variants={item} className="flex items-start gap-2">
+              {features.map((feature, index) => <motion.div key={index} variants={item} className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">

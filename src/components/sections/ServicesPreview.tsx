@@ -50,7 +50,7 @@ const ServicesPreview = () => {
 
         {/* Services Grid */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map(service => <motion.div key={service.title} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
+          {services.map(service => <motion.div key={service.href} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
               <div className="service-icon-swipe">
                 <img src={service.icon} alt="" className="w-8 h-8 relative z-10" />
               </div>
