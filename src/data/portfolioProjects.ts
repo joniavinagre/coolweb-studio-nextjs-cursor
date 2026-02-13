@@ -420,7 +420,7 @@ export const projects: Project[] = [
     location: "Marseille, France",
     image: portfolioOngles,
     description: "Nail salon offering beauty services including skin care and makeup in the heart of Marseille.",
-    website: "https://onglesfantaisies.lovable.app/",
+    website: "https://onglesfantaisies.coolwebstudio.com/",
     tagline: "A modern, elegant website for a premium nail salon offering comprehensive beauty services",
     services: ["Nails", "Skincare", "Makeup"],
     aboutProject:
