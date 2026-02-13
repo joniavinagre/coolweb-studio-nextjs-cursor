@@ -88,14 +88,14 @@ const PricingPreview = () => {
         </div>
 
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pricingTiers.map(tier => <motion.div key={tier.name} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
+          {pricingTiers.map((tier, index) => <motion.div key={index} variants={item} className={`rounded-xl border flex flex-col h-full overflow-hidden ${tier.featured ? "bg-navy border-primary ring-2 ring-primary/20" : "border-border bg-card"}`}>
               <div className="px-6 pt-6">
                 <h3 className={`text-2xl font-extrabold uppercase tracking-wider mb-1 ${tier.featured ? "text-primary-foreground" : "text-foreground"}`}>{tier.name}</h3>
                 <p className={`text-sm ${tier.featured ? "text-primary-foreground" : "text-card-foreground"}`}>{tier.description}</p>
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <ul className="space-y-2 mb-4 flex-grow">
-                  {tier.features.map(feature => <li key={feature.text} className="flex items-start gap-2">
+                  {tier.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start gap-2">
                       {feature.included ? <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 text-primary`} /> : <X className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.featured ? "text-primary-foreground/50" : "text-muted-foreground/50"}`} />}
                       <span className={`text-xs ${tier.featured ? feature.included ? "text-primary-foreground" : "text-primary-foreground/50" : feature.included ? "text-foreground" : "text-muted-foreground/50"}`}>{feature.text}</span>
                     </li>)}

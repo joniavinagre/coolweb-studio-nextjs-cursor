@@ -45,7 +45,7 @@ const PerformanceSection = () => {
             </h2>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex flex-wrap justify-start lg:justify-end gap-4 lg:gap-8">
-            {stats.map(stat => <div key={stat.label} className="text-center">
+            {stats.map((stat, index) => <div key={index} className="text-center">
                 <div className="text-5xl md:text-6xl font-display font-extrabold text-primary mb-1">{stat.value}</div>
                 <div className="text-sm uppercase tracking-wider text-primary-foreground font-display font-extrabold whitespace-pre-line">{stat.label}</div>
               </div>)}
@@ -56,7 +56,7 @@ const PerformanceSection = () => {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <p className="font-body mb-6 leading-relaxed text-sm text-primary-foreground">{t("performance.description")}</p>
             <div className="space-y-4 mb-6">
-              {benefits.map((benefit, index) => <motion.div key={benefit.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-3">
+              {benefits.map((benefit, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-transparent">
                     <img src={benefit.icon} alt="" className="w-8 h-8" />
                   </div>

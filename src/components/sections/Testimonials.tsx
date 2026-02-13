@@ -38,7 +38,7 @@ const Testimonials = () => {
         </div>
 
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map(testimonial => <motion.div key={testimonial.name} variants={item} className="bg-card rounded-2xl p-6 border border-border">
+          {testimonials.map((testimonial, index) => <motion.div key={index} variants={item} className="bg-card rounded-2xl p-6 border border-border">
               <Quote className="w-10 h-10 text-primary/30 mb-3" />
              <p className="font-body text-foreground leading-relaxed mb-4 text-sm">
                 "{testimonial.content}"
