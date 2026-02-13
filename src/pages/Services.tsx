@@ -183,7 +183,8 @@ const Services = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
                   <h2 className="section-title">
-                    {category.title} <span className="text-primary">{t("servicesPage.packages")}</span>
+                    {t(`servicesPage.${category.id === "web-development" ? "webDev" : category.id === "google-business" ? "gbp" : "seo"}.packagesTitle`)}{" "}
+                    <span className="text-primary">{t(`servicesPage.${category.id === "web-development" ? "webDev" : category.id === "google-business" ? "gbp" : "seo"}.packagesHighlight`)}</span>
                   </h2>
                   <p className="font-body max-w-2xl text-sm text-card-foreground">{category.description}</p>
                 </div>

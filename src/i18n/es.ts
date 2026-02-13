@@ -25,7 +25,7 @@ export const es: Record<string, string> = {
 
   // Services Preview
   "services.topper": "Lo Que Hacemos",
-  "services.headline1": "No Te Preocupes Más Por Tu ",
+  "services.headline1": "Nunca Más Te Preocupes Por Tu ",
   "services.headline2": "Página Web",
   "services.headline3": "",
   "services.description": "Ofrecemos soluciones digitales integrales adaptadas a las necesidades de tu negocio.",
@@ -141,6 +141,12 @@ export const es: Record<string, string> = {
   "servicesPage.heroTitle1": "Paquetes De Precios Para ",
   "servicesPage.heroTitle2": "Todos Los Presupuestos",
   "servicesPage.packages": "Paquetes",
+  "servicesPage.webDev.packagesTitle": "Paquetes de",
+  "servicesPage.webDev.packagesHighlight": "Desarrollo Web",
+  "servicesPage.gbp.packagesTitle": "Paquetes de",
+  "servicesPage.gbp.packagesHighlight": "Perfiles de Google Business",
+  "servicesPage.seo.packagesTitle": "Paquetes de",
+  "servicesPage.seo.packagesHighlight": "SEO Local",
   "servicesPage.webDev.title": "Desarrollo Web",
   "servicesPage.webDev.description": "Sitios web de alto rendimiento construidos desde cero, adaptados a los objetivos de tu negocio.",
   "servicesPage.gbp.title": "Google Business Profile",
