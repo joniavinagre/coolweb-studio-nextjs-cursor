@@ -23,7 +23,7 @@ const PortfolioPreview = () => {
     <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Split Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 mb-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ const PortfolioPreview = () => {
             className="lg:border-r lg:border-border lg:pr-12">
 
             <span className="topper block text-xl font-extrabold leading-none md:leading-tight">{t("portfolio.topper")}</span>
-            <h2 className="section-title leading-none md:leading-none mb-[10px]">
+            <h2 className="section-title leading-none mb-0">
               {t("portfolio.headline1")}<span className="text-primary">{t("portfolio.headline2")}</span>
             </h2>
           </motion.div>
