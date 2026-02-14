@@ -56,11 +56,11 @@ const Header = () => {
           )}
         >
           {/* Logo */}
-          <Link to="/" className="group">
+          <Link to="/">
             <img
               src={fullLogo}
               alt="COOLWEB Studio"
-              className="h-8 group-hover:scale-105 transition-transform"
+              className="h-8"
             />
           </Link>
 

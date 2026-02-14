@@ -37,7 +37,7 @@ const LanguageSelector = ({ variant = "default" }: LanguageSelectorProps) => {
         <DropdownMenuItem
           onClick={() => setLanguage("en")}
           className={cn(
-            "cursor-pointer font-semibold text-sm hover:bg-primary/20 focus:bg-primary/20",
+            "cursor-pointer font-semibold text-sm hover:!bg-primary hover:!text-primary-foreground focus:!bg-primary focus:!text-primary-foreground",
             language === "en" && "text-primary"
           )}
         >
@@ -46,7 +46,7 @@ const LanguageSelector = ({ variant = "default" }: LanguageSelectorProps) => {
         <DropdownMenuItem
           onClick={() => setLanguage("es")}
           className={cn(
-            "cursor-pointer font-semibold text-sm hover:bg-primary/20 focus:bg-primary/20",
+            "cursor-pointer font-semibold text-sm hover:!bg-primary hover:!text-primary-foreground focus:!bg-primary focus:!text-primary-foreground",
             language === "es" && "text-primary"
           )}
         >
