@@ -44,48 +44,48 @@ const Services = () => {
     priceNote: t("pricing.lumpSum.priceNote"),
     description: t("pricing.lumpSum.description"),
     features: [
-      { text: t("pricing.feature.customDesign"), included: true },
-      { text: t("pricing.feature.upTo5Pages"), included: true },
-      { text: t("pricing.feature.mobileResponsive"), included: true },
-      { text: t("pricing.feature.basicSeo"), included: true },
-      { text: t("pricing.feature.hosting25"), included: true },
-      { text: t("pricing.feature.unlimitedEdits"), included: false },
-      { text: t("pricing.feature.support247"), included: false },
-      { text: t("pricing.feature.lifetimeUpdates"), included: false },
-    ],
-    cta: t("pricing.lumpSum.cta"),
+    { text: t("pricing.feature.customDesign"), included: true },
+    { text: t("pricing.feature.upTo5Pages"), included: true },
+    { text: t("pricing.feature.mobileResponsive"), included: true },
+    { text: t("pricing.feature.basicSeo"), included: true },
+    { text: t("pricing.feature.hosting25"), included: true },
+    { text: t("pricing.feature.unlimitedEdits"), included: false },
+    { text: t("pricing.feature.support247"), included: false },
+    { text: t("pricing.feature.lifetimeUpdates"), included: false }],
+
+    cta: t("pricing.lumpSum.cta")
   }, {
     name: t("pricing.monthly.name"),
     price: t("pricing.monthly.price"),
     priceNote: t("pricing.monthly.priceNote"),
     description: t("pricing.monthly.description"),
     features: [
-      { text: t("pricing.feature.customDesign"), included: true },
-      { text: t("pricing.feature.upTo5Pages"), included: true },
-      { text: t("pricing.feature.mobileResponsive"), included: true },
-      { text: t("pricing.feature.advancedSeo"), included: true },
-      { text: t("pricing.feature.hostingIncluded"), included: true },
-      { text: t("pricing.feature.unlimitedEdits"), included: true },
-      { text: t("pricing.feature.support247"), included: true },
-      { text: t("pricing.feature.lifetimeUpdates"), included: true },
-    ],
+    { text: t("pricing.feature.customDesign"), included: true },
+    { text: t("pricing.feature.upTo5Pages"), included: true },
+    { text: t("pricing.feature.mobileResponsive"), included: true },
+    { text: t("pricing.feature.advancedSeo"), included: true },
+    { text: t("pricing.feature.hostingIncluded"), included: true },
+    { text: t("pricing.feature.unlimitedEdits"), included: true },
+    { text: t("pricing.feature.support247"), included: true },
+    { text: t("pricing.feature.lifetimeUpdates"), included: true }],
+
     cta: t("pricing.monthly.cta"),
-    featured: true,
+    featured: true
   }, {
     name: t("pricing.custom.name"),
     price: t("pricing.custom.price"),
     description: t("pricing.custom.description"),
     features: [
-      { text: t("pricing.feature.ecommerce"), included: true },
-      { text: t("pricing.feature.customIntegrations"), included: true },
-      { text: t("pricing.feature.advancedFunctionality"), included: true },
-      { text: t("pricing.feature.multiLanguage"), included: true },
-      { text: t("pricing.feature.priorityDev"), included: true },
-      { text: t("pricing.feature.dedicatedSupport"), included: true },
-      { text: t("pricing.feature.customHosting"), included: true },
-      { text: t("pricing.feature.ongoingMaintenance"), included: true },
-    ],
-    cta: t("pricing.custom.cta"),
+    { text: t("pricing.feature.ecommerce"), included: true },
+    { text: t("pricing.feature.customIntegrations"), included: true },
+    { text: t("pricing.feature.advancedFunctionality"), included: true },
+    { text: t("pricing.feature.multiLanguage"), included: true },
+    { text: t("pricing.feature.priorityDev"), included: true },
+    { text: t("pricing.feature.dedicatedSupport"), included: true },
+    { text: t("pricing.feature.customHosting"), included: true },
+    { text: t("pricing.feature.ongoingMaintenance"), included: true }],
+
+    cta: t("pricing.custom.cta")
   }];
 
   const serviceCategories: ServiceCategory[] = [{
@@ -93,7 +93,7 @@ const Services = () => {
     icon: Globe,
     title: t("servicesPage.webDev.title"),
     description: t("servicesPage.webDev.description"),
-    tiers: webDevTiers,
+    tiers: webDevTiers
   }, {
     id: "google-business",
     icon: MapPin,
@@ -105,27 +105,27 @@ const Services = () => {
       priceNote: t("servicesPage.gbp.setup.priceNote"),
       description: t("servicesPage.gbp.setup.description"),
       features: [
-        { text: t("servicesPage.gbp.feature.completeSetup"), included: true },
-        { text: t("servicesPage.gbp.feature.verification"), included: true },
-        { text: t("servicesPage.gbp.feature.categoryOpt"), included: true },
-        { text: t("servicesPage.gbp.feature.photoVideo"), included: true },
-        { text: t("servicesPage.gbp.feature.basicOpt"), included: true },
-      ],
-      cta: t("servicesPage.gbp.setup.cta"),
+      { text: t("servicesPage.gbp.feature.completeSetup"), included: true },
+      { text: t("servicesPage.gbp.feature.verification"), included: true },
+      { text: t("servicesPage.gbp.feature.categoryOpt"), included: true },
+      { text: t("servicesPage.gbp.feature.photoVideo"), included: true },
+      { text: t("servicesPage.gbp.feature.basicOpt"), included: true }],
+
+      cta: t("servicesPage.gbp.setup.cta")
     }, {
       name: t("servicesPage.gbp.mgmt.name"),
       price: t("servicesPage.gbp.mgmt.price"),
       priceNote: t("servicesPage.gbp.mgmt.priceNote"),
       description: t("servicesPage.gbp.mgmt.description"),
       features: [
-        { text: t("servicesPage.gbp.feature.ongoingOpt"), included: true },
-        { text: t("servicesPage.gbp.feature.weeklyPosts"), included: true },
-        { text: t("servicesPage.gbp.feature.reviewResponses"), included: true },
-        { text: t("servicesPage.gbp.feature.photoUpdates"), included: true },
-        { text: t("servicesPage.gbp.feature.monthlyReports"), included: true },
-      ],
-      cta: t("servicesPage.gbp.mgmt.cta"),
-    }],
+      { text: t("servicesPage.gbp.feature.ongoingOpt"), included: true },
+      { text: t("servicesPage.gbp.feature.weeklyPosts"), included: true },
+      { text: t("servicesPage.gbp.feature.reviewResponses"), included: true },
+      { text: t("servicesPage.gbp.feature.photoUpdates"), included: true },
+      { text: t("servicesPage.gbp.feature.monthlyReports"), included: true }],
+
+      cta: t("servicesPage.gbp.mgmt.cta")
+    }]
   }, {
     id: "local-seo",
     icon: Search,
@@ -137,28 +137,28 @@ const Services = () => {
       priceNote: t("servicesPage.seo.basic.priceNote"),
       description: t("servicesPage.seo.basic.description"),
       features: [
-        { text: t("servicesPage.seo.feature.5keywords"), included: true },
-        { text: t("servicesPage.seo.feature.basicOpt"), included: true },
-        { text: t("servicesPage.seo.feature.monthlyReport"), included: true },
-        { text: t("servicesPage.seo.feature.citationBuilding"), included: true },
-        { text: t("servicesPage.seo.feature.napAudit"), included: true },
-      ],
-      cta: t("servicesPage.seo.basic.cta"),
+      { text: t("servicesPage.seo.feature.5keywords"), included: true },
+      { text: t("servicesPage.seo.feature.basicOpt"), included: true },
+      { text: t("servicesPage.seo.feature.monthlyReport"), included: true },
+      { text: t("servicesPage.seo.feature.citationBuilding"), included: true },
+      { text: t("servicesPage.seo.feature.napAudit"), included: true }],
+
+      cta: t("servicesPage.seo.basic.cta")
     }, {
       name: t("servicesPage.seo.advanced.name"),
       price: t("servicesPage.seo.advanced.price"),
       priceNote: t("servicesPage.seo.advanced.priceNote"),
       description: t("servicesPage.seo.advanced.description"),
       features: [
-        { text: t("servicesPage.seo.feature.15keywords"), included: true },
-        { text: t("servicesPage.seo.feature.fullOpt"), included: true },
-        { text: t("servicesPage.seo.feature.biweeklyReports"), included: true },
-        { text: t("servicesPage.seo.feature.linkBuilding"), included: true },
-        { text: t("servicesPage.seo.feature.mapsRanking"), included: true },
-        { text: t("servicesPage.seo.feature.contentOpt"), included: true },
-      ],
-      cta: t("servicesPage.seo.advanced.cta"),
-    }],
+      { text: t("servicesPage.seo.feature.15keywords"), included: true },
+      { text: t("servicesPage.seo.feature.fullOpt"), included: true },
+      { text: t("servicesPage.seo.feature.biweeklyReports"), included: true },
+      { text: t("servicesPage.seo.feature.linkBuilding"), included: true },
+      { text: t("servicesPage.seo.feature.mapsRanking"), included: true },
+      { text: t("servicesPage.seo.feature.contentOpt"), included: true }],
+
+      cta: t("servicesPage.seo.advanced.cta")
+    }]
   }];
 
   return <Layout>
@@ -182,7 +182,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
                 <div>
-                  <h2 className="section-title">
+                  <h2 className="section-title mb-[10px]">
                     {t(`servicesPage.${category.id === "web-development" ? "webDev" : category.id === "google-business" ? "gbp" : "seo"}.packagesTitle`)}{" "}
                     <span className="text-primary">{t(`servicesPage.${category.id === "web-development" ? "webDev" : category.id === "google-business" ? "gbp" : "seo"}.packagesHighlight`)}</span>
                   </h2>
