@@ -1,41 +1,27 @@
 
 
-## Fix Disappearing Cards After Language Switch
+## Two Fixes
 
-### Root Cause
+### 1. Portfolio Headline Spacing
 
-The issue is that **translated text is used as React `key` props** on elements inside framer-motion containers that have `viewport={{ once: true }}`.
+The Portfolio section headline has extra line spacing compared to all other headlines on the site.
 
-Here's what happens:
-1. On first load, framer-motion animates cards from `opacity: 0` to `opacity: 1` using `whileInView` with `once: true`
-2. When the language switches, the `key` prop changes (e.g., `key="Web Development"` becomes `key="Desarrollo Web"`)
-3. React treats a changed key as a completely new element -- it **unmounts** the old one and **mounts** a fresh one
-4. The fresh element starts at `initial="hidden"` (opacity: 0)
-5. But the parent container's `whileInView` already fired and won't fire again (`once: true`)
-6. Result: the new element is stuck at opacity 0 -- invisible
+**Why it happens**: The `section-title` CSS class already applies `leading-none md:leading-tight` (tight on mobile, slightly relaxed on desktop). But the Portfolio headline explicitly overrides this with `leading-tight md:leading-tight`, which loosens the mobile spacing from `leading-none` (line-height: 1) to `leading-tight` (line-height: 1.25). That 25% difference is very visible on large uppercase text.
 
-### Affected Components
+**Fix**: In `src/components/sections/PortfolioPreview.tsx` (line 34), change the `h2` className from `leading-tight md:leading-tight` to `leading-none md:leading-tight` so it matches every other headline on the site.
 
-Every component that uses `key={translatedText}` inside a framer-motion staggered container:
+### 2. Language Dropdown Purple Hover
 
-| File | Current key | Fix |
-|------|------------|-----|
-| `ServicesPreview.tsx` (line 53) | `key={service.title}` | `key={service.href}` (stable) |
-| `PricingPreview.tsx` (line 91) | `key={tier.name}` | `key={index}` |
-| `PricingPreview.tsx` (line 98) | `key={feature.text}` | `key={index}` |
-| `WhyChooseUs.tsx` (line 55) | `key={feature.title}` | `key={index}` |
-| `PerformanceSection.tsx` (line 48) | `key={stat.label}` | `key={index}` |
-| `PerformanceSection.tsx` (line 59) | `key={benefit.title}` | `key={index}` |
-| `Testimonials.tsx` | `key={testimonial.name}` | `key={index}` (names are stable, but for consistency) |
-| `Services.tsx` (line 199) | `key={tier.name}` | `key={tierIndex}` |
-| `Services.tsx` (line 206) | `key={feature.text}` | `key={featureIndex}` |
-| `About.tsx` (line 118) | `key={value.title}` | `key={index}` |
+The language selector dropdown items turn purple on hover/focus.
 
-### The Fix
+**Why it happens**: The default `DropdownMenuItem` component uses `focus:bg-accent`, and the `--accent` CSS variable is set to purple (`263 70% 50%`). The `LanguageSelector` component does not override this.
 
-Replace all translated-text-based `key` props with **stable keys** -- either array indices or non-translated identifiers (like `href` or `id`). Since these are static lists that never reorder or change length, using index as key is perfectly safe and correct.
+**Fix**: In `src/components/LanguageSelector.tsx`, add a hover/focus override class to each `DropdownMenuItem` so the hover background is light blue instead of purple: `hover:bg-primary/20 focus:bg-primary/20`.
 
-### No Layout or Styling Changes
+### Files Changed
 
-Only `key` props change. No visual, layout, or animation behavior changes.
+| File | Change |
+|------|--------|
+| `src/components/sections/PortfolioPreview.tsx` | Line 34: `leading-tight` to `leading-none` |
+| `src/components/LanguageSelector.tsx` | Add `hover:bg-primary/20 focus:bg-primary/20` to both `DropdownMenuItem` elements |
 
