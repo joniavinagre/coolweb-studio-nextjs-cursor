@@ -31,7 +31,7 @@ const PortfolioPreview = () => {
             className="lg:border-r lg:border-border lg:pr-12"
           >
             <span className="topper block text-xl font-extrabold leading-none md:leading-tight">{t("portfolio.topper")}</span>
-            <h2 className="section-title leading-none md:leading-tight">
+            <h2 className="section-title leading-none">
               {t("portfolio.headline1")}<span className="text-primary">{t("portfolio.headline2")}</span>
             </h2>
           </motion.div>
