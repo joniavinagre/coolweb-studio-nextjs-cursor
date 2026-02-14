@@ -37,7 +37,7 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-           <p className="font-body leading-relaxed mb-3 md:mb-6 max-w-lg text-xs md:text-base text-primary-foreground">
+           <p className="font-body leading-relaxed md:mb-6 max-w-lg text-xs md:text-base text-primary-foreground mb-[16px]">
               {t("hero.description")}
             </p>
 
