@@ -1,27 +1,35 @@
 
 
-## Two Fixes
+## Fix Portfolio Headline Spacing on Desktop and Tablet
 
-### 1. Portfolio Headline Spacing
+### Why It's Still Happening
 
-The Portfolio section headline has extra line spacing compared to all other headlines on the site.
+The previous fix changed the class to `leading-none md:leading-tight`. This fixed **mobile only** because:
 
-**Why it happens**: The `section-title` CSS class already applies `leading-none md:leading-tight` (tight on mobile, slightly relaxed on desktop). But the Portfolio headline explicitly overrides this with `leading-tight md:leading-tight`, which loosens the mobile spacing from `leading-none` (line-height: 1) to `leading-tight` (line-height: 1.25). That 25% difference is very visible on large uppercase text.
+- Below 768px: `leading-none` applies (line-height: 1.0) -- tight, correct
+- At 768px and above: `md:leading-tight` kicks in (line-height: 1.25) -- 25% extra spacing still visible
 
-**Fix**: In `src/components/sections/PortfolioPreview.tsx` (line 34), change the `h2` className from `leading-tight md:leading-tight` to `leading-none md:leading-tight` so it matches every other headline on the site.
+Since this headline wraps across multiple lines on desktop and tablet, the 1.25 line-height creates noticeable gaps between lines.
 
-### 2. Language Dropdown Purple Hover
+### The Fix
 
-The language selector dropdown items turn purple on hover/focus.
+In `src/components/sections/PortfolioPreview.tsx` (line 34), change:
 
-**Why it happens**: The default `DropdownMenuItem` component uses `focus:bg-accent`, and the `--accent` CSS variable is set to purple (`263 70% 50%`). The `LanguageSelector` component does not override this.
+```
+leading-none md:leading-tight
+```
 
-**Fix**: In `src/components/LanguageSelector.tsx`, add a hover/focus override class to each `DropdownMenuItem` so the hover background is light blue instead of purple: `hover:bg-primary/20 focus:bg-primary/20`.
+to just:
+
+```
+leading-none
+```
+
+This applies tight line spacing (1.0) across all screen sizes, matching how other headlines on the site appear.
 
 ### Files Changed
 
 | File | Change |
 |------|--------|
-| `src/components/sections/PortfolioPreview.tsx` | Line 34: `leading-tight` to `leading-none` |
-| `src/components/LanguageSelector.tsx` | Add `hover:bg-primary/20 focus:bg-primary/20` to both `DropdownMenuItem` elements |
+| `src/components/sections/PortfolioPreview.tsx` | Line 34: Remove `md:leading-tight`, keep only `leading-none` |
 
