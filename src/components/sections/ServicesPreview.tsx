@@ -40,7 +40,7 @@ const ServicesPreview = () => {
           <motion.span initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="topper block leading-none md:leading-tight">
             {t("services.topper")}
           </motion.span>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="section-title leading-none md:leading-tight">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="section-title leading-none md:leading-tight mb-[10px]">
             {t("services.headline1")}<span className="text-primary">{t("services.headline2")}</span>{t("services.headline3")}
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="font-body max-w-2xl mx-auto text-card-foreground text-sm">
@@ -50,7 +50,7 @@ const ServicesPreview = () => {
 
         {/* Services Grid */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map(service => <motion.div key={service.href} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
+          {services.map((service) => <motion.div key={service.href} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
               <div className="service-icon-swipe">
                 <img src={service.icon} alt="" className="w-8 h-8 relative z-10" />
               </div>

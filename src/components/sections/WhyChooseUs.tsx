@@ -19,13 +19,13 @@ const WhyChooseUs = () => {
   const { t } = useLanguage();
 
   const features = [
-    { title: t("why.feature1.title"), description: t("why.feature1.description") },
-    { title: t("why.feature2.title"), description: t("why.feature2.description") },
-    { title: t("why.feature3.title"), description: t("why.feature3.description") },
-    { title: t("why.feature4.title"), description: t("why.feature4.description") },
-    { title: t("why.feature5.title"), description: t("why.feature5.description") },
-    { title: t("why.feature6.title"), description: t("why.feature6.description") },
-  ];
+  { title: t("why.feature1.title"), description: t("why.feature1.description") },
+  { title: t("why.feature2.title"), description: t("why.feature2.description") },
+  { title: t("why.feature3.title"), description: t("why.feature3.description") },
+  { title: t("why.feature4.title"), description: t("why.feature4.description") },
+  { title: t("why.feature5.title"), description: t("why.feature5.description") },
+  { title: t("why.feature6.title"), description: t("why.feature6.description") }];
+
 
   return <section className="py-16 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
           {/* Right Column - Content */}
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <span className="topper block leading-none md:leading-tight">{t("why.topper")}</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight;">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight; mb-[10px]">
               {t("why.headline1")}<span className="text-primary">{t("why.headline2")}</span>
             </h2>
             <p className="font-body mb-6 leading-relaxed text-sm text-card-foreground">

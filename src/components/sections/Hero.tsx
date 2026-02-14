@@ -31,7 +31,7 @@ const Hero = () => {
            <span className="topper block leading-none md:leading-tight text-left">{t("hero.topper")}</span>
 
             {/* Main Headline */}
-           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight md:mb-4 font-extrabold lg:text-6xl text-left">
+           <h1 className="text-5xl md:text-6xl text-primary-foreground uppercase tracking-wide leading-none md:leading-tight md:mb-4 font-extrabold lg:text-6xl text-left mb-[10px]">
               {t("hero.headline1")}<br />
               <span className="text-primary">{t("hero.headline2")}</span>
             </h1>
