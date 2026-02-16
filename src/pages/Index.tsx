@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/sections/Hero";
 import ServicesPreview from "@/components/sections/ServicesPreview";
@@ -11,9 +12,20 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const BASE_URL = "https://coolwebstudionew.lovable.app";
+
 const Index = () => {
   const { t } = useLanguage();
   return <Layout>
+      <Helmet>
+        <title>COOLWEB Studio | Small Business Web Designer</title>
+        <meta name="description" content="Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services." />
+        <link rel="canonical" href={BASE_URL + "/"} />
+        <meta property="og:title" content="COOLWEB Studio | Small Business Web Designer" />
+        <meta property="og:description" content="Boost your reputation, trust, and income with personalized websites for your small business." />
+        <meta property="og:url" content={BASE_URL + "/"} />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Hero />
       <ServicesPreview />
       <WhyChooseUs />
