@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,8 @@ const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 }
 };
+
+const BASE_URL = "https://coolwebstudionew.lovable.app";
 
 const About = () => {
   const { t } = useLanguage();
@@ -32,6 +35,14 @@ const About = () => {
   ];
 
   return <Layout>
+      <Helmet>
+        <title>About Us | COOLWEB Studio</title>
+        <meta name="description" content="Learn about COOLWEB Studio — a web design agency helping small businesses grow online with personalized websites, SEO, and digital marketing." />
+        <link rel="canonical" href={BASE_URL + "/about"} />
+        <meta property="og:title" content="About Us | COOLWEB Studio" />
+        <meta property="og:description" content="A web design agency helping small businesses grow online." />
+        <meta property="og:url" content={BASE_URL + "/about"} />
+      </Helmet>
       {/* Hero */}
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />

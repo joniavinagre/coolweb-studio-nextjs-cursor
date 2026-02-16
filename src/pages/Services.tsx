@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Globe, MapPin, Search, Check, X, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,8 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+const BASE_URL = "https://coolwebstudionew.lovable.app";
+
 const Services = () => {
   const { t } = useLanguage();
 
@@ -52,7 +55,6 @@ const Services = () => {
     { text: t("pricing.feature.unlimitedEdits"), included: false },
     { text: t("pricing.feature.support247"), included: false },
     { text: t("pricing.feature.lifetimeUpdates"), included: false }],
-
     cta: t("pricing.lumpSum.cta")
   }, {
     name: t("pricing.monthly.name"),
@@ -68,7 +70,6 @@ const Services = () => {
     { text: t("pricing.feature.unlimitedEdits"), included: true },
     { text: t("pricing.feature.support247"), included: true },
     { text: t("pricing.feature.lifetimeUpdates"), included: true }],
-
     cta: t("pricing.monthly.cta"),
     featured: true
   }, {
@@ -84,7 +85,6 @@ const Services = () => {
     { text: t("pricing.feature.dedicatedSupport"), included: true },
     { text: t("pricing.feature.customHosting"), included: true },
     { text: t("pricing.feature.ongoingMaintenance"), included: true }],
-
     cta: t("pricing.custom.cta")
   }];
 
@@ -110,7 +110,6 @@ const Services = () => {
       { text: t("servicesPage.gbp.feature.categoryOpt"), included: true },
       { text: t("servicesPage.gbp.feature.photoVideo"), included: true },
       { text: t("servicesPage.gbp.feature.basicOpt"), included: true }],
-
       cta: t("servicesPage.gbp.setup.cta")
     }, {
       name: t("servicesPage.gbp.mgmt.name"),
@@ -123,7 +122,6 @@ const Services = () => {
       { text: t("servicesPage.gbp.feature.reviewResponses"), included: true },
       { text: t("servicesPage.gbp.feature.photoUpdates"), included: true },
       { text: t("servicesPage.gbp.feature.monthlyReports"), included: true }],
-
       cta: t("servicesPage.gbp.mgmt.cta")
     }]
   }, {
@@ -142,7 +140,6 @@ const Services = () => {
       { text: t("servicesPage.seo.feature.monthlyReport"), included: true },
       { text: t("servicesPage.seo.feature.citationBuilding"), included: true },
       { text: t("servicesPage.seo.feature.napAudit"), included: true }],
-
       cta: t("servicesPage.seo.basic.cta")
     }, {
       name: t("servicesPage.seo.advanced.name"),
@@ -156,12 +153,19 @@ const Services = () => {
       { text: t("servicesPage.seo.feature.linkBuilding"), included: true },
       { text: t("servicesPage.seo.feature.mapsRanking"), included: true },
       { text: t("servicesPage.seo.feature.contentOpt"), included: true }],
-
       cta: t("servicesPage.seo.advanced.cta")
     }]
   }];
 
   return <Layout>
+      <Helmet>
+        <title>Services & Pricing | COOLWEB Studio</title>
+        <meta name="description" content="Web design, Google Business Profile setup, and local SEO services for small businesses. Affordable pricing plans starting from €150/month." />
+        <link rel="canonical" href={BASE_URL + "/services"} />
+        <meta property="og:title" content="Services & Pricing | COOLWEB Studio" />
+        <meta property="og:description" content="Web design, Google Business Profile setup, and local SEO services for small businesses." />
+        <meta property="og:url" content={BASE_URL + "/services"} />
+      </Helmet>
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
@@ -242,3 +246,4 @@ const Services = () => {
     </Layout>;
 };
 export default Services;
+

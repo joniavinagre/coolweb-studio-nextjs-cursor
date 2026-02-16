@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,10 +16,20 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+const BASE_URL = "https://coolwebstudionew.lovable.app";
+
 const Portfolio = () => {
   const { t } = useLanguage();
 
   return <Layout>
+      <Helmet>
+        <title>Portfolio | COOLWEB Studio</title>
+        <meta name="description" content="Browse our portfolio of 12+ small business websites. From massage therapists to restaurants, see how we help businesses grow online." />
+        <link rel="canonical" href={BASE_URL + "/portfolio"} />
+        <meta property="og:title" content="Portfolio | COOLWEB Studio" />
+        <meta property="og:description" content="Browse our portfolio of 12+ small business websites across industries." />
+        <meta property="og:url" content={BASE_URL + "/portfolio"} />
+      </Helmet>
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Mail, Phone, Globe, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,6 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+const BASE_URL = "https://coolwebstudionew.lovable.app";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -56,6 +59,14 @@ const Contact = () => {
   };
 
   return <Layout>
+      <Helmet>
+        <title>Contact Us | COOLWEB Studio</title>
+        <meta name="description" content="Get in touch with COOLWEB Studio for a free consultation. We design professional websites for small businesses worldwide." />
+        <link rel="canonical" href={BASE_URL + "/contact"} />
+        <meta property="og:title" content="Contact Us | COOLWEB Studio" />
+        <meta property="og:description" content="Get in touch with COOLWEB Studio for a free consultation." />
+        <meta property="og:url" content={BASE_URL + "/contact"} />
+      </Helmet>
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
