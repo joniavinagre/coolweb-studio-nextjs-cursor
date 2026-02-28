@@ -9,6 +9,9 @@ import HomeCta from "@/components/sections/HomeCta";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
+// Avoid static prerender so build does not hit "Cannot destructure property 'auth'" during page data collection
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "COOLWEB Studio | Small Business Web Designer",
   description: "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
