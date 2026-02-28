@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import performanceDashboard from "@/assets/performance-dashboard.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PerformanceSection = () => {
@@ -67,14 +68,14 @@ const PerformanceSection = () => {
                 </motion.div>)}
             </div>
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-primary">
-              <Link to="/contact">
+              <Link href="/contact">
                 {t("performance.cta")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative">
-            <img src={performanceDashboard} alt="PageSpeed performance dashboard showing perfect scores" className="w-full rounded-xl shadow-xl" />
+            <img src="/assets/performance-dashboard.webp" alt="PageSpeed performance dashboard showing perfect scores" className="w-full rounded-xl shadow-xl" />
           </motion.div>
         </div>
       </div>

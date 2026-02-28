@@ -1,23 +1,21 @@
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
-const BASE_URL = "https://coolwebstudionew.lovable.app";
-
-const About = () => {
+const AboutContent = () => {
   const { t } = useLanguage();
 
   const values = [
@@ -34,22 +32,17 @@ const About = () => {
     { step: "04", title: t("aboutPage.process.step4.title"), description: t("aboutPage.process.step4.description") },
   ];
 
-  return <Layout>
-      <Helmet>
-        <title>About Us | COOLWEB Studio</title>
-        <meta name="description" content="Learn about COOLWEB Studio — a web design agency helping small businesses grow online with personalized websites, SEO, and digital marketing." />
-        <link rel="canonical" href={BASE_URL + "/about"} />
-        <meta property="og:title" content="About Us | COOLWEB Studio" />
-        <meta property="og:description" content="A web design agency helping small businesses grow online." />
-        <meta property="og:url" content={BASE_URL + "/about"} />
-      </Helmet>
+  return (
+    <>
       {/* Hero */}
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl">
-              {t("aboutPage.heroTitle1")}<br className="md:hidden" /><span className="text-primary">{t("aboutPage.heroTitle2")}</span>
+              {t("aboutPage.heroTitle1")}
+              <br className="md:hidden" />
+              <span className="text-primary">{t("aboutPage.heroTitle2")}</span>
             </h1>
           </motion.div>
         </div>
@@ -76,7 +69,8 @@ const About = () => {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <span className="topper block">{t("aboutPage.story.topper")}</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight; mb-[10px]">
-                {t("aboutPage.story.headline1")}<span className="text-primary">{t("aboutPage.story.headline2")}</span>
+                {t("aboutPage.story.headline1")}
+                <span className="text-primary">{t("aboutPage.story.headline2")}</span>
               </h2>
               <div className="space-y-3 font-body text-sm text-card-foreground leading-relaxed">
                 <p>{t("aboutPage.story.p1")}</p>
@@ -96,7 +90,8 @@ const About = () => {
             <div>
               <span className="topper block">{t("aboutPage.process.topper")}</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-primary-foreground uppercase tracking-wide leading-none md:leading-tight;">
-                {t("aboutPage.process.headline1")}<span className="text-primary">{t("aboutPage.process.headline2")}</span>
+                {t("aboutPage.process.headline1")}
+                <span className="text-primary">{t("aboutPage.process.headline2")}</span>
               </h2>
             </div>
             <div className="flex items-end">
@@ -104,13 +99,17 @@ const About = () => {
             </div>
           </div>
           <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map(step => <motion.div key={step.step} variants={item}>
+            {processSteps.map((step) => (
+              <motion.div key={step.step} variants={item}>
                 <div className="backdrop-blur-sm border-primary-foreground/10 rounded-xl p-6 h-full bg-transparent border-0">
-                  <div className="text-5xl font-extrabold text-primary mb-2" style={{ fontFamily: "'Fairweather', system-ui, sans-serif" }}>{step.step}</div>
+                  <div className="text-5xl font-extrabold text-primary mb-2" style={{ fontFamily: "'Fairweather', system-ui, sans-serif" }}>
+                    {step.step}
+                  </div>
                   <h3 className="text-primary-foreground font-extrabold uppercase tracking-wide text-lg mb-2">{step.title}</h3>
                   <p className="font-body text-xs leading-relaxed text-primary-foreground">{step.description}</p>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -122,20 +121,23 @@ const About = () => {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <span className="topper block">{t("aboutPage.values.topper")}</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground uppercase tracking-wide leading-none md:leading-tight; mb-[10px]">
-                {t("aboutPage.values.headline1")}<span className="text-primary">{t("aboutPage.values.headline2")}</span>
+                {t("aboutPage.values.headline1")}
+                <span className="text-primary">{t("aboutPage.values.headline2")}</span>
               </h2>
               <p className="font-body mb-6 leading-relaxed text-sm text-card-foreground">{t("aboutPage.values.description")}</p>
               <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                {values.map((value, index) => <motion.div key={index} variants={item} className="flex items-start gap-2">
+                {values.map((value, index) => (
+                  <motion.div key={index} variants={item} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-foreground text-base uppercase tracking-wide mb-1 font-extrabold">{value.title}</h3>
                       <p className="font-body leading-relaxed text-xs text-card-foreground">{value.description}</p>
                     </div>
-                  </motion.div>)}
+                  </motion.div>
+                ))}
               </motion.div>
               <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-                <Link to="/contact">
+                <Link href="/contact">
                   {t("aboutPage.values.cta")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
@@ -159,10 +161,11 @@ const About = () => {
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-4">
-              {t("aboutPage.cta.headline1")}<span className="text-primary">{t("aboutPage.cta.headline2")}</span>
+              {t("aboutPage.cta.headline1")}
+              <span className="text-primary">{t("aboutPage.cta.headline2")}</span>
             </h2>
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
-              <Link to="/contact">
+              <Link href="/contact">
                 {t("aboutPage.cta.button")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -170,6 +173,8 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>;
+    </>
+  );
 };
-export default About;
+
+export default AboutContent;

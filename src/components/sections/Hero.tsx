@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero_image.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
@@ -44,13 +45,13 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
               <Button asChild size="lg" className="bg-primary text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-primary">
-                <Link to="/contact">
+                <Link href="/contact">
                   {t("hero.cta1")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild size="lg" className="bg-navy border-2 border-primary-foreground/40 text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-                <Link to="/about">{t("hero.cta2")}</Link>
+                <Link href="/about">{t("hero.cta2")}</Link>
               </Button>
             </div>
 
@@ -72,7 +73,7 @@ const Hero = () => {
           duration: 0.6,
           delay: 0.2
         }} className="relative flex justify-center lg:justify-end">
-            <img src={heroImage} alt="Website design showcase on laptop and mobile" className="w-full max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
+            <img src="/assets/hero_image.webp" alt="Website design showcase on laptop and mobile" className="w-full max-w-xs sm:max-w-sm lg:max-w-full drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

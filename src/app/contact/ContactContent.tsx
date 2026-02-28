@@ -1,78 +1,81 @@
-import { Helmet } from "react-helmet-async";
+"use client";
+
 import { useState } from "react";
 import { Mail, Phone, Globe, Send } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const BASE_URL = "https://coolwebstudionew.lovable.app";
-
-const Contact = () => {
+const ContactContent = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", message: "", honeypot: ""
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    honeypot: "",
   });
 
-  const contactInfo = [{
-    icon: Mail,
-    title: t("contactPage.emailUs"),
-    content: "contact@coolwebstudio.com",
-    href: "mailto:contact@coolwebstudio.com"
-  }, {
-    icon: Phone,
-    title: t("contactPage.phoneWhatsApp"),
-    content: "+34 697 76 04 18",
-    href: "tel:+34697760418"
-  }, {
-    icon: Globe,
-    title: t("contactPage.areasServed"),
-    content: t("contactPage.areasServedContent"),
-    href: null
-  }];
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: t("contactPage.emailUs"),
+      content: "contact@coolwebstudio.com",
+      href: "mailto:contact@coolwebstudio.com",
+    },
+    {
+      icon: Phone,
+      title: t("contactPage.phoneWhatsApp"),
+      content: "+34 697 76 04 18",
+      href: "tel:+34697760418",
+    },
+    {
+      icon: Globe,
+      title: t("contactPage.areasServed"),
+      content: t("contactPage.areasServedContent"),
+      href: null,
+    },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("send-contact-email", { body: formData });
-      if (error) throw error;
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error("Failed to send");
       toast({ title: t("contactPage.successTitle"), description: t("contactPage.successDescription") });
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
-    } catch (error: any) {
+    } catch {
       toast({ title: t("contactPage.errorTitle"), description: t("contactPage.errorDescription"), variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  return <Layout>
-      <Helmet>
-        <title>Contact Us | COOLWEB Studio</title>
-        <meta name="description" content="Get in touch with COOLWEB Studio for a free consultation. We design professional websites for small businesses worldwide." />
-        <link rel="canonical" href={BASE_URL + "/contact"} />
-        <meta property="og:title" content="Contact Us | COOLWEB Studio" />
-        <meta property="og:description" content="Get in touch with COOLWEB Studio for a free consultation." />
-        <meta property="og:url" content={BASE_URL + "/contact"} />
-      </Helmet>
+  return (
+    <>
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
             <h1 className="font-bold text-primary-foreground uppercase tracking-wide mb-4 lg:text-5xl md:text-5xl text-4xl">
-              {t("contactPage.heroTitle1")}<span className="text-primary">{t("contactPage.heroTitle2")}</span>
+              {t("contactPage.heroTitle1")}
+              <span className="text-primary">{t("contactPage.heroTitle2")}</span>
             </h1>
           </motion.div>
         </div>
@@ -89,9 +92,7 @@ const Contact = () => {
             <h2 className="text-3xl font-extrabold text-foreground mb-2 uppercase tracking-wide md:text-4xl text-center">
               {t("contactPage.getInTouch")}
             </h2>
-            <p className="mb-6 text-sm text-card-foreground text-center">
-              {t("contactPage.getInTouchDescription")}
-            </p>
+            <p className="mb-6 text-sm text-card-foreground text-center">{t("contactPage.getInTouchDescription")}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -100,23 +101,32 @@ const Contact = () => {
                 <h2 className="text-3xl font-extrabold text-foreground mb-2 uppercase tracking-wide md:text-4xl">
                   {t("contactPage.getInTouch")}
                 </h2>
-                <p className="mb-6 text-sm text-card-foreground">
-                  {t("contactPage.getInTouchDescription")}
-                </p>
+                <p className="mb-6 text-sm text-card-foreground">{t("contactPage.getInTouchDescription")}</p>
               </div>
               <h3 className="text-2xl font-extrabold text-foreground uppercase tracking-wide lg:text-xl text-left">
                 {t("contactPage.contactInfo")}
               </h3>
               <div className="bg-card rounded-xl border border-border overflow-hidden">
-                {contactInfo.map((info, index) => <div key={info.title} className={`p-4 flex items-start gap-4 ${index < contactInfo.length - 1 ? "border-b border-border" : ""}`}>
+                {contactInfo.map((info, index) => (
+                  <div
+                    key={info.title}
+                    className={`p-4 flex items-start gap-4 ${index < contactInfo.length - 1 ? "border-b border-border" : ""}`}
+                  >
                     <div className="w-8 h-8 rounded-md bg-navy flex items-center justify-center flex-shrink-0">
                       <info.icon className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
                       <h3 className="text-foreground text-base uppercase tracking-wide font-extrabold">{info.title}</h3>
-                      {info.href ? <a href={info.href} className="transition-colors text-card-foreground text-xs">{info.content}</a> : <p className="text-card-foreground text-xs">{info.content}</p>}
+                      {info.href ? (
+                        <a href={info.href} className="transition-colors text-card-foreground text-xs">
+                          {info.content}
+                        </a>
+                      ) : (
+                        <p className="text-card-foreground text-xs">{info.content}</p>
+                      )}
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -128,29 +138,68 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t("contactPage.fullName")}</Label>
-                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t("contactPage.fullNamePlaceholder")} required />
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder={t("contactPage.fullNamePlaceholder")}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">{t("contactPage.email")}</Label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("contactPage.emailPlaceholder")} required />
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder={t("contactPage.emailPlaceholder")}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">{t("contactPage.phone")}</Label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={t("contactPage.phonePlaceholder")} />
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={t("contactPage.phonePlaceholder")}
+                    />
                   </div>
-                  <div className="absolute opacity-0 pointer-events-none" style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true" tabIndex={-1}>
+                  <div className="absolute opacity-0 pointer-events-none" style={{ position: "absolute", left: "-9999px" }} aria-hidden="true" tabIndex={-1}>
                     <Label htmlFor="honeypot">Leave this empty</Label>
                     <Input id="honeypot" name="honeypot" value={formData.honeypot} onChange={handleChange} tabIndex={-1} autoComplete="off" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">{t("contactPage.message")}</Label>
-                    <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("contactPage.messagePlaceholder")} rows={5} required />
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder={t("contactPage.messagePlaceholder")}
+                      rows={5}
+                      required
+                    />
                   </div>
-                  <Button type="submit" size="lg" className="w-full bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-navy" disabled={isSubmitting}>
-                    {isSubmitting ? t("contactPage.submitting") : <>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider btn-swipe-navy"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      t("contactPage.submitting")
+                    ) : (
+                      <>
                         {t("contactPage.submit")}
                         <Send className="w-5 h-5 ml-2" />
-                      </>}
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
@@ -158,6 +207,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>;
+    </>
+  );
 };
-export default Contact;
+
+export default ContactContent;

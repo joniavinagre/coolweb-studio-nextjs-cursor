@@ -1,9 +1,10 @@
+"use client";
+
 import { CheckCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import joniImage from "@/assets/joni-vinagre.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const container = {
@@ -33,7 +34,7 @@ const WhyChooseUs = () => {
           {/* Left Column - Image */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
             <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
-              <img src={joniImage} alt="Joni Vinagre - Founder and Web Developer" className="w-full h-full object-cover rounded-xl" />
+              <img src="/assets/joni-vinagre.webp" alt="Joni Vinagre - Founder and Web Developer" className="w-full h-full object-cover rounded-xl" />
               <div className="absolute top-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2 border border-border">
                 <h3 className="text-foreground text-lg font-extrabold">{t("why.founderName")}</h3>
                 <p className="text-xs text-card-foreground">{t("why.founderRole")}</p>
@@ -64,7 +65,7 @@ const WhyChooseUs = () => {
             </motion.div>
 
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-              <Link to="/contact">
+              <Link href="/contact">
                 {t("why.cta")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>

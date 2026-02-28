@@ -1,41 +1,36 @@
-import { Helmet } from "react-helmet-async";
-import { useParams, Link, Navigate } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, MapPin, Tag, Briefcase, Quote, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/portfolioProjects";
-import Layout from "@/components/layout/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const BASE_URL = "https://coolwebstudionew.lovable.app";
+interface CaseStudyContentProps {
+  params: { slug: string };
+}
 
-const CaseStudy = () => {
-  const { slug } = useParams<{ slug: string }>();
+const CaseStudyContent = ({ params }: CaseStudyContentProps) => {
+  const { slug } = params;
   const { t } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return <Navigate to="/portfolio" replace />;
+    notFound();
   }
 
   const pid = project.id;
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{project.title} | COOLWEB Studio Portfolio</title>
-        <meta name="description" content={project.tagline} />
-        <link rel="canonical" href={`${BASE_URL}/portfolio/${project.slug}`} />
-        <meta property="og:title" content={`${project.title} | COOLWEB Studio Portfolio`} />
-        <meta property="og:description" content={project.tagline} />
-        <meta property="og:url" content={`${BASE_URL}/portfolio/${project.slug}`} />
-      </Helmet>
+    <>
       {/* Hero */}
       <section className="pt-32 pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <Link
-            to="/portfolio"
+            href="/portfolio"
             className="inline-flex items-center gap-2 text-primary-foreground/60 hover:text-primary transition-colors group mb-8"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -205,13 +200,13 @@ const CaseStudy = () => {
               {t("caseStudy.cta.description")}
             </p>
             <Button size="lg" asChild className="bg-primary text-primary-foreground btn-swipe-primary font-extrabold uppercase text-sm tracking-wider">
-              <Link to="/contact">{t("caseStudy.cta.button")}</Link>
+              <Link href="/contact">{t("caseStudy.cta.button")}</Link>
             </Button>
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
-export default CaseStudy;
+export default CaseStudyContent;

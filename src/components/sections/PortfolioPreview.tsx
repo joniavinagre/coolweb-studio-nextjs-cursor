@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { projects } from "@/data/portfolioProjects";
@@ -52,7 +54,7 @@ const PortfolioPreview = () => {
                 size="lg"
                 className="bg-navy text-primary-foreground font-bold uppercase text-base tracking-wider px-8 btn-swipe-navy">
 
-                <Link to="/portfolio">{t("portfolio.viewAll")}</Link>
+                <Link href="/portfolio">{t("portfolio.viewAll")}</Link>
               </Button>
             </div>
           </motion.div>

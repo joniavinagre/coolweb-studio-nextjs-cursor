@@ -1,8 +1,8 @@
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { projects } from "@/data/portfolioProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -16,20 +16,11 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-const BASE_URL = "https://coolwebstudionew.lovable.app";
-
-const Portfolio = () => {
+const PortfolioContent = () => {
   const { t } = useLanguage();
 
-  return <Layout>
-      <Helmet>
-        <title>Portfolio | COOLWEB Studio</title>
-        <meta name="description" content="Browse our portfolio of 12+ small business websites. From massage therapists to restaurants, see how we help businesses grow online." />
-        <link rel="canonical" href={BASE_URL + "/portfolio"} />
-        <meta property="og:title" content="Portfolio | COOLWEB Studio" />
-        <meta property="og:description" content="Browse our portfolio of 12+ small business websites across industries." />
-        <meta property="og:url" content={BASE_URL + "/portfolio"} />
-      </Helmet>
+  return (
+    <>
       <section className="pt-28 pb-12 md:pb-20 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
@@ -49,12 +40,13 @@ const Portfolio = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <motion.div variants={container} initial="hidden" animate="show" className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.map(project => <motion.article key={project.id} variants={item} className="group flex flex-col">
-                <a href={project.website} target="_blank" rel="noopener noreferrer" className="relative mb-4 block cursor-pointer">
+            {projects.map((project) => (
+              <motion.article key={project.id} variants={item} className="group flex flex-col">
+                <Link href={`/portfolio/${project.slug}`} className="relative mb-4 block cursor-pointer">
                   <div className="rounded-xl overflow-hidden aspect-[16/10]">
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
-                </a>
+                </Link>
                 <h3 className="text-xl text-foreground mb-2 uppercase tracking-wide group-hover:text-primary transition-colors font-extrabold">
                   {project.title}
                 </h3>
@@ -66,7 +58,8 @@ const Portfolio = () => {
                     {t("portfolio.visitWebsite")}
                   </a>
                 </Button>
-              </motion.article>)}
+              </motion.article>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -78,7 +71,7 @@ const Portfolio = () => {
               {t("portfolioPage.cta.headline1")}<span className="text-primary">{t("portfolioPage.cta.headline2")}</span>
             </h2>
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-sm tracking-wider btn-swipe-navy">
-              <Link to="/contact">
+              <Link href="/contact">
                 {t("portfolioPage.cta.button")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -86,6 +79,8 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>;
+    </>
+  );
 };
-export default Portfolio;
+
+export default PortfolioContent;

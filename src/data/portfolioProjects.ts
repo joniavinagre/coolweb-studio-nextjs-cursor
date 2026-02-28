@@ -1,14 +1,3 @@
-import portfolioGaston from "@/assets/portfolio-gaston.webp";
-import portfolio4dhues from "@/assets/portfolio-4dhues.webp";
-import portfolioBriet from "@/assets/portfolio-briet.webp";
-import portfolioTropical from "@/assets/portfolio-tropical.webp";
-import portfolioNails from "@/assets/portfolio-nails.webp";
-import portfolioQuiver from "@/assets/portfolio-quiver.webp";
-import portfolioOngles from "@/assets/portfolio-ongles.webp";
-import portfolioCoffee from "@/assets/portfolio-coffee.png";
-import portfolioTailang from "@/assets/portfolio-tailang.webp";
-import portfolioRaiz from "@/assets/portfolio-raiz.webp";
-import portfolioChico from "@/assets/portfolio-chico.webp";
 import type { LucideIcon } from "lucide-react";
 import {
   Briefcase,
@@ -93,7 +82,7 @@ export const projects: Project[] = [
     slug: "masajes-gaston-molina",
     category: "Health & Wellness",
     location: "Alicante, Spain",
-    image: portfolioGaston,
+    image: "/assets/portfolio-gaston.webp",
     description:
       "Chiromassage and sports massage specialist with 14+ years of experience, offering therapeutic treatments for muscle pain, cervical issues, and postural problems.",
     website: "https://masajesgaston.com/",
@@ -148,7 +137,7 @@ export const projects: Project[] = [
     slug: "4dhues-led-panels",
     category: "Technology & Design",
     location: "Online / International",
-    image: portfolio4dhues,
+    image: "/assets/portfolio-4dhues.webp",
     description:
       "Handcrafted LED art panels with app-controlled RGB lighting for gaming rooms, studios, and creative spaces.",
     website: "https://4dhues.coolwebstudio.com/",
@@ -202,7 +191,7 @@ export const projects: Project[] = [
     slug: "centro-clinico-vicente-briet",
     category: "Healthcare",
     location: "Alicante, Spain",
-    image: portfolioBriet,
+    image: "/assets/portfolio-briet.webp",
     description:
       "Expert psychologist and sexologist with 35+ years of experience, offering specialized therapy for individuals and couples.",
     website: "https://vicentebriet.coolwebstudio.com/",
@@ -256,7 +245,7 @@ export const projects: Project[] = [
     slug: "tropical-travel-agency",
     category: "Travel & Tourism",
     location: "Alicante / Murcia / Valencia, Spain",
-    image: portfolioTropical,
+    image: "/assets/portfolio-tropical.webp",
     description:
       "Travel agency offering organized tours, experiences, and routes throughout Spain and international destinations like Morocco and Portugal.",
     website: "https://tropicaltravel.coolwebstudio.com/",
@@ -310,7 +299,7 @@ export const projects: Project[] = [
     slug: "nails-by-anabela",
     category: "Beauty & Wellness",
     location: "Marseille, France",
-    image: portfolioNails,
+    image: "/assets/portfolio-nails.webp",
     description:
       "Personalized nail care services including builder gel, nail art, and French manicures in a calm, one-on-one environment.",
     website: "https://nailsbbeauty.netlify.app/",
@@ -364,7 +353,7 @@ export const projects: Project[] = [
     slug: "quiver-and-quill",
     category: "Publishing",
     location: "Online",
-    image: portfolioQuiver,
+    image: "/assets/portfolio-quiver.webp",
     description:
       "Fantasy book launch platform for 'Quiver & Quill' by Savanah Weakly, featuring world-building, characters, and pre-order functionality.",
     website: "http://quiverandquill.coolwebstudio.com/",
@@ -418,7 +407,7 @@ export const projects: Project[] = [
     slug: "ongles-fantaisies",
     category: "Beauty & Wellness",
     location: "Marseille, France",
-    image: portfolioOngles,
+    image: "/assets/portfolio-ongles.webp",
     description: "Nail salon offering beauty services including skin care and makeup in the heart of Marseille.",
     website: "https://onglesfantaisies.coolwebstudio.com/",
     tagline: "A modern, elegant website for a premium nail salon offering comprehensive beauty services",
@@ -526,7 +515,7 @@ export const projects: Project[] = [
     slug: "coffee-and-bakery-marseille",
     category: "Food & Beverage",
     location: "Marseille, France",
-    image: portfolioCoffee,
+    image: "/assets/portfolio-coffee.png",
     description: "Vintage coffee shop with a cozy atmosphere, serving homemade hot drinks and meals.",
     website: "https://coffeeandbakerymarseille.coolwebstudio.com/",
     tagline: "Vintage-inspired website for a cozy coffee shop in Marseille",
@@ -580,7 +569,7 @@ export const projects: Project[] = [
     slug: "tailang-ramen-restaurant",
     category: "Food & Beverage",
     location: "Online",
-    image: portfolioTailang,
+    image: "/assets/portfolio-tailang.webp",
     description: "Authentic ramen restaurant website showcasing traditional Japanese cuisine with a modern twist.",
     website: "https://tailang.coolwebstudio.com/",
     tagline: "Modern website for an authentic ramen restaurant",
@@ -618,7 +607,7 @@ export const projects: Project[] = [
     slug: "raiz-de-salud",
     category: "Health & Wellness",
     location: "Online",
-    image: portfolioRaiz,
+    image: "/assets/portfolio-raiz.webp",
     description:
       "Massage therapy and rehabilitation center offering holistic wellness treatments and personalized care.",
     website: "https://raizdesalud.coolwebstudio.com/",
@@ -660,7 +649,7 @@ export const projects: Project[] = [
     slug: "chico-diez-barber-club",
     category: "Beauty & Wellness",
     location: "Spain",
-    image: portfolioChico,
+    image: "/assets/portfolio-chico.webp",
     description: "Premium barber club offering professional grooming services with a classic, masculine aesthetic.",
     website: "https://chicodiezbarberclub.coolwebstudio.com/",
     tagline: "Premium barber club website with classic masculine branding",

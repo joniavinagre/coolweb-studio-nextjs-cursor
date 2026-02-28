@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -79,7 +81,7 @@ const PricingPreview = () => {
           </div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
             <Button asChild size="lg" className="bg-navy text-primary-foreground font-extrabold uppercase text-base tracking-wider px-8 btn-swipe-navy">
-              <Link to="/contact">
+              <Link href="/contact">
                 {t("header.getStarted")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -105,7 +107,7 @@ const PricingPreview = () => {
                   {tier.priceNote && <span className={`ml-1 text-xs ${tier.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{tier.priceNote}</span>}
                 </div>
                 <Button asChild className={`w-full font-extrabold uppercase text-sm tracking-wider ${tier.featured ? "bg-primary text-primary-foreground btn-swipe-primary" : "btn-swipe-card"}`}>
-                  <Link to="/contact">
+                  <Link href="/contact">
                     {tier.cta}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
