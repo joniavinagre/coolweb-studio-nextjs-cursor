@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(text: string): string {
   const map: Record<string, string> = {
     "&": "&amp;",
@@ -63,6 +61,7 @@ export async function POST(request: Request) {
     const safePhone = phone ? escapeHtml(phone) : "Not provided";
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "COOLWEB Studio <contact@coolwebstudio.com>",
       to: ["contact@coolwebstudio.com"],

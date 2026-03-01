@@ -1,7 +1,9 @@
+"use client";
+
 import { ExternalLink, Quote, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import type { Project } from "@/data/portfolioProjects";
 
 interface ProjectCardProps {
@@ -39,7 +41,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
       {/* Content Section */}
       <div className="p-6 flex flex-col flex-grow">
-        <Link to={`/portfolio/${project.slug}`}>
+        <Link href={`/portfolio/${project.slug}`}>
           <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
             {project.title}
           </h3>
@@ -77,7 +79,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             className="flex-1 btn-swipe-card"
             asChild
           >
-            <Link to={`/portfolio/${project.slug}`}>
+            <Link href={`/portfolio/${project.slug}`}>
               View Case Study
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
