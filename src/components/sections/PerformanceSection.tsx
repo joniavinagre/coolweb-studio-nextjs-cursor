@@ -59,7 +59,7 @@ const PerformanceSection = () => {
             <div className="space-y-4 mb-6">
               {benefits.map((benefit, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-transparent">
-                    <img src={benefit.icon} alt="" className="w-8 h-8" />
+                    <img src={benefit.icon} alt="" className="w-8 h-8" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-primary-foreground mb-1 text-lg font-extrabold">{benefit.title}</h3>

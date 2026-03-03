@@ -14,13 +14,22 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "COOLWEB Studio | Small Business Web Designer",
-  description: "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
+  description:
+    "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
   alternates: { canonical: `${BASE_URL}/` },
   openGraph: {
     title: "COOLWEB Studio | Small Business Web Designer",
-    description: "Boost your reputation, trust, and income with personalized websites for your small business.",
+    description:
+      "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
     url: `${BASE_URL}/`,
     type: "website",
+    images: [{ url: "/assets/hero_image.webp", width: 1200, height: 630, alt: "COOLWEB Studio – Small Business Web Design" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "COOLWEB Studio | Small Business Web Designer",
+    description:
+      "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
   },
 };
 

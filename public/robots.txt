@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://coolwebstudionew.lovable.app/sitemap.xml
+Sitemap: https://coolwebstudio.com/sitemap.xml

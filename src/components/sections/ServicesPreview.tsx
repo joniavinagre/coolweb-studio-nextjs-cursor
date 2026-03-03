@@ -54,7 +54,7 @@ const ServicesPreview = () => {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service) => <motion.div key={service.href} variants={item} className="group relative bg-card p-6 border border-border flex flex-col h-full rounded-md">
               <div className="service-icon-swipe">
-                <img src={service.icon} alt="" className="w-8 h-8 relative z-10" />
+                <img src={service.icon} alt="" className="w-8 h-8 relative z-10" aria-hidden="true" />
               </div>
               <h3 className="text-2xl text-foreground mb-2 uppercase tracking-wide card-hover-title font-extrabold">
                 {service.title}

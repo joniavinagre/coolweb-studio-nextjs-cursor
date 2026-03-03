@@ -24,6 +24,13 @@ export async function generateMetadata({
       title: `${project.title} | COOLWEB Studio Portfolio`,
       description: project.tagline,
       url: `${BASE_URL}/portfolio/${project.slug}`,
+      type: "website",
+      images: project.image ? [{ url: project.image, alt: project.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | COOLWEB Studio Portfolio`,
+      description: project.tagline,
     },
   };
 }

@@ -10,8 +10,15 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
     title: "About Us | COOLWEB Studio",
-    description: "A web design agency helping small businesses grow online.",
+    description:
+      "Learn about COOLWEB Studio — a web design agency helping small businesses grow online with personalized websites, SEO, and digital marketing.",
     url: `${BASE_URL}/about`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | COOLWEB Studio",
+    description: "Learn about COOLWEB Studio — a web design agency helping small businesses grow online.",
   },
 };
 

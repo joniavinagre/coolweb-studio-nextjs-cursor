@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/providers/Providers";
 import LayoutNext from "@/components/layout/LayoutNext";
+import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://coolwebstudio.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "COOLWEB Studio | Small Business Web Designer",
-  description: "Boost your reputation, trust, and income with personalized websites for your small business.",
+  description:
+    "Boost your reputation, trust, and income with personalized websites for your small business. Professional web design, SEO & Google Business services.",
+  openGraph: {
+    type: "website",
+    locale: "en",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +45,7 @@ export default function RootLayout({
         <link rel="manifest" href="/myfavicon/site.webmanifest" />
       </head>
       <body>
+        <JsonLd />
         <Providers>
           <LayoutNext>{children}</LayoutNext>
         </Providers>
